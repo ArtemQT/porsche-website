@@ -1,0 +1,23 @@
+@use "helpers" as *;
+
+.container {
+	max-width: var(--container-width);
+	padding-inline: var(--container-padding-inline);
+	margin-inline: auto;
+}
+
+.visually-hidden {
+	@include visually-hidden();
+}
+
+.mobile-hidden {
+	@include mobile() {
+		display: none !important;
+	}
+}
+
+.mobile-visible {
+	@include mobile-above() {
+		display: none !important;
+	}
+}

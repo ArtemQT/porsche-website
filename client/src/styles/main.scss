@@ -1,9 +1,5 @@
 @use "reset";
 @use "fonts";
 @use "variables";
-
-@use "helpers" as *;
-
-div {
-	font-size: rem(24);
-}
+@use "globals";
+@use "utils";

@@ -1,3 +1,5 @@
+@use "helpers" as *;
+
 :root {
 
 	// Определение цветов
@@ -10,11 +12,15 @@
 	// Определение шрифтов
 	--font-family-base: 'Futura-new-book', sans-serif;
 
+	// Определения параметров контейнера
+	--container-width: 1280px;
+	--container-padding-inline: rem(20);
+
 	// Определение border'ов
-	--border: 1px solid var(--color-dark);
-	--border-radius: 14px;
-	--border-radius-large: 45px;
-	--border-radius-small: 7px;
+	--border: rem(1) solid var(--color-dark);
+	--border-radius: ;
+	--border-radius-large: rem(45);
+	--border-radius-small: rem(7);
 
 	--transition-duration: 0.2s;
 }
