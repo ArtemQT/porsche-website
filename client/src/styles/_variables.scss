@@ -1,0 +1,20 @@
+:root {
+
+	// Определение цветов
+	--color-light: #FFFFFF;
+	--color-dark: #000000;
+	--color-grey-light: #F5F5F5;
+	--color-grey-dark: #E7E8EA;
+	--color-red: #FF0000;
+
+	// Определение шрифтов
+	--font-family-base: 'Futura-new-book', sans-serif;
+
+	// Определение border'ов
+	--border: 1px solid var(--color-dark);
+	--border-radius: 14px;
+	--border-radius-large: 45px;
+	--border-radius-small: 7px;
+
+	--transition-duration: 0.2s;
+}
