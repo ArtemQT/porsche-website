@@ -1,0 +1,11 @@
+.videoBanner {
+	&Wrapper {
+		position: relative;
+		z-index: 1;
+		height: 100%;
+	}
+	&Section {
+		height: 100vh;
+		overflow: hidden;
+	}
+}

@@ -1,0 +1,42 @@
+@use "@helpers" as *;
+
+.iconsList {
+	@include flex-center();
+
+	column-gap: rem(25);
+
+	li {
+		@include square(30);
+	}
+
+	button {
+		@include reset-button();
+
+		img {
+			object-fit: cover;
+		}
+	}
+}
+
+.widgetIcon {
+
+	@include hover {
+		& path {
+			stroke: var(--color-red) !important;
+			fill: var(--color-red) !important;
+		}
+	}
+
+	svg {
+		width: rem(25);
+		height: rem(25);
+	}
+
+	path {
+		stroke: var(--color-header) !important;
+		fill: var(--color-header) !important;
+
+
+	}
+
+}

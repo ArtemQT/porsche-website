@@ -1,0 +1,66 @@
+@use "@helpers" as *;
+
+.description {
+
+	&Wrapper {
+		position: absolute;
+		z-index: 10;
+
+		bottom: 15%;
+		left: 10%;
+
+		cursor: pointer;
+		@include hover {
+
+			.descriptionTitle {
+				color: var(--color-red);
+			}
+
+			.descriptionButton {
+				border-color: transparent;
+				&::before {
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&Title {
+		@include fluid-text(40, 80);
+		color: var(--color-light);
+
+		transition-duration: var(--transition-duration);
+
+		margin-bottom: rem(10);
+	}
+
+	&Button {
+		color: var(--color-light);
+
+		border: 2px solid var(--color-light);
+		border-radius: var(--border-radius-small);
+		padding: rem(5) rem(30);
+
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+
+			position: absolute;
+			z-index: -1;
+			left: -100%;
+			top: 50%;
+			translate: 0 -50%;
+
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+			background-color: var(--color-red);
+
+			transition-duration: var(--transition-duration);
+		}
+	}
+
+}

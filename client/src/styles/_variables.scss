@@ -17,10 +17,15 @@
 	--container-padding-inline: rem(20);
 
 	// Определение border'ов
-	--border: rem(1) solid var(--color-dark);
-	--border-radius: ;
-	--border-radius-large: rem(45);
-	--border-radius-small: rem(7);
+	--border: 1px solid var(--color-dark);
+	--border-radius: 14px;
+	--border-radius-large: 45px;
+	--border-radius-small: 7px;
 
-	--transition-duration: 0.2s;
+	--transition-duration: 0.35s;
+
+	// Цвет элементов header
+	--color-header: var(--color-light);
+	--bg-color-header: transparent;
+	--height-header: 100px;
 }

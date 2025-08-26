@@ -1,0 +1,29 @@
+@use '@helpers' as *;
+
+.logo {
+	svg {
+		position: absolute;
+		top: 120%;
+		left: 50%;
+		translate: -50% -50%;
+
+		transform: scale(6.2);
+
+		transition: transform 0.5s ease;
+		path {
+			fill: var(--color-header);
+		}
+	}
+
+	&.small {
+		svg {
+			top: 50%;
+			left: 50%;
+			translate: -50% -50%;
+
+			transform: scale(1);
+		}
+	}
+}
+
+

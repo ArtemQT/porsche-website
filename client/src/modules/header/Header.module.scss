@@ -1,0 +1,26 @@
+@use "@helpers" as *;
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	background-color: var(--bg-color-header);
+	transition-duration: var(--transition-duration);
+
+	&Inner {
+		position: relative;
+		height: var(--height-header);
+		display: flex;
+		align-items: center;
+	}
+}
+
+.widgetsWrapper{
+	width: 100%;
+	display: flex;
+	column-gap: rem(75);
+
+	justify-content: end;
+}

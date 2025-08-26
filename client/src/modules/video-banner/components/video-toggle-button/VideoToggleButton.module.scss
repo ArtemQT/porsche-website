@@ -1,0 +1,41 @@
+@use "@helpers" as *;
+
+.controlsWrapper {
+
+}
+
+.toggleButton {
+	@include reset-button();
+	@include flex-center(true);
+	@include square(90);
+
+	border: rem(2) solid var(--color-light);
+	border-radius: var(--border-radius);
+
+	position: absolute;
+	bottom: 10%;
+	right: 8%;
+
+	@include hover{
+		border-color: var(--color-red);
+
+		svg path{
+			stroke: var(--color-red);
+			fill: var(--color-red);
+		}
+	}
+
+	z-index: 10;
+
+	svg {
+
+		width: rem(40);
+		height: rem(40);
+
+		path {
+			fill: var(--color-light);
+			stroke: var(--color-light);
+		}
+	}
+
+}

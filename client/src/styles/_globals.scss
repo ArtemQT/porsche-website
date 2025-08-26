@@ -9,6 +9,22 @@ body {
 	color: var(--color-dark);
 }
 
+a,
+input,
+textarea,
+button,
+svg * {
+	transition-duration: var(--transition-duration);
+}
+
+a {
+	@include reset-link()
+}
+
+button {
+	@include reset-button();
+}
+
 h1 {
 	@include fluid-text(42, 60)
 }

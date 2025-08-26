@@ -1,12 +1,11 @@
 import "../styles/main.scss"
 
+import {RouterProvider} from "react-router-dom";
+import {router} from "../config/router.tsx";
+
 export function App() {
 	return (
-		<>
-			<div style={{fontFamily: ''}}>Lorem ipsum</div>
-			<div>Artem</div>
-			<div>Hello</div>
-		</>
+		<RouterProvider router={router}/>
 	)
 }
 

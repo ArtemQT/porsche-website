@@ -1,0 +1,36 @@
+@use "@helpers" as *;
+
+.burgerButton {
+	@include fluid-text(16, 18);
+
+	@include reset-button();
+	@include flex-center(true);
+	column-gap: rem(10);
+
+	transition-duration: var(--transition-duration);
+	&::before {
+		@include square(25);
+
+		content: "";
+
+		display: inline-block;
+		height: rem(2);
+		width: rem(30);
+		background-color: var(--color-header);
+		box-shadow: 0 rem(10) 0 0 var(--color-header), 0 rem(-10) 0 0 var(--color-header);
+
+		transition-duration: var(--transition-duration);
+	}
+
+	@include hover {
+		&::before {
+			background-color: var(--color-red);
+			box-shadow: 0 rem(10) 0 0 var(--color-red), 0 rem(-10) 0 0 var(--color-red);
+		}
+	}
+
+	span {
+		color: var(--color-header);
+
+	}
+}

@@ -23,8 +23,8 @@
 }
 
 @mixin square($width) {
-	width: $width;
-	height: $width;
+	width: #{rem($width)};
+	height: #{rem($width)};;
 }
 
 @mixin reset-button() {
