@@ -14,7 +14,7 @@
 
 	// Определения параметров контейнера
 	--container-width: 1280px;
-	--container-padding-inline: rem(20);
+	--container-padding-inline: 20px;
 
 	// Определение border'ов
 	--border: 1px solid var(--color-dark);
@@ -28,4 +28,7 @@
 	--color-header: var(--color-light);
 	--bg-color-header: transparent;
 	--height-header: 100px;
+	@include mobile {
+		--height-header: 80px;
+	}
 }

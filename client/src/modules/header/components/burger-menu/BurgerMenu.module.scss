@@ -32,5 +32,8 @@
 	span {
 		color: var(--color-header);
 
+		@include mobile {
+			display: none;
+		}
 	}
 }

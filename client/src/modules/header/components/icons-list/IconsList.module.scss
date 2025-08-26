@@ -5,6 +5,10 @@
 
 	column-gap: rem(25);
 
+	@include mobile-s {
+		column-gap: rem(20);
+	}
+
 	li {
 		@include square(30);
 	}

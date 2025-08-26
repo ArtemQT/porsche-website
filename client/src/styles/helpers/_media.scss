@@ -1,16 +1,16 @@
 @use "functions" as *;
 
-$desktop: 1280px;
-$desktop-above: 1281px;
+$desktop: 1280;
+$desktop-above: 1281;
 
-$tablet: 1023px;
-$tablet-above: 1024px;
+$tablet: 1023;
+$tablet-above: 1024;
 
-$mobile: 767px;
-$mobile-above: 768px;
+$mobile: 767;
+$mobile-above: 768;
 
-$mobile-s: 480px;
-$mobile-s-above: 481px;
+$mobile-s: 480;
+$mobile-s-above: 481;
 
 
 @mixin desktop () {

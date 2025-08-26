@@ -8,10 +8,22 @@
 		translate: -50% -50%;
 
 		transform: scale(6.2);
+		transition: transform, top, left, 0.5s;
 
-		transition: transform 0.5s ease;
 		path {
 			fill: var(--color-header);
+		}
+
+		@include desktop {
+			transform: scale(4.2);
+		}
+
+		@include mobile {
+			transform: scale(2.5);
+		}
+
+		@include mobile-s {
+			transform: scale(2);
 		}
 	}
 
@@ -22,6 +34,23 @@
 			translate: -50% -50%;
 
 			transform: scale(1);
+
+			@include tablet {
+				left: rem(20);
+				translate: 0 -50%;
+			}
+
+			@include mobile-s {
+				transform: scale(0.75);
+				left: 0;
+			}
+		}
+
+		@include hover {
+
+			& path {
+				fill: var(--color-red);
+			}
 		}
 	}
 }

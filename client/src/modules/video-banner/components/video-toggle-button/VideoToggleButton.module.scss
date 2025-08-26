@@ -16,6 +16,8 @@
 	bottom: 10%;
 	right: 8%;
 
+	z-index: 10;
+
 	@include hover{
 		border-color: var(--color-red);
 
@@ -25,13 +27,18 @@
 		}
 	}
 
-	z-index: 10;
+	@include mobile {
+		@include square(60);
+		bottom: 5%;
+	}
+
 
 	svg {
+		@include square(40);
 
-		width: rem(40);
-		height: rem(40);
-
+		@include mobile {
+			@include square(25)
+		}
 		path {
 			fill: var(--color-light);
 			stroke: var(--color-light);
