@@ -31,4 +31,10 @@
 	@include mobile {
 		--height-header: 80px;
 	}
+
+	// Определение отступов между секциями
+	--section-padding-y: 70px;
+	@include mobile {
+		--section-padding-y: 35px;
+	}
 }

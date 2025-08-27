@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
-      "@helpers/*": ["srs/styles/helpers/*"]
+      "@helpers/*": ["srs/styles/helpers/*"],
+      "@components/*": ["src/components/*"]
     },
 
     "resolveJsonModule": true,
@@ -30,10 +31,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
   },
-  "include": ["src", "scss.d.ts", "svg.d.ts", "mp4.d.ts"]
+  "include": ["src", "custom.d.ts"]
 }

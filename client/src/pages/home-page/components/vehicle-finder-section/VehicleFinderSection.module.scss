@@ -1,0 +1,9 @@
+@use '@helpers' as *;
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 60% 40%;
+
+	border-radius: var(--border-radius-large);
+	overflow: hidden;
+}

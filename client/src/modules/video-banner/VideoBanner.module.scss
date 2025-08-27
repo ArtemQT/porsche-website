@@ -7,5 +7,7 @@
 	&Section {
 		height: 100vh;
 		overflow: hidden;
+		box-sizing: content-box;
+		padding-bottom: var(--section-padding-y);
 	}
 }

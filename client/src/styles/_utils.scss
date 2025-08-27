@@ -6,6 +6,10 @@
 	margin-inline: auto;
 }
 
+.section {
+	padding-block: var(--section-padding-y);
+}
+
 .visually-hidden {
 	@include visually-hidden();
 }
