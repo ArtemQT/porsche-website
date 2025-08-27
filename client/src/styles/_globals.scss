@@ -25,18 +25,18 @@ button {
 	@include reset-button();
 }
 
-h1 {
+h1, .h1 {
 	@include fluid-text(42, 60)
 }
 
-h2 {
+h2, .h2 {
 	@include fluid-text(36, 40)
 }
 
-h3 {
+h3, .h3 {
 	@include fluid-text(26, 30)
 }
 
-h4 {
+h4, .h4 {
 	@include fluid-text(18, 20)
 }

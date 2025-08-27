@@ -1,6 +1,6 @@
 // custom.d.ts
 
-// Для CSS/SCSS модулей (если вы используете модули, то есть import styles from './Component.module.scss')
+/// Для модулей CSS/SCSS
 declare module '*.module.css' {
 	const classes: { readonly [key: string]: string };
 	export default classes;
@@ -42,6 +42,18 @@ declare module '*.gif' {
 }
 
 declare module '*.webp' {
+	const content: string;
+	export default content;
+}
+
+// Для видео файлов
+declare module '*.mp4' {
+	const content: string;
+	export default content;
+}
+
+// Для файлов формата jfif
+declare module '*.jfif' {
 	const content: string;
 	export default content;
 }

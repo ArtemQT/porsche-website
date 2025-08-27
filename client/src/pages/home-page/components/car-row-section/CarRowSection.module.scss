@@ -1,0 +1,9 @@
+@use "@helpers" as *;
+
+.wrapper {
+
+	> h2 {
+		text-align: center;
+		margin-bottom: rem(70);
+	}
+}

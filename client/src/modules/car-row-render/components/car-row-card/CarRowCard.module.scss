@@ -1,0 +1,120 @@
+@use '@helpers' as *;
+
+.card {
+
+	position: relative;
+	padding: rem(30);
+	height: rem(450);
+	border-radius: var(--border-radius-large);
+	overflow: hidden;
+
+	display: flex;
+	align-items: end;
+
+	transition-duration: var(--transition-duration);
+
+	@include hover {
+		box-shadow: rem(5) rem(5) rem(20) rem(10) var(--color-light);
+	}
+
+	&Poster, &Video {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+	}
+
+	&Poster {
+		> img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&Poster.hidden {
+		visibility: hidden;
+	}
+
+	&Video {
+		visibility: hidden;
+		object-fit: cover;
+	}
+
+	&Video.show {
+		visibility: visible;
+	}
+
+	&Model {
+		display: none;
+	}
+
+	&Info {
+		z-index: 1;
+
+		display: flex;
+		flex-direction: column;
+		gap: rem(25);
+
+		width: 100%;
+
+	}
+
+	&FuelType {
+		font-size: rem(18);
+
+		color: var(--color-dark);
+		font-weight: 500;
+		padding: rem(5);
+		border-radius: var(--border-radius-small);
+		background-color: var(--color-grey-dark);
+		width: fit-content;
+	}
+
+	&Wrapper {
+		color: var(--color-light);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: rem(15);
+	}
+
+	&Description {
+		font-size: rem(18);
+		max-width: rem(350);
+	}
+
+	&Link {
+		font-size: rem(16);
+		padding: rem(5) rem(10);
+		border-radius: var(--border-radius);
+		border: rem(1) solid transparent;
+
+		display: inline-flex;
+		align-items: center;
+		column-gap: rem(5);
+
+		@include hover {
+			border-color: var(--color-light);
+
+			&::after {
+				transform: rotate(360deg)
+			}
+		}
+
+		&::after {
+			content: '';
+
+			@include square(35);
+
+			background: url('@assets/icons/up-arrow.svg') center/contain no-repeat;
+
+			transition-duration: var(--transition-duration);
+		}
+	}
+}
