@@ -24,6 +24,7 @@
 
 	--transition-duration: 0.35s;
 
+
 	// Цвет элементов header
 	--color-header: var(--color-light);
 	--bg-color-header: transparent;
@@ -37,4 +38,5 @@
 	@include mobile {
 		--section-padding-y: 35px;
 	}
+
 }
