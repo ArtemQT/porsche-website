@@ -6,4 +6,18 @@
 
 	border-radius: var(--border-radius-large);
 	overflow: hidden;
+
+	@include tablet {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto rem(500);
+	}
+
+	@include mobile {
+		grid-template-rows: auto rem(400);
+	}
+
+	@include mobile-s {
+		grid-template-rows: auto rem(350);
+	}
+
 }
