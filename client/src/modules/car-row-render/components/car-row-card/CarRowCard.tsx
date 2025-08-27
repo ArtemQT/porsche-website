@@ -3,7 +3,7 @@ import styles from './CarRowCard.module.scss';
 import {type FC, useRef} from "react";
 import type {ICarRowModels} from "../../constants/constants.ts";
 import {Link} from "react-router-dom";
-import {useVideoControl} from "../../hooks/useVideoControl.ts";
+import {useCardControl} from "../../hooks/useCardControl.ts";
 
 interface CarRowCardProps {
 	carRow: ICarRowModels;
@@ -13,14 +13,16 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 
 	const videoRef = useRef<HTMLVideoElement | null>(null);
 	const posterRef = useRef<HTMLDivElement | null>(null);
+	const cardRef = useRef<HTMLLIElement | null>(null);
 
 	const {
 		onMouseEnterCard,
 		onMouseLeaveCard
-	} = useVideoControl(posterRef, videoRef)
+	} = useCardControl(posterRef, videoRef, cardRef)
 
 	return (
 		<li className={styles.card}
+			ref={cardRef}
 			onMouseLeave={onMouseLeaveCard}
 			onMouseEnter={onMouseEnterCard}
 		>

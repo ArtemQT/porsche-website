@@ -13,6 +13,22 @@
 
 	transition-duration: var(--transition-duration);
 
+	&.shrink {
+		transform: scaleX(0.95);
+	}
+
+	&.extended {
+		transform: scaleX(1.05);
+	}
+
+	&:nth-child(even) {
+		transform-origin: right;
+	}
+
+	&:nth-child(odd) {
+		transform-origin: left;
+	}
+
 	@include hover {
 		box-shadow: rem(5) rem(5) rem(20) rem(10) var(--color-light);
 	}
