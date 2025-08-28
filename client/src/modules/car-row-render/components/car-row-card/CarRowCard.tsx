@@ -36,6 +36,7 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 				   src={carRow.modelVideo}
 				   ref={videoRef}
 				   muted
+				   loop
 			>
 			</video>
 

@@ -67,7 +67,9 @@ export const useCardControl =
 				toggleVideoElement(videoRef.current, posterRef.current, 'play')
 			}
 			if (cardRef.current) {
-				toggleCardElement(cardRef.current, 'add');
+				if (window.innerWidth > 1023) {
+					toggleCardElement(cardRef.current, 'add');
+				}
 			}
 		}
 
@@ -76,7 +78,10 @@ export const useCardControl =
 				toggleVideoElement(videoRef.current, posterRef.current, 'pause')
 			}
 			if (cardRef.current) {
-				toggleCardElement(cardRef.current, 'remove');
+				if (window.innerWidth > 1023) {
+					toggleCardElement(cardRef.current, 'remove');
+
+				}
 			}
 		}
 
