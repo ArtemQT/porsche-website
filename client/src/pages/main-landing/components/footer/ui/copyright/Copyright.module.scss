@@ -16,6 +16,12 @@
 			@include hover {
 				opacity: 0.75;
 			}
+
+			@include mobile-s {
+				> img {
+					@include square(20)
+				}
+			}
 		}
 	}
 

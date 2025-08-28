@@ -18,5 +18,22 @@
 		@include hover {
 			opacity: 0.75;
 		}
+
+		@include tablet {
+			align-self: normal;
+		}
+	}
+
+	@include tablet {
+		> h3, p, a {
+			text-align: center;
+		}
+	}
+
+	@include mobile {
+		max-width: 100%;
+		border-bottom: rem(1) solid var(--color-light);
+		padding-bottom: rem(35);
+		margin-bottom: rem(35);
 	}
 }

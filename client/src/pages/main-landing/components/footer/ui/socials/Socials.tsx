@@ -9,7 +9,7 @@ export const Socials = () => {
 			<ul className={styles.socialsList}>
 				{
 					SOCIALS.map(social => (
-						<li key={social.id} className={styles.socialsItem}>
+						<li key={social.id}>
 							<a href={social.href} className={styles.socialsLink} target="_blank">
 								<img src={social.src}
 									 alt=""
