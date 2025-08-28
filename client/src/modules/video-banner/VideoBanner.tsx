@@ -9,7 +9,7 @@ export const VideoBanner: FC = () => {
 	const videoRef = useRef<HTMLVideoElement>(null);
 
 	return (
-		<section className={styles.videoBannerSection}>
+		<section className={styles.videoBannerSection} id='hero'>
 			<h2 className='visually-hidden'>Hero section with banner 911 Carrera</h2>
 			<div className={styles.videoBannerWrapper}>
 				<Video videoRef={videoRef} />

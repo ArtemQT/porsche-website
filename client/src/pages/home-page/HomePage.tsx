@@ -9,37 +9,6 @@ export const HomePage: FC = () => {
 			<VideoBanner/>
 			<VehicleFinderSection/>
 			<CarRowSection/>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
-			<div className="">123</div>
 		</>
 	)
 }

@@ -1,0 +1,34 @@
+@use '@helpers' as *;
+
+.company {
+
+	padding-bottom: rem(50);
+	border-bottom: rem(1) solid var(--color-light);
+	margin-bottom: rem(50);
+
+	> h3 {
+		margin-bottom: rem(25);
+	}
+
+	&List {
+		display: inline-grid;
+		grid-template-columns: repeat(3, 1fr);
+		row-gap: rem(20);
+		column-gap: rem(50);
+	}
+
+	&Item {
+		width: fit-content;
+	}
+
+	&Link {
+		max-width: rem(250);
+		padding-block: rem(5);
+		border-radius: var(--border-radius-small);
+
+		@include hover {
+			background-color: var(--color-grey-dark);
+			color: var(--color-dark);
+		}
+	}
+}

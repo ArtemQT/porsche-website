@@ -1,0 +1,22 @@
+@use "@helpers" as *;
+
+.copyright {
+
+	&Wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+
+		> a {
+			padding: rem(15);
+			border-radius: 50%;
+			background-color: var(--color-light);
+
+			@include hover {
+				opacity: 0.75;
+			}
+		}
+	}
+
+}

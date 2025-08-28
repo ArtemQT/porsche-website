@@ -1,4 +1,4 @@
-import basketIcon from '@assets/icons/basket-svgrepo-com.svg';
+import basketIcon from '@assets/icons/basket.svg';
 import userIcon from '@assets/icons/profile.svg';
 import searchIcon from '@assets/icons/search.svg';
 
@@ -20,3 +20,4 @@ export const ICONS = [
 	},
 
 ]
+

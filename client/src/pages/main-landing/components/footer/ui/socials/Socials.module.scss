@@ -1,0 +1,31 @@
+@use '@helpers' as *;
+
+.socials {
+
+	> h3 {
+		margin-bottom: rem(40);
+	}
+
+	> p {
+		margin-bottom: rem(25);
+	}
+
+	&List {
+		display: flex;
+		column-gap: rem(25);
+	}
+
+	&Item {
+
+	}
+
+	&Link {
+		padding: rem(20);
+		background-color: var(--color-light);
+		border-radius: var(--border-radius-small);
+
+		@include hover {
+			opacity: 0.75
+		}
+	}
+}

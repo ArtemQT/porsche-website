@@ -8,7 +8,8 @@ export const useCarRowBackground = (carRowRef: RefObject<HTMLDivElement | null>)
 
 		if (carRowRef.current) {
 			const params = carRowRef.current.getBoundingClientRect();
-			if (params.top <= 550 && params.bottom > 50) {
+			console.log(params.bottom)
+			if (params.top <= 550 && params.bottom > 300) {
 				setIsDarkBg(true);
 				document.body.classList.add('dark');
 			} else {
