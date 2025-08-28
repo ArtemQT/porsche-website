@@ -1,6 +1,5 @@
 import {type RefObject} from "react";
 import styles from '../components/car-row-card/CarRowCard.module.scss'
-import {isElementEven} from "../helpers/isElementEven.ts";
 
 export const useCardControl =
 	(
@@ -8,55 +7,76 @@ export const useCardControl =
 		videoRef: RefObject<HTMLVideoElement | null>,
 		cardRef: RefObject<HTMLLIElement | null>
 	) => {
+		const isElementEven = (element: HTMLLIElement | null) => {
 
-		const onMouseEnterCard = () => {
-			posterRef.current?.classList.add(styles.hidden);
+			if (!element || !element.parentElement) {
+				return false
+			}
 
-			videoRef.current?.classList.add(styles.show);
-			videoRef.current?.play();
+			const children = Array.from(element.parentElement.children);
+			const index = children.indexOf(element);
 
-			if (cardRef.current) {
-				cardRef.current.classList.add(styles.extended);
+			return index % 2;
+		}
 
-				if (isElementEven(cardRef.current)) {
-					const sibling = cardRef.current.previousElementSibling
-					if (sibling) {
-						sibling.classList.add(styles.shrink);
-					}
-				} else {
-					const sibling = cardRef.current.nextElementSibling
-					if (sibling) {
-						sibling.classList.add(styles.shrink);
-					}
+		const toggleCardElement = (cardElement: HTMLLIElement, toggle: 'add' | 'remove') => {
+
+			let sibling;
+
+			if (isElementEven(cardElement)) {
+				sibling = cardElement.previousElementSibling;
+			} else {
+				sibling = cardElement.nextElementSibling;
+			}
+
+			if (sibling) {
+				if (toggle === 'add') {
+
+					cardElement.classList.add(styles.extended);
+					sibling.classList.add(styles.shrink);
+
+				} else if (toggle === 'remove') {
+
+					cardElement.classList.remove(styles.extended);
+					sibling.classList.remove(styles.shrink);
+
 				}
 			}
 		}
 
-		const onMouseLeaveCard = () => {
+		const toggleVideoElement =
+			(videoElement: HTMLVideoElement,
+			 posterElement: HTMLDivElement,
+			 toggle: 'play' | 'pause',
+			) => {
 
-			posterRef.current?.classList.remove(styles.hidden);
-
-			videoRef.current?.classList.remove(styles.show);
-			videoRef.current?.pause();
-
-			if (videoRef.current) {
-				videoRef.current.currentTime = 0;
+				if (toggle === 'play') {
+					posterElement.classList.add(styles.hidden);
+					videoElement.classList.add(styles.show);
+					videoElement.play();
+				} else if (toggle === 'pause') {
+					posterElement.classList.remove(styles.hidden);
+					videoElement.classList.remove(styles.show);
+					videoElement.pause();
+					videoElement.currentTime = 0;
+				}
 			}
 
+		const onMouseEnterCard = () => {
+			if (posterRef.current && videoRef.current) {
+				toggleVideoElement(videoRef.current, posterRef.current, 'play')
+			}
 			if (cardRef.current) {
-				cardRef.current.classList.remove(styles.extended);
+				toggleCardElement(cardRef.current, 'add');
+			}
+		}
 
-				if (isElementEven(cardRef.current)) {
-					const sibling = cardRef.current.previousElementSibling;
-					if (sibling) {
-						sibling.classList.remove(styles.shrink);
-					}
-				} else {
-					const sibling = cardRef.current.nextElementSibling;
-					if (sibling) {
-						sibling.classList.remove(styles.shrink);
-					}
-				}
+		const onMouseLeaveCard = () => {
+			if (posterRef.current && videoRef.current) {
+				toggleVideoElement(videoRef.current, posterRef.current, 'pause')
+			}
+			if (cardRef.current) {
+				toggleCardElement(cardRef.current, 'remove');
 			}
 		}
 
