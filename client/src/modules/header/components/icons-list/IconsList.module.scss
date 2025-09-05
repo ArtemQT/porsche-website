@@ -1,15 +1,18 @@
 @use "@helpers" as *;
 
-.iconsList {
-	@include flex-center();
+.icons {
 
-	column-gap: rem(25);
+	&List {
+		@include flex-center();
 
-	@include mobile-s {
-		column-gap: rem(20);
+		column-gap: rem(25);
+
+		@include mobile-s {
+			column-gap: rem(20);
+		}
 	}
 
-	li {
+	&Item {
 		@include square(30);
 	}
 
@@ -22,7 +25,7 @@
 	}
 }
 
-.widgetIcon {
+.widgetButton {
 
 	@include hover {
 		& path {
@@ -31,16 +34,14 @@
 		}
 	}
 
-	svg {
+	& svg {
 		width: rem(25);
 		height: rem(25);
 	}
 
-	path {
+	& path {
 		stroke: var(--color-header) !important;
 		fill: var(--color-header) !important;
-
-
 	}
-
 }
+

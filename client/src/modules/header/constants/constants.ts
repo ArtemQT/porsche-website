@@ -1,23 +1,38 @@
-import basketIcon from '@assets/icons/basket.svg';
-import userIcon from '@assets/icons/profile.svg';
-import searchIcon from '@assets/icons/search.svg';
+import {UserIcon} from "../ui/user-icon";
+import {SearchIcon} from "../ui/search-icon";
+import {BasketIcon} from "../ui/basket-icon";
+
 
 export const ICONS = [
 	{
 		id: 1,
 		name: 'profile',
-		icon: userIcon
+		IconComponent: UserIcon,
 	},
 	{
 		id: 2,
 		name: 'search',
-		icon: searchIcon
+		IconComponent: SearchIcon
 	},
 	{
 		id: 3,
 		name: 'basket',
-		icon: basketIcon
+		IconComponent: BasketIcon
 	},
+]
 
+export const AUTH_PATHS = [
+	{
+		id: 1,
+		name: 'login',
+		path: '/auth/login',
+		text: 'Login'
+	},
+	{
+		id: 2,
+		name: 'register',
+		path: '/auth/register',
+		text: 'Register'
+	}
 ]
 
