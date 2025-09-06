@@ -18,10 +18,12 @@ interface ModalProps {
 
 export const Modal: FC<ModalProps> = ({ isOpen, onClose, children, cssAbsoluteCoordinates }) => {
 
+	if (!isOpen) return null;
+
 	return createPortal(
-		<div className={`${styles.modalOverlay} ${isOpen ? styles.open : ''}`}  onClick={onClose}>
+		<div className={styles.modalOverlay}  onClick={onClose}>
 			<div style={cssAbsoluteCoordinates}
-				 className={`${styles.modal}`}
+				 className={styles.modal}
 				 onClick={(e) => e.stopPropagation()}
 			>
 				{children}
