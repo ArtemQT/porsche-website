@@ -12,26 +12,24 @@ export const LoginForm = () => {
 	} = useLogin()
 
 	return (
-		<form>
-			<form className={styles.form}
-				  onSubmit={handleSubmit(onSubmit)}
-			>
-				<fieldset>
-					<legend>{loginFormConfig.title}</legend>
-					{
-						loginFormConfig.fields.map(inputField => (
-							<InputField key={inputField.name} {...inputField}/>
-						))
-					}
-				</fieldset>
+		<form className={styles.form}
+			  onSubmit={handleSubmit(onSubmit)}
+		>
+			<fieldset>
+				<legend>{loginFormConfig.title}</legend>
+				{
+					loginFormConfig.fields.map(inputField => (
+						<InputField key={inputField.name} {...inputField}/>
+					))
+				}
+			</fieldset>
 
-				<Button className={styles.formButton}
-						buttonType={ButtonType.dark}
-						type="submit"
-				>
-					{loginFormConfig.submitText}
-				</Button>
-			</form>
+			<Button className={styles.formButton}
+					buttonType={ButtonType.dark}
+					type="submit"
+			>
+				{loginFormConfig.submitText}
+			</Button>
 		</form>
 	)
 }

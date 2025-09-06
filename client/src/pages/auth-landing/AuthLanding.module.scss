@@ -7,6 +7,8 @@
 
 	&Body {
 		position: relative;
+		display: flex;
+		justify-content: center;
 	}
 
 	&Banner {
@@ -63,4 +65,23 @@
 
 .authButton {
 	top: 60%;
+}
+
+.homeLink {
+
+	@include hover {
+
+		> svg > path {
+			fill: var(--color-red);
+		}
+	}
+
+	> svg {
+		width: rem(400);
+		height: rem(100);
+	}
+
+	> path {
+	}
+
 }

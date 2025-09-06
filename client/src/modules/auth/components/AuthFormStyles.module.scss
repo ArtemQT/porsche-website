@@ -7,6 +7,12 @@
 	flex-direction: column;
 	gap: rem(40);
 
+	$border: rem(4) solid var(--color-grey-dark);
+
+	border: $border;
+	border-radius: var(--border-radius-large);
+	padding: rem(40);
+
 	> fieldset {
 		border: none;
 		padding: 0;
