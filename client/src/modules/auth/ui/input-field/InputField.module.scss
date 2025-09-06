@@ -8,7 +8,7 @@
 
 	&:focus {
 		outline: none;
-		box-shadow: 0 0 rem(5) rem(1) var(--color-grey-dark) ;
+		box-shadow: 0 0 rem(10) rem(2) var(--color-dark) ;
 	};
 
 	&.dirty ~ &Placeholder, &:focus ~ &Placeholder {

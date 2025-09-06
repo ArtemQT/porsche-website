@@ -9,7 +9,6 @@ export const RegisterForm = () => {
 		handleSubmit,
 		onSubmit,
 		registerFormConfig
-
 	} = useRegister();
 
 	return (
