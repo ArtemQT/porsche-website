@@ -10,6 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export enum ButtonType {
 	transparent = 'transparent',
 	light = 'light',
+	dark = 'dark',
 }
 
 export const Button: FC<ButtonProps> = ({buttonType, children, className, ...props}) => {

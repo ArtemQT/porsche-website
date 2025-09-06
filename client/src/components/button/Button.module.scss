@@ -33,19 +33,25 @@
 			left: 0;
 		}
 	}
-}
 
-.button.transparent {
-	color: var(--color-light);
-	border: 2px solid var(--color-light);
-}
-
-.button.light {
-	color: var(--color-dark);
-	background-color: var(--color-light);
-	border: none;
-
-	@include hover {
+	&.transparent {
 		color: var(--color-light);
+		border: rem(2) solid var(--color-light);
+	}
+
+	&.light {
+		color: var(--color-dark);
+		background-color: var(--color-light);
+		border: none;
+
+		@include hover {
+			color: var(--color-light);
+		}
+	}
+
+	&.dark {
+		background-color: var(--color-dark);
 	}
 }
+
+

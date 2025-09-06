@@ -1,0 +1,86 @@
+@use '@helpers' as *;
+
+.input {
+
+	padding: rem(20) rem(30) rem(10) rem(30);
+	border-radius: var(--border-radius-large);
+	width: rem(450);
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 rem(5) rem(1) var(--color-grey-dark) ;
+	};
+
+	&.dirty ~ &Placeholder, &:focus ~ &Placeholder {
+		@include fluid-text(14, 16);
+
+		top: 0;
+		translate: 0 0;
+	}
+
+	&Field {
+		position: relative;
+	}
+
+	&Placeholder {
+		@include fluid-text(16, 18);
+
+		font-weight: 700;
+		cursor: text;
+
+		position: absolute;
+		top: 50%;
+		translate: 0 -50%;
+		left: 7%;
+
+		transition-duration: var(--transition-duration);
+	}
+
+	&Error {
+		@include fluid-text(16, 18);
+
+		position: absolute;
+		top: -40%;
+		left: 0;
+		color: var(--color-red);
+
+		&[data-error='true'] + .input{
+			border-color: var(--color-red);
+			box-shadow: 0 0 rem(5) rem(1) var(--color-red) ;
+		}
+	}
+
+	&EyeIcon {
+		position: absolute;
+		top: 55%;
+		right: 5%;
+		translate: 0 -50%;
+		overflow: hidden;
+
+		&::after {
+			content: '';
+
+			z-index: 1000;
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			translate: -50% -50%;
+			rotate: -45deg;
+
+			display: block;
+			opacity: 1;
+			width: 125%;
+			height: rem(2);
+			background-color: var(--color-dark);
+
+			transition-duration: var(--transition-duration);
+		}
+
+		&.show::after{
+			top: 100%;
+			left: 0;
+			opacity: 0;
+		}
+	}
+
+}

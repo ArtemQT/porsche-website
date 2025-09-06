@@ -24,6 +24,7 @@ export const useCarRowBackground = (carRowRef: RefObject<HTMLDivElement | null>)
 
 		return () => {
 			window.removeEventListener("scroll", onScroll);
+			document.body.classList.remove('dark');
 		}
 	}, [carRowRef.current]);
 

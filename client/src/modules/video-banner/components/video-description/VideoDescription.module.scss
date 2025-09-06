@@ -12,11 +12,11 @@
 		cursor: pointer;
 		@include hover {
 
-			.descriptionTitle {
+			& .descriptionTitle {
 				color: var(--color-red);
 			}
 
-			.descriptionButton {
+			& .descriptionButton {
 				border-color: transparent;
 				&::before {
 					left: 0;

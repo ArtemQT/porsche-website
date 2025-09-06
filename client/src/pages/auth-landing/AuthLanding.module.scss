@@ -1,0 +1,66 @@
+@use '@helpers' as *;
+
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	height: 100vh;
+
+	&Body {
+		position: relative;
+	}
+
+	&Banner {
+		position: relative;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			translate: -50% 0;
+
+			width: 70%;
+			height: 80%;
+
+			background-color: var(--color-grey-dark);
+
+			border-radius: 35% 35% 0 0;
+			z-index: -1;
+		}
+
+		&::after {
+			content: '';
+
+			z-index: 1;
+			position: absolute;
+			top: 5%;
+			left: 50%;
+			translate: -50% 0;
+
+			width: rem(300);
+			height: rem(300);
+			filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.7));
+
+			background: url("@assets/images/porsche-logo-autht.png") center/contain no-repeat;
+
+		}
+
+		> button {
+			position: absolute;
+			left: 50%;
+			translate: -50% 0;
+
+			width: 45%;
+			padding-block: rem(10);
+		};
+	}
+}
+
+.backButton {
+	top: 50%;
+}
+
+.authButton {
+	top: 60%;
+}
