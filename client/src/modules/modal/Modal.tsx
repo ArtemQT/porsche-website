@@ -13,7 +13,7 @@ interface ModalProps {
 	onClose: () => void;
 	children: ReactNode
 
-	cssAbsoluteCoordinates: TCoordinates
+	cssAbsoluteCoordinates: TCoordinates | undefined;
 }
 
 export const Modal: FC<ModalProps> = ({ isOpen, onClose, children, cssAbsoluteCoordinates }) => {

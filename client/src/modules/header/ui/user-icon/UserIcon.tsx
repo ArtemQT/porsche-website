@@ -18,6 +18,8 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const listRef = useRef<HTMLUListElement>(null)
 
+	console.log('Рендер')
+
 	const {
 		isOpen,
 		handleOpen,
@@ -33,6 +35,7 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 			>
 				<ReactSVG src={userIcon}/>
 			</button>
+
 			<Modal isOpen={isOpen}
 				   onClose={handleClose}
 				   cssAbsoluteCoordinates={coordinates}
