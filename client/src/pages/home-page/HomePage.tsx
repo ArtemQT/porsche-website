@@ -4,6 +4,7 @@ import {VehicleFinderSection} from "./components/vehicle-finder-section";
 import {CarRowSection} from "./components/car-row-section";
 
 export const HomePage: FC = () => {
+
 	return (
 		<>
 			<VideoBanner/>

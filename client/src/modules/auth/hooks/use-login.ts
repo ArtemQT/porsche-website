@@ -8,6 +8,7 @@ export const useLogin = () => {
 		register,
 		handleSubmit,
 		control,
+		reset,
 		formState: { errors },
 	} = useForm<ILoginForm>({
 		mode: 'onBlur',
@@ -63,6 +64,7 @@ export const useLogin = () => {
 	return {
 		handleSubmit,
 		onSubmit,
-		loginFormConfig
+		loginFormConfig,
+		reset
 	}
 }

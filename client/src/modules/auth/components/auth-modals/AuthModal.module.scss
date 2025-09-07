@@ -1,0 +1,49 @@
+@use "@helpers" as *;
+
+.authModal {
+
+	&Overlay {
+		display: none;
+
+		@include flex-center();
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+
+		width: 100vw;
+		height: 100vh;
+
+		opacity: 0;
+		visibility: hidden;
+
+		transition-duration:  var(--transition-duration);
+
+		&.open {
+			visibility: visible;
+			opacity: 1;
+			background: rgba(0, 0, 0, 0.8);
+		}
+	}
+
+	&Content {
+		opacity: 0;
+		visibility: hidden;
+
+		background-color: var(--color-light);
+		border-radius: var(--border-radius-large);
+		padding: rem(40);
+
+		transition: var(--transition-duration);
+
+		&.open {
+			visibility: visible;
+			opacity: 1;
+
+			box-shadow: 0 0 rem(10) rem(10) var(--color-light);
+		};
+
+	}
+
+}

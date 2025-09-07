@@ -3,10 +3,8 @@ import styles from './UserIcon.module.scss'
 import {type FC, useRef} from "react";
 import {ReactSVG} from "react-svg";
 import userIcon from '@assets/icons/profile.svg';
-import {Link} from "react-router-dom";
 
 import {Modal} from "../../../modal";
-import {AUTH_PATHS} from "../../constants/constants.ts";
 import {useUserModal} from "../../hooks/useUserModal.ts";
 
 interface UserIconProps {
@@ -18,13 +16,12 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const listRef = useRef<HTMLUListElement>(null)
 
-	console.log('Рендер')
-
 	const {
 		isOpen,
 		handleOpen,
 		handleClose,
-		coordinates
+		coordinates,
+		modalConfig
 	} = useUserModal(buttonRef, listRef);
 
 	return (
@@ -42,13 +39,13 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 			>
 				<ul className={styles.modalList} ref={listRef}>
 					{
-						AUTH_PATHS.map(item => (
+						modalConfig.map(item => (
 							<li key={item.id} className={styles.modalItem}>
-								<Link to={item.path}
-									  className={styles.modalLink}
+								<button className={styles.modalLink}
+										onClick={item.onClick}
 								>
 									{item.text}
-								</Link>
+								</button>
 							</li>
 						))
 					}

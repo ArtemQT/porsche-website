@@ -2,7 +2,7 @@ import styles from './InputField.module.scss'
 
 import { type IInputField } from '../../types/auth-types.ts'
 import {type FieldValues, useWatch} from "react-hook-form"
-import {useTogglePassword} from "../../hooks/useTogglePassword.ts";
+import {useTogglePassword} from "../../hooks/use-toggle-password.ts";
 
 export const InputField = <T extends FieldValues>({
 		name,

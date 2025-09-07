@@ -1,1 +1,0 @@
-export {AuthLanding} from './AuthLanding'

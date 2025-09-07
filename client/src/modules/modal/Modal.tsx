@@ -1,6 +1,6 @@
 import styles from './Modal.module.scss'
 
-import type {FC, ReactNode} from "react";
+import type {FC, MouseEventHandler, ReactNode} from "react";
 import {createPortal} from "react-dom";
 
 export type TCoordinates = {
@@ -18,13 +18,18 @@ interface ModalProps {
 
 export const Modal: FC<ModalProps> = ({ isOpen, onClose, children, cssAbsoluteCoordinates }) => {
 
+	const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
+		e.stopPropagation();
+		onClose();
+	}
+
 	if (!isOpen) return null;
 
 	return createPortal(
 		<div className={styles.modalOverlay}  onClick={onClose}>
 			<div style={cssAbsoluteCoordinates}
 				 className={styles.modal}
-				 onClick={(e) => e.stopPropagation()}
+				 onClick={handleClick}
 			>
 				{children}
 			</div>

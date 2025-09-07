@@ -25,7 +25,7 @@ export interface IInputField<T extends FieldValues> {
 	error: FieldError | undefined
 }
 
-interface IFormConfig<T extends FieldValues> {
+export interface IFormConfig<T extends FieldValues> {
 	title: string;
 	submitText: string;
 	fields: IInputField<T>[]

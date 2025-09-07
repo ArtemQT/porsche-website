@@ -1,6 +1,13 @@
 import {useModal} from "../../modal";
 import {type RefObject, useLayoutEffect, useState} from "react";
 import type {TCoordinates} from "../../modal/Modal.tsx";
+import {useLoginModal} from "../../auth";
+
+interface IModalConfig {
+	id: string;
+	text: string;
+	onClick?: () => void;
+}
 
 export const useUserModal = (buttonRef: RefObject<HTMLButtonElement | null>, listRef: RefObject<HTMLUListElement | null>) => {
 
@@ -31,10 +38,27 @@ export const useUserModal = (buttonRef: RefObject<HTMLButtonElement | null>, lis
 		}
 	}, [isOpen, buttonRef.current, listRef.current]);
 
+	const {
+		handleOpen: handleLoginModalOpen
+	} = useLoginModal()
+
+	const modalConfig: IModalConfig[] = [
+		{
+			id: '1',
+			text: 'Register',
+		},
+		{
+			id: '2',
+			text: 'Login',
+			onClick: handleLoginModalOpen
+		},
+	]
+
 	return {
 		isOpen,
 		handleOpen,
 		handleClose,
 		coordinates,
+		modalConfig
 	}
 }

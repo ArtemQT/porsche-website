@@ -11,6 +11,7 @@ export enum ButtonType {
 	transparent = 'transparent',
 	light = 'light',
 	dark = 'dark',
+	accent = 'accent',
 }
 
 export const Button: FC<ButtonProps> = ({buttonType, children, className, ...props}) => {

@@ -1,0 +1,47 @@
+@use '@helpers' as *;
+
+.widgets {
+	display: flex;
+	justify-content: end;
+	margin-bottom: rem(20);
+
+	position: relative;
+	&Logo {
+		@include abs-center();
+
+		> img {
+			filter: drop-shadow(0 0 rem(8) var(--color-dark));
+		}
+	}
+
+	&CloseButton {
+
+		position: relative;
+		@include square(40);
+		&::before, &::after {
+			content: '';
+
+			@include abs-center();
+			width: 100%;
+			height: rem(2);
+
+			background-color: var(--color-dark);
+
+			transition: var(--transition-duration);
+		}
+
+		&::before {
+			rotate: 45deg;
+		}
+
+		&::after {
+			rotate: -45deg;
+		}
+
+		@include hover {
+			&::before, &::after {
+				background-color: var(--color-red);
+			}
+		}
+	}
+}
