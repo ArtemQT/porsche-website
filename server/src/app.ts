@@ -1,5 +1,6 @@
-import express from 'express'
+import express, {json} from 'express'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 import {authRoute} from "./routes/auth-route.js";
 
 const app = express();
@@ -15,8 +16,6 @@ function startApp() {
 
 startApp();
 
-app.get('/', (req, res) => {
-	res.send('Server started!');
-})
-
+app.use(json())
+app.use(cookieParser())
 app.use('/auth', authRoute);
