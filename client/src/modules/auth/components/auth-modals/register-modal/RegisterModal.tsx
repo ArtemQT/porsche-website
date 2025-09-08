@@ -1,24 +1,25 @@
 import styles from '../AuthModal.module.scss'
 
-import {useLogin} from "../../../hooks/use-login.ts";
 import {AuthForm} from "../../auth-form";
 import {createPortal} from "react-dom";
 import {AuthModalWidgets} from "../../auth-modal-widgets";
-import {useLoginModal} from "../../../hooks/use-login-modal.ts";
+import {useRegister} from "../../../hooks/use-register.ts";
+import {useRegisterModal} from "../../../hooks/use-register-modal.ts";
 
-export const LoginModal = () => {
+export const RegisterModal = () => {
 
 	const {
 		handleSubmit,
 		onSubmit,
-		loginFormConfig,
+		registerFormConfig,
 		reset
-	} = useLogin();
+	} = useRegister();
+
 
 	const {
 		handleClose,
-		isOpen,
-	} = useLoginModal()
+		isOpen
+	} = useRegisterModal()
 
 	return createPortal(
 		<div className={`${styles.authModalOverlay} ${isOpen ? styles.open : ''}`}
@@ -31,7 +32,7 @@ export const LoginModal = () => {
 
 				<AuthForm handleSubmit={handleSubmit}
 						  onSubmit={onSubmit}
-						  config={loginFormConfig}
+						  config={registerFormConfig}
 				/>
 			</div>
 		</div>,

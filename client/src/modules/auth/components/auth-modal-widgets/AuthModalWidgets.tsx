@@ -1,19 +1,15 @@
 import styles from './AuthModalWidgets.module.scss'
 
 import logoImg from '@assets/images/porsche-logo.png';
-import {useLoginModal} from "../../hooks/use-login-modal.ts";
 import type {FieldValues, UseFormReset} from "react-hook-form";
 import type {MouseEventHandler} from "react";
 
 interface AuthModalWidgetsProps<T extends FieldValues> {
-	reset: UseFormReset<T>
+	reset: UseFormReset<T>,
+	handleClose: () => void,
 }
 
-export const AuthModalWidgets = <T extends FieldValues>({reset}: AuthModalWidgetsProps<T>) => {
-
-	const {
-		handleClose
-	} = useLoginModal();
+export const AuthModalWidgets = <T extends FieldValues>({reset, handleClose}: AuthModalWidgetsProps<T>) => {
 
 	const onClose: MouseEventHandler<HTMLButtonElement> = () => {
 		handleClose();

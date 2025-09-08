@@ -1,2 +1,1 @@
-import {MainLanding} from "./MainLanding.tsx";
-export {MainLanding};
+export {MainLanding} from "./MainLanding.tsx";

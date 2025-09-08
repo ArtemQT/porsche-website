@@ -9,7 +9,8 @@ export const useRegister = () => {
 		handleSubmit,
 		formState: { errors },
 		watch,
-		control
+		control,
+		reset
 	} = useForm({
 		mode: 'onBlur',
 		defaultValues: registerFormDefaultValues
@@ -78,6 +79,7 @@ export const useRegister = () => {
 	return {
 		handleSubmit,
 		onSubmit,
-		registerFormConfig
+		registerFormConfig,
+		reset
 	}
 }
