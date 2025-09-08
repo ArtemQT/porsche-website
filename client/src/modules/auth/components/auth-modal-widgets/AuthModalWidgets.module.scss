@@ -11,6 +11,11 @@
 
 		> img {
 			filter: drop-shadow(0 0 rem(8) var(--color-dark));
+
+			@include mobile-s {
+				width: rem(60);
+				height: rem(70);
+			}
 		}
 	}
 

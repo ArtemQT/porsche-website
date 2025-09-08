@@ -36,7 +36,6 @@
 		padding: rem(40);
 
 		transition: var(--transition-duration);
-
 		&.open {
 			visibility: visible;
 			opacity: 1;
@@ -44,6 +43,9 @@
 			box-shadow: 0 0 rem(10) rem(10) var(--color-light);
 		};
 
+		@include mobile-s {
+			padding: rem(20);
+		}
 	}
 
 }

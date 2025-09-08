@@ -6,6 +6,14 @@
 	border-radius: var(--border-radius-large);
 	width: rem(450);
 
+	@include mobile {
+		width: rem(350);
+	}
+
+	@include mobile-s {
+		width: rem(275);
+	}
+
 	&:focus {
 		outline: none;
 		box-shadow: 0 0 rem(10) rem(2) var(--color-dark) ;
