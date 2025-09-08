@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import {authRoute} from "./routes/auth-route.js";
 
 const app = express();
 dotenv.config();
@@ -17,3 +18,5 @@ startApp();
 app.get('/', (req, res) => {
 	res.send('Server started!');
 })
+
+app.use('/auth', authRoute);

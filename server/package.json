@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run start\" \"npm run watch\" ",
     "start": "nodemon ./dist/app.js",
@@ -17,9 +18,11 @@
     "@types/node": "^24.3.0",
     "concurrently": "^9.2.1",
     "nodemon": "^3.1.10",
+    "prisma": "^6.15.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@prisma/client": "^6.15.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0"
   }
