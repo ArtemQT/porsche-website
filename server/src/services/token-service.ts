@@ -59,4 +59,8 @@ export class TokenService {
 			data: {userId, token}
 		})
 	}
+
+	static async removeToken(token: string) {
+		await prisma.token.delete({where: {token}})
+	}
 }

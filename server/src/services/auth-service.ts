@@ -60,4 +60,8 @@ export class AuthService {
 			refreshToken
 		}
 	}
+
+	static async logout(token: string) {
+		await TokenService.removeToken(token);
+	}
 }

@@ -17,7 +17,7 @@ model User {
 model Token {
   id     Int    @id @default(autoincrement())
   userId Int    @unique
-  token  String @db.VarChar(500)
+  token  String @unique @db.VarChar(500)
 
   user User @relation(fields: [userId], references: [id])
 }
