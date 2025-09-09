@@ -24,7 +24,34 @@ export class AuthService {
 		const {
 			accessToken,
 			refreshToken
-		} = TokenService.generateTokens({id: user.id});
+		} = TokenService.generateTokens({...userDto});
+		await TokenService.saveToken(user.id, refreshToken);
+
+		return {
+			userDto,
+			accessToken,
+			refreshToken
+		}
+	}
+
+	static async login(email: string, password: string) {
+		const user = await prisma.user.findUnique({where: {email}});
+
+		if (!user) {
+			throw ApiError.unauthorized(`User with email "${email}" does not exist`);
+		}
+
+		const isEqualPassword = await bcrypt.compare(password, user.password);
+		if (!isEqualPassword) {
+			throw ApiError.unauthorized(`Wrong password`);
+		}
+
+		const userDto = new UserDto(user);
+		const {
+			accessToken,
+			refreshToken
+		} = TokenService.generateTokens({...userDto})
+
 		await TokenService.saveToken(user.id, refreshToken);
 
 		return {

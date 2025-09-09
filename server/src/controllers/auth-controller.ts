@@ -9,7 +9,32 @@ interface IAuthData {
 export class AuthController {
 
 	static async login(req: Request, res: Response, next: NextFunction) {
+		try {
+			const {email, password}: IAuthData = req.body;
 
+			const {
+				accessToken,
+				refreshToken,
+				userDto
+			} = await AuthService.login(email, password);
+
+			res.cookie('refreshToken', refreshToken, {
+				maxAge: 1000 * 60 * 60 * 24 * 30,
+				httpOnly: true,
+				secure: true
+			});
+
+			res.status(200).json({
+				data: {
+					accessToken,
+					userDto
+				},
+				message: 'User successfully logged in'
+			})
+
+		} catch (err: unknown) {
+			next(err);
+		}
 	}
 
 	static async register(req: Request, res: Response, next: NextFunction) {
@@ -32,6 +57,7 @@ export class AuthController {
 					accessToken,
 					userDto
 				},
+				message: 'User registered successfully'
 			})
 		} catch (err: unknown) {
 			next(err)

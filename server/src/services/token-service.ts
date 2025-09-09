@@ -4,7 +4,8 @@ import {prisma} from "../config/prisma.js";
 
 
 interface IPayload {
-	id: number
+	id: string,
+	email: string,
 }
 
 export class TokenService {
@@ -51,6 +52,7 @@ export class TokenService {
 				where: {userId},
 				data: {token}
 			})
+			return
 		}
 
 		await prisma.token.create({
