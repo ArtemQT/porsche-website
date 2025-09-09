@@ -11,19 +11,19 @@ export class TokenService {
 
 	static generateTokens(payload: IPayload) {
 
-		const accessSecretKey = process.env.JWT_ACCESS_SECRET;
-		if (!accessSecretKey) {
-			throw new Error('JWT_ACCESS_SECRET is not defined in environment variables')
+		const jwtAccessSecret = process.env.JWT_ACCESS_SECRET;
+		if (!jwtAccessSecret) {
+			throw new Error('JWT_ACCESS_SECRET not provided');
 		}
 
-		const refreshSecretKey = process.env.JWT_REFRESH_SECRET;
-		if (!refreshSecretKey) {
-			throw new Error('JWT_REFRESH_SECRET is not defined in environment variables')
+		const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET;
+		if (!jwtRefreshSecret) {
+			throw new Error('JWT_REFRESH_SECRET not provided');
 		}
 
 		const accessToken = jwt.sign(
 			payload,
-			accessSecretKey,
+			jwtAccessSecret,
 			{
 				expiresIn: '30m'
 			}
@@ -31,7 +31,7 @@ export class TokenService {
 
 		const refreshToken = jwt.sign(
 			payload,
-			refreshSecretKey,
+			jwtRefreshSecret,
 			{
 				expiresIn: '30d'
 			}
@@ -41,22 +41,20 @@ export class TokenService {
 			accessToken,
 			refreshToken
 		}
-	}
+ 	}
 
 	static async saveToken(userId: number, token: string) {
-		const tokenCandidate = await prisma.token.findUnique({where: {userId}});
+		const tokenCandidate = await prisma.token.findUnique({where: {userId}})
+
 		if (tokenCandidate) {
-			prisma.token.update({
+			await prisma.token.update({
 				where: {userId},
 				data: {token}
 			})
 		}
 
-		const refreshToken = await prisma.token.create({
-			data: {
-				userId,
-				token
-			}
+		await prisma.token.create({
+			data: {userId, token}
 		})
 	}
 }

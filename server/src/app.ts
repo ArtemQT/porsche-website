@@ -2,6 +2,7 @@ import express, {json} from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import {authRoute} from "./routes/auth-route.js";
+import {errorMiddleware} from "./middlewares/error-middleware.js";
 
 const app = express();
 dotenv.config();
@@ -18,4 +19,7 @@ startApp();
 
 app.use(json())
 app.use(cookieParser())
+
 app.use('/auth', authRoute);
+
+app.use(errorMiddleware)
