@@ -63,4 +63,30 @@ export class TokenService {
 	static async removeToken(token: string) {
 		await prisma.token.delete({where: {token}})
 	}
+
+	static validateAccessToken(accessToken: string) {
+		try {
+			const jwtAccessSecret = process.env.JWT_ACCESS_SECRET;
+			if (!jwtAccessSecret) {
+				throw new Error('JWT_ACCESS_SECRET not provided');
+			}
+
+			return jwt.verify(accessToken, jwtAccessSecret) as IPayload;
+		} catch (err) {
+			return null;
+		}
+	}
+
+	static validateRefreshToken(refreshToken: string) {
+		try {
+			const jwtRefreshSecret = process.env.JWT_REFRESH_SECRET;
+			if (!jwtRefreshSecret) {
+				throw new Error('JWT_REFRESH_SECRET not provided');
+			}
+
+			return jwt.verify(refreshToken, jwtRefreshSecret) as IPayload;
+		} catch (err) {
+			return null;
+		}
+	}
 }

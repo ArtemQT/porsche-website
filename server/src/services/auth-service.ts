@@ -64,4 +64,37 @@ export class AuthService {
 	static async logout(token: string) {
 		await TokenService.removeToken(token);
 	}
+
+	static async refresh(refreshToken: string | undefined) {
+		if (!refreshToken) {
+			throw ApiError.unauthorized(`Unavailable refresh token`);
+		}
+
+		const userPayload = TokenService.validateRefreshToken(refreshToken);
+		const refreshTokenDb = await prisma.token.findUnique({where: {token: refreshToken}});
+
+		if (!refreshTokenDb || !userPayload) {
+			throw ApiError.unauthorized(`Unavailable refresh token`);
+		}
+
+		const user = await prisma.user.findUnique({where: {id: +userPayload.id}});
+		if (!user) {
+			throw ApiError.unauthorized(`User not found`);
+		}
+
+		const userDto = new UserDto(user)
+
+		const {
+			accessToken: newAccessToken,
+			refreshToken: newRefreshToken
+		} = TokenService.generateTokens({...userDto});
+
+		await TokenService.saveToken(+userPayload.id, newRefreshToken);
+
+		return {
+			newAccessToken,
+			newRefreshToken,
+			userDto
+		}
+	}
 }

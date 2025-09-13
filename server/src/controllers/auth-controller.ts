@@ -76,5 +76,34 @@ export class AuthController {
 			next(err);
 		}
 	}
+
+	static async refresh(req: Request, res: Response, next: NextFunction) {
+		try {
+			const refreshToken: string | undefined = req.cookies.refreshToken;
+
+			const {
+				userDto,
+				newAccessToken,
+				newRefreshToken
+			} = await AuthService.refresh(refreshToken);
+
+			res.cookie('refreshToken', newRefreshToken, {
+				maxAge: 1000 * 60 * 60 * 24 * 30,
+				httpOnly: true,
+				secure: true,
+			})
+
+			res.status(200).json({
+				data: {
+					accessToken: newAccessToken,
+					userDto
+				},
+				message: 'Tokens successfully refreshed'
+			})
+
+		} catch (err) {
+			next(err);
+		}
+	}
 }
 
