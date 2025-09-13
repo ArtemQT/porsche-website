@@ -1,4 +1,4 @@
-import {type MouseEventHandler, useState} from "react";
+import {type MouseEventHandler, type TouchEventHandler, useState} from "react";
 
 import { type TInputType} from '../types/form-types.ts'
 
@@ -6,12 +6,12 @@ export const useTogglePassword = (showEyeIcon: boolean | undefined, inputType: T
 
 	const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
-	const handleShowPassword: MouseEventHandler = (e) => {
+	const handleShowPassword: MouseEventHandler & TouchEventHandler = (e) => {
 		e.preventDefault();
 		setIsShowPassword(true);
 	}
 
-	const handleHidePassword: MouseEventHandler = (e) => {
+	const handleHidePassword: MouseEventHandler & TouchEventHandler = (e) => {
 		e.preventDefault();
 		setIsShowPassword(false);
 	}

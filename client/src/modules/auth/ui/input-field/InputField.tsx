@@ -43,6 +43,9 @@ export const InputField = <T extends FieldValues>({
 							onMouseDown={handleShowPassword}
 							onMouseUp={handleHidePassword}
 							onMouseLeave={handleHidePassword}
+							onTouchStart={handleShowPassword}
+							onTouchCancel={handleHidePassword}
+							onTouchEnd={handleHidePassword}
 							type='button'
 					>
 						<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

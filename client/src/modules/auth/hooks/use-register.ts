@@ -4,6 +4,8 @@ import type {IRegisterForm, IRegisterFormConfig} from "../types/form-types.ts";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {userApi} from "../api/user-api.ts";
 import axios from "axios";
+import {useRegisterModal} from "./use-register-modal.ts";
+import {toast} from "sonner";
 
 export const useRegister = () => {
 
@@ -21,6 +23,10 @@ export const useRegister = () => {
 
 	const queryClient = useQueryClient();
 
+	const {
+		handleClose
+	} = useRegisterModal()
+
 	const registerUserMutation = useMutation({
 		mutationFn: userApi.register,
 
@@ -28,13 +34,16 @@ export const useRegister = () => {
 			if (axios.isAxiosError(error)) {
 				if (error.response) {
 					if (error.response.status === 409) {
-						console.log('User with entered email already exist', error.response.data);
+						toast.error('User with entered email already exist')
 					}
 				}
 			}
 		},
 
 		onSuccess: (authResponse) => {
+
+			console.log('Успешная регистрация')
+
 			const accessToken = authResponse.data.accessToken;
 			localStorage.setItem("accessToken", accessToken);
 
@@ -44,7 +53,11 @@ export const useRegister = () => {
 				userData
 			)
 
-			console.log(authResponse)
+			toast.success('Registration completed successfully')
+			setTimeout(() => {
+				handleClose();
+				reset();
+			}, 1000);
 		}
 	})
 
@@ -112,6 +125,7 @@ export const useRegister = () => {
 		handleSubmit,
 		onSubmit,
 		registerFormConfig,
-		reset
+		reset,
+		isRegisterPending: registerUserMutation.isPending
 	}
 }

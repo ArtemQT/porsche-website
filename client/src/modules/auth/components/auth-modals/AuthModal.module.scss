@@ -3,10 +3,6 @@
 .authModal {
 
 	&Overlay {
-		display: none;
-
-		@include flex-center();
-
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -28,6 +24,12 @@
 	}
 
 	&Content {
+
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		translate: -50% -50%;
+
 		opacity: 0;
 		visibility: hidden;
 

@@ -8,14 +8,15 @@ interface AuthFormProps<T extends FieldValues> {
 	handleSubmit: UseFormHandleSubmit<T>;
 	onSubmit: SubmitHandler<T>;
 	config: IFormConfig<T>;
+	isAuthPending: boolean;
 }
 
-export const AuthForm = <T extends FieldValues>({handleSubmit, onSubmit, config} : AuthFormProps<T>) => {
+export const AuthForm = <T extends FieldValues>({handleSubmit, onSubmit, config, isAuthPending} : AuthFormProps<T>) => {
 	return (
 		<form className={styles.form}
 			  onSubmit={handleSubmit(onSubmit)}
 		>
-			<fieldset>
+			<fieldset disabled={isAuthPending}>
 				<legend>{config.title}</legend>
 				{
 					config.fields.map(inputField => (
@@ -27,8 +28,10 @@ export const AuthForm = <T extends FieldValues>({handleSubmit, onSubmit, config}
 			<Button className={styles.formButton}
 					buttonType={ButtonType.dark}
 					type="submit"
+					data-ispending={isAuthPending}
+					disabled={isAuthPending}
 			>
-				{config.submitText}
+				{ isAuthPending ? 'Loading' : config.submitText }
 			</Button>
 		</form>
 	)

@@ -3,12 +3,24 @@ import {Outlet} from "react-router-dom";
 import {Header} from "../../modules/header";
 import {Footer} from "./components/footer";
 import {LoginModal, RegisterModal} from "../../modules/auth";
+import {Toaster} from "sonner";
 
 export const MainLanding: FC = () => {
 
 	return (
 		<>
 			<Header/>
+
+			<Toaster position='top-right'
+					 closeButton={true}
+					 theme='light'
+					 toastOptions={{
+						 style: {
+							 fontSize: '14px',
+						 },
+						 duration: 5000,
+					 }}
+			/>
 
 			<LoginModal/>
 			<RegisterModal/>

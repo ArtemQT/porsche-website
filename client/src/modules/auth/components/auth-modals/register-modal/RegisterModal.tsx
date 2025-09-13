@@ -5,6 +5,7 @@ import {createPortal} from "react-dom";
 import {AuthModalWidgets} from "../../auth-modal-widgets";
 import {useRegister} from "../../../hooks/use-register.ts";
 import {useRegisterModal} from "../../../hooks/use-register-modal.ts";
+import type {MouseEventHandler} from "react";
 
 export const RegisterModal = () => {
 
@@ -12,18 +13,23 @@ export const RegisterModal = () => {
 		handleSubmit,
 		onSubmit,
 		registerFormConfig,
-		reset
+		reset,
+		isRegisterPending
 	} = useRegister();
-
 
 	const {
 		handleClose,
 		isOpen
 	} = useRegisterModal()
 
+	const onClose: MouseEventHandler<HTMLDivElement> = () => {
+		handleClose();
+		reset();
+	}
+
 	return createPortal(
 		<div className={`${styles.authModalOverlay} ${isOpen ? styles.open : ''}`}
-			 onClick={handleClose}
+			 onClick={onClose}
 		>
 			<div className={`${styles.authModalContent} ${isOpen ? styles.open : ''}`}
 				 onClick={(e) => e.stopPropagation()}
@@ -33,6 +39,7 @@ export const RegisterModal = () => {
 				<AuthForm handleSubmit={handleSubmit}
 						  onSubmit={onSubmit}
 						  config={registerFormConfig}
+						  isAuthPending={isRegisterPending}
 				/>
 			</div>
 		</div>,
