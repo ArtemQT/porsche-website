@@ -1,6 +1,6 @@
 import {type MouseEventHandler, useState} from "react";
 
-import { type TInputType} from '../types/auth-types'
+import { type TInputType} from '../types/form-types.ts'
 
 export const useTogglePassword = (showEyeIcon: boolean | undefined, inputType: TInputType) => {
 

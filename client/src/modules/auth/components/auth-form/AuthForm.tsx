@@ -1,5 +1,5 @@
 import type {FieldValues, SubmitHandler, UseFormHandleSubmit} from "react-hook-form";
-import type {IFormConfig} from "../../types/auth-types.ts";
+import type {IFormConfig} from "../../types/form-types.ts";
 import styles from "./AuthForm.module.scss";
 import {InputField} from "../../ui/input-field";
 import {Button, ButtonType} from "@components/button";

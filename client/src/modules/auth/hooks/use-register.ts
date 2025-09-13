@@ -1,6 +1,9 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
 import {registerFormDefaultValues} from "../constants/auth-constants.ts";
-import type {IRegisterForm, IRegisterFormConfig} from "../types/auth-types.ts";
+import type {IRegisterForm, IRegisterFormConfig} from "../types/form-types.ts";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {userApi} from "../api/user-api.ts";
+import axios from "axios";
 
 export const useRegister = () => {
 
@@ -14,6 +17,35 @@ export const useRegister = () => {
 	} = useForm({
 		mode: 'onBlur',
 		defaultValues: registerFormDefaultValues
+	})
+
+	const queryClient = useQueryClient();
+
+	const registerUserMutation = useMutation({
+		mutationFn: userApi.register,
+
+		onError: (error) => {
+			if (axios.isAxiosError(error)) {
+				if (error.response) {
+					if (error.response.status === 409) {
+						console.log('User with entered email already exist', error.response.data);
+					}
+				}
+			}
+		},
+
+		onSuccess: (authResponse) => {
+			const accessToken = authResponse.data.accessToken;
+			localStorage.setItem("accessToken", accessToken);
+
+			const userData = authResponse.data.userData;
+			queryClient.setQueryData(
+				[userApi.getCashKey()],
+				userData
+			)
+
+			console.log(authResponse)
+		}
 	})
 
 	const password = watch('password');
@@ -73,7 +105,7 @@ export const useRegister = () => {
 	}
 
 	const onSubmit: SubmitHandler<IRegisterForm> = (data) => {
-		console.log(data)
+		registerUserMutation.mutate(data)
 	}
 
 	return {

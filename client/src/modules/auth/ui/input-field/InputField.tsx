@@ -1,6 +1,6 @@
 import styles from './InputField.module.scss'
 
-import { type IInputField } from '../../types/auth-types.ts'
+import { type IInputField } from '../../types/form-types.ts'
 import {type FieldValues, useWatch} from "react-hook-form"
 import {useTogglePassword} from "../../hooks/use-toggle-password.ts";
 

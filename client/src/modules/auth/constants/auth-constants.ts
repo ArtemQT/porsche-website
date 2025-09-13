@@ -1,4 +1,4 @@
-import type {ILoginForm, IRegisterForm} from "../types/auth-types.ts";
+import type {ILoginForm, IRegisterForm} from "../types/form-types.ts";
 
 export const loginFormDefaultValues: ILoginForm = {
 	email: '',

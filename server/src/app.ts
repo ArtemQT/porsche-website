@@ -1,7 +1,8 @@
 import express, {json} from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
-import {authRoute} from "./routes/auth-route.js";
+import cors from 'cors';
+import {authRoute} from "./routes/auth-route.js"
 import {errorMiddleware} from "./middlewares/error-middleware.js";
 
 const app = express();
@@ -17,6 +18,10 @@ function startApp() {
 
 startApp();
 
+app.use(cors({
+	origin: 'http://localhost:5173',
+	credentials: true,
+}))
 app.use(json())
 app.use(cookieParser())
 

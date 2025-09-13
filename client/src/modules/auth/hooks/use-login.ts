@@ -1,5 +1,5 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
-import type {ILoginForm, ILoginFormConfig} from "../types/auth-types.ts";
+import type {ILoginForm, ILoginFormConfig} from "../types/form-types.ts";
 import {loginFormDefaultValues} from "../constants/auth-constants.ts";
 
 export const useLogin = () => {
