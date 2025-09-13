@@ -10,6 +10,10 @@
 	background-color: var(--color-dark);
 	color: var(--color-light);
 
+	@include desktop {
+		padding-inline: rem(30);
+	}
+
 	@include tablet {
 		order: 1;
 		padding-block: rem(50);

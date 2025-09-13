@@ -1,6 +1,12 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
 import type {ILoginForm, ILoginFormConfig} from "../types/form-types.ts";
 import {loginFormDefaultValues} from "../constants/auth-constants.ts";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {userApi} from "../api/user-api.ts";
+import axios from "axios";
+import {toast} from "sonner";
+import {useAuth} from "./use-auth.ts";
+import {useLoginModal} from "./use-login-modal.ts";
 
 export const useLogin = () => {
 
@@ -9,10 +15,56 @@ export const useLogin = () => {
 		handleSubmit,
 		control,
 		reset,
-		formState: { errors },
+		formState: {errors},
 	} = useForm<ILoginForm>({
 		mode: 'onBlur',
 		defaultValues: loginFormDefaultValues
+	})
+
+	const queryClient = useQueryClient();
+
+	const {
+		setLogin
+	} = useAuth();
+
+	const {
+		handleClose
+	} = useLoginModal()
+
+	const loginUserMutation = useMutation({
+		mutationFn: userApi.login,
+
+		onError: (error) => {
+			if (axios.isAxiosError(error)) {
+				if (error.response) {
+					if (error.response.status === 401) {
+						toast.error(error.response.data.message);
+					}
+				}
+			}
+		},
+
+		onSuccess: (authResponse) => {
+
+			const accessToken = authResponse.data.accessToken;
+			localStorage.setItem("accessToken", accessToken);
+
+			const userData = authResponse.data.userDto;
+			queryClient.setQueryData(
+				[userApi.getCacheKey()],
+				userData
+			)
+
+			console.log(userData)
+
+			setLogin();
+			toast.success("Login successfully");
+			setTimeout(() => {
+				handleClose();
+				reset();
+			}, 1000)
+
+		}
 	})
 
 	const loginFormConfig: ILoginFormConfig = {
@@ -58,13 +110,14 @@ export const useLogin = () => {
 	}
 
 	const onSubmit: SubmitHandler<ILoginForm> = (data) => {
-		console.log(data)
+		loginUserMutation.mutate(data);
 	}
 
 	return {
 		handleSubmit,
 		onSubmit,
 		loginFormConfig,
-		reset
+		reset,
+		isLoginPending: loginUserMutation.isPending
 	}
 }

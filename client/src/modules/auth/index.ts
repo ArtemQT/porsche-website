@@ -5,3 +5,8 @@ export {LoginModalContextProvider} from './contexts/login-modal-context'
 export {RegisterModal} from './components/auth-modals/register-modal'
 export {useRegisterModal} from './hooks/use-register-modal'
 export {RegisterModalContextProvider} from './contexts/register-modal-context'
+
+export {useAuth} from './hooks/use-auth'
+export {AuthProvider} from './contexts/auth-context'
+
+export {useLogout} from './hooks/use-logout'

@@ -6,6 +6,7 @@ import {userApi} from "../api/user-api.ts";
 import axios from "axios";
 import {useRegisterModal} from "./use-register-modal.ts";
 import {toast} from "sonner";
+import {useAuth} from "./use-auth.ts";
 
 export const useRegister = () => {
 
@@ -27,6 +28,10 @@ export const useRegister = () => {
 		handleClose
 	} = useRegisterModal()
 
+	const {
+		setLogin
+	} = useAuth()
+
 	const registerUserMutation = useMutation({
 		mutationFn: userApi.register,
 
@@ -42,17 +47,16 @@ export const useRegister = () => {
 
 		onSuccess: (authResponse) => {
 
-			console.log('Успешная регистрация')
-
 			const accessToken = authResponse.data.accessToken;
 			localStorage.setItem("accessToken", accessToken);
 
-			const userData = authResponse.data.userData;
+			const userData = authResponse.data.userDto;
 			queryClient.setQueryData(
-				[userApi.getCashKey()],
+				[userApi.getCacheKey()],
 				userData
 			)
 
+			setLogin()
 			toast.success('Registration completed successfully')
 			setTimeout(() => {
 				handleClose();

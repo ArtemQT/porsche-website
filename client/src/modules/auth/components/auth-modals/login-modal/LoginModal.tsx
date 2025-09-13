@@ -12,7 +12,8 @@ export const LoginModal = () => {
 		handleSubmit,
 		onSubmit,
 		loginFormConfig,
-		reset
+		reset,
+		isLoginPending
 	} = useLogin();
 
 	const {
@@ -32,6 +33,7 @@ export const LoginModal = () => {
 				<AuthForm handleSubmit={handleSubmit}
 						  onSubmit={onSubmit}
 						  config={loginFormConfig}
+						  isAuthPending={isLoginPending}
 				/>
 			</div>
 		</div>,

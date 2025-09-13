@@ -1,7 +1,7 @@
 export interface IResponseAuth {
 	data: {
 		accessToken: string;
-		userData: IUserData,
+		userDto: IUserData,
 	}
 	message: string;
 }
@@ -14,4 +14,8 @@ interface IUserData {
 export interface IUserAuthInfo {
 	email: string;
 	password: string;
+}
+
+export interface ILogoutResponse {
+	message: string;
 }
