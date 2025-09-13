@@ -10,7 +10,7 @@ export const AuthContext = createContext<AuthContext | null>(null)
 
 export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => !!localStorage.getItem('accessToken'))
 
 	const setLogin = () => setIsLoggedIn(true);
 
