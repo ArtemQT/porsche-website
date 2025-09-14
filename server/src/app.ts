@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors';
 import {authRoute} from "./routes/auth-route.js"
 import {errorMiddleware} from "./middlewares/error-middleware.js";
+import {carModelsRoute} from "./routes/car-models-route.js";
 
 const app = express();
 dotenv.config();
@@ -26,5 +27,6 @@ app.use(json())
 app.use(cookieParser())
 
 app.use('/auth', authRoute);
+app.use('/car-models', carModelsRoute)
 
 app.use(errorMiddleware)
