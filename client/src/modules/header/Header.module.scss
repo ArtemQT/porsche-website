@@ -1,13 +1,21 @@
 @use "@helpers" as *;
 
 .header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	width: 100%;
 	background-color: var(--bg-color-header);
-	transition-duration: var(--transition-duration);
+
+	&[data-is-home-page='false'] {
+		--bg-color-header: var(--color-grey-dark);
+		--color-header: var(--color-dark);
+	}
+
+	&[data-is-home-page='true'] {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		width: 100%;
+		transition-duration: var(--transition-duration);
+	}
 
 	&Inner {
 		position: relative;

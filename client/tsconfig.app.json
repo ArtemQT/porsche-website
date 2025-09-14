@@ -5,7 +5,9 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@helpers/*": ["srs/styles/helpers/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
 
     "resolveJsonModule": true,

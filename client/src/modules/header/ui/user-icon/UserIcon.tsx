@@ -31,7 +31,7 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 
 	const {
 		handleLogout
-	} = useLogout()
+	} = useLogout();
 
 	return (
 		<>

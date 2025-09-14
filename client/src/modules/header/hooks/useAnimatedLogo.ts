@@ -1,18 +1,19 @@
 import {useEffect, useState} from "react";
 
 export const useAnimatedLogo = () => {
-
 	const [isScrolledHeader, setIsScrolledHeader] = useState<boolean>(false);
+	const bgColorCssVariable = '--bg-color-header';
+	const colorCssVariable = '--color-header';
 
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY >= 100) {
-				document.documentElement.style.setProperty('--color-header', 'var(--color-dark)');
-				document.documentElement.style.setProperty('--bg-color-header', 'var(--color-grey-dark)');
+				document.documentElement.style.setProperty(colorCssVariable, 'var(--color-dark)');
+				document.documentElement.style.setProperty(bgColorCssVariable, 'var(--color-grey-dark)');
 				setIsScrolledHeader(true);
 			} else {
-				document.documentElement.style.setProperty('--color-header', 'var(--color-light)');
-				document.documentElement.style.setProperty('--bg-color-header', 'transparent');
+				document.documentElement.style.setProperty(colorCssVariable, 'var(--color-light)');
+				document.documentElement.style.setProperty(bgColorCssVariable, 'transparent');
 				setIsScrolledHeader(false);
 			}
 		}

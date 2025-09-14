@@ -16,7 +16,7 @@ interface ModalProps {
 	cssAbsoluteCoordinates: TCoordinates | undefined;
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, onClose, children, cssAbsoluteCoordinates }) => {
+export const Modal: FC<ModalProps> = ({isOpen, onClose, children, cssAbsoluteCoordinates}) => {
 
 	const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
 		e.stopPropagation();
@@ -26,7 +26,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onClose, children, cssAbsoluteCo
 	if (!isOpen) return null;
 
 	return createPortal(
-		<div className={styles.modalOverlay}  onClick={onClose}>
+		<div className={styles.modalOverlay} onClick={onClose}>
 			<div style={cssAbsoluteCoordinates}
 				 className={styles.modal}
 				 onClick={handleClick}

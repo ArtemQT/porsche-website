@@ -4,6 +4,7 @@ import {type FC, useRef} from "react";
 import type {ICarRowModels} from "../../constants/constants.ts";
 import {Link} from "react-router-dom";
 import {useCardControl} from "../../hooks/useCardControl.ts";
+import {RoutePaths} from "@config/router.tsx";
 
 interface CarRowCardProps {
 	carRow: ICarRowModels;
@@ -26,6 +27,11 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 			onMouseLeave={onMouseLeaveCard}
 			onMouseEnter={onMouseEnterCard}
 		>
+
+			<Link to={RoutePaths.modelsPage}
+				  className={styles.linkToModels}
+			/>
+
 			<div className={styles.cardPoster}
 				 ref={posterRef}
 			>
@@ -49,7 +55,7 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 				<div className={styles.cardWrapper}>
 					<p className={styles.cardDescription}>{carRow.modelDescription}</p>
 					<Link className={styles.cardLink}
-						  to={''}
+						  to={RoutePaths.modelsPage}
 					>
 						All {carRow.modelRow} models
 					</Link>

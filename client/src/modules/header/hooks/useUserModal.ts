@@ -20,8 +20,9 @@ export const useUserModal = (buttonRef: RefObject<HTMLButtonElement | null>, lis
 				const iconRect = buttonRef.current.getBoundingClientRect();
 				const modalRect = listRef.current.getBoundingClientRect();
 
+				console.log(iconRect.bottom);
 				setCoordinates({
-					top: iconRect.bottom + 'px',
+					top: iconRect.bottom + window.scrollY + 'px',
 					left: iconRect.left - modalRect.width / 2.5 + 'px'
 				})
 			} else {
@@ -36,7 +37,7 @@ export const useUserModal = (buttonRef: RefObject<HTMLButtonElement | null>, lis
 		return () => {
 			window.removeEventListener("resize", calculateCoordinates);
 		}
-	}, [isOpen, buttonRef.current, listRef.current]);
+	}, [isOpen]);
 
 	const {
 		handleOpen: handleLoginModalOpen
