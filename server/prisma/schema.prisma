@@ -21,3 +21,19 @@ model Token {
 
   user User @relation(fields: [userId], references: [id])
 }
+
+model CarModels {
+  id                Int         @id @default(autoincrement())
+  modelSeries       ModelSeries
+  modelName         String      @db.VarChar(255)
+  modelAcceleration String      @db.VarChar(64)
+  topSpeed          String      @db.VarChar(64)
+  fuelType          String      @db.VarChar(64)
+  powerKwKp         String      @db.VarChar(64)
+  modelImage        String      @db.VarChar(64)
+}
+
+enum ModelSeries {
+  SERIES_911
+  SERIES_718
+}
