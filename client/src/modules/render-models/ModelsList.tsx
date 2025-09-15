@@ -26,7 +26,7 @@ export const ModelsList = () => {
 			<ul className={styles.modelsList}>
 				{
 					modelsList?.map((model) => (
-						<ModelCard key={model.id} model={model}/>
+						<ModelCard key={model.id} model={model} row={modelsRow}/>
 					))
 				}
 			</ul>

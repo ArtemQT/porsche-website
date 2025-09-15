@@ -1,11 +1,6 @@
 @use "@helpers" as *;
 
 .models {
-
-	&Section {
-		background-color: var(--color-grey-light);
-	}
-
 	&Title {
 		margin-bottom: rem(40);
 	}

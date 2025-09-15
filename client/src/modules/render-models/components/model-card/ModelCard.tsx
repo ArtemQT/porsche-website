@@ -1,4 +1,5 @@
 import styles from './ModelCard.module.scss'
+
 import type {IModelInfo} from "../../types/models-list-types.ts";
 import type {FC} from "react";
 
@@ -10,9 +11,10 @@ interface IModelCardInfo {
 
 interface ModelCardProps {
 	model: IModelInfo;
+	row: string | undefined;
 }
 
-export const ModelCard:FC<ModelCardProps> = ({model}) => {
+export const ModelCard: FC<ModelCardProps> = ({model, row}) => {
 	const modelCardInfo: IModelCardInfo[] = [
 		{
 			id: 1,
@@ -43,20 +45,27 @@ export const ModelCard:FC<ModelCardProps> = ({model}) => {
 				/>
 			</div>
 
-			<h4 className={styles.modelCardTitle}>{model.modelName}</h4>
+			<h4 className={styles.modelCardTitle}>{row} {model.modelName}</h4>
 
-			{
-				modelCardInfo.map(infoItem => (
-					<div className={styles.modelCardInfoWrapper} key={infoItem.id}>
-						<div className={styles.modelCardInfo}>
-							{infoItem.info}
-						</div>
-						<p className={styles.modelCardDescription}>
-							{infoItem.description}
-						</p>
-					</div>
-				))
-			}
+			<ul className={styles.modelCardInfoList}>
+				{
+					modelCardInfo.map(infoItem => (
+						<li className={styles.modelCardInfoItem} key={infoItem.id}>
+							<div className={styles.modelCardInfoData}>
+								{infoItem.info}
+							</div>
+							<p className={styles.modelCardInfoDescription}>
+								{infoItem.description}
+							</p>
+						</li>
+					))
+				}
+			</ul>
+
+
+			<button className={styles.modelCardButton}>
+				Configure model
+			</button>
 		</li>
 	)
 }
