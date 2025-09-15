@@ -1,0 +1,22 @@
+@use "@helpers" as *;
+
+.models {
+
+	&Wrapper {
+		padding-left: rem(10);
+		margin-left: rem(10);
+	}
+
+	&List {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(30);
+
+		border-left: rem(3) solid var(--color-dark);
+	}
+
+	&Title {
+		margin-bottom: rem(20);
+		font-weight: 500;
+	}
+}

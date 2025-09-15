@@ -4,7 +4,7 @@
 	background-color: var(--bg-color-header);
 
 	&[data-is-home-page='false'] {
-		--bg-color-header: var(--color-grey-dark);
+		--bg-color-header: var(--color-grey-light);
 		--color-header: var(--color-dark);
 	}
 

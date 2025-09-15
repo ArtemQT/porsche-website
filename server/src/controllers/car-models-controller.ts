@@ -7,12 +7,15 @@ export class CarModelsController {
 		try {
 			const row = req.params.row;
 
-			const carModels = await CarModelsService.getCarModelsByRow(row);
+			const {
+				carModels,
+				carRow
+			} = await CarModelsService.getCarModelsByRow(row);
 
 			res.status(200).json({
 				data: {
 					carModels,
-					carRow: row
+					carRow
 				},
 				message: `Car models for row ${row} successfully received`,
 			});

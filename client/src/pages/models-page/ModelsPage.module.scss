@@ -1,2 +1,20 @@
+@use "@helpers" as *;
+
 .models {
+
+	&Section {
+		background-color: var(--color-grey-light);
+	}
+
+	&Title {
+		margin-bottom: rem(40);
+	}
+
+	&Container {
+		display: grid;
+		grid-template-columns: 20% 80%;
+	}
+
+	&Filter {
+	}
 }

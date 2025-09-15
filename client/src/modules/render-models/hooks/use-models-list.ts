@@ -32,6 +32,7 @@ export const useModelsList = () => {
 
 	return {
 		modelsList: modelsListApiResponse?.data.carModels,
+		modelsRow: modelsListApiResponse?.data.carRow,
 		modelsListError,
 		isLoading,
 	}

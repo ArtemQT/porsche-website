@@ -19,7 +19,11 @@ export class CarModelsService {
 		}
 
 		const carModels = await prisma.carModels.findMany({where: {modelSeries}})
+		const carRow = row.substring(row.length - 3)
 
-		return carModels;
+		return {
+			carModels,
+			carRow
+		};
 	}
 }

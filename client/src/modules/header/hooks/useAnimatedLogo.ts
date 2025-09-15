@@ -9,7 +9,7 @@ export const useAnimatedLogo = () => {
 		const handleScroll = () => {
 			if (window.scrollY >= 100) {
 				document.documentElement.style.setProperty(colorCssVariable, 'var(--color-dark)');
-				document.documentElement.style.setProperty(bgColorCssVariable, 'var(--color-grey-dark)');
+				document.documentElement.style.setProperty(bgColorCssVariable, 'var(--color-grey-light)');
 				setIsScrolledHeader(true);
 			} else {
 				document.documentElement.style.setProperty(colorCssVariable, 'var(--color-light)');

@@ -7,7 +7,7 @@ export interface IGetModelsListResponse {
 	"message": string
 }
 
-interface IModelInfo {
+export interface IModelInfo {
 	id: number,
 	modelSeries: MODELS_SERIES,
 	modelName: string,
