@@ -4,7 +4,6 @@ import {type FC, useRef} from "react";
 import {ReactSVG} from "react-svg";
 import userIcon from '@assets/icons/profile.svg';
 
-import {Modal} from "../../../modal";
 import {useUserModal} from "../../hooks/useUserModal.ts";
 import {useAuth, useLogout} from "../../../auth";
 
@@ -21,9 +20,8 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 		isOpen,
 		handleOpen,
 		handleClose,
-		coordinates,
 		modalConfig
-	} = useUserModal(buttonRef, listRef);
+	} = useUserModal();
 
 	const {
 		isLoggedIn
@@ -34,17 +32,18 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 	} = useLogout();
 
 	return (
-		<>
+		<div className={styles.userMenu}
+			 onMouseLeave={handleClose}
+		>
 			<button className={buttonClassname}
-					onClick={handleOpen}
+					onMouseEnter={handleOpen}
 					ref={buttonRef}
 			>
 				<ReactSVG src={userIcon}/>
 			</button>
 
-			<Modal isOpen={isOpen}
-				   onClose={handleClose}
-				   cssAbsoluteCoordinates={coordinates}
+			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}
+				 onMouseLeave={handleClose}
 			>
 				<ul className={styles.modalList} ref={listRef}>
 					{
@@ -69,8 +68,7 @@ export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
 							))
 					}
 				</ul>
-			</Modal>
-		</>
-
+			</div>
+		</div>
 	)
 }

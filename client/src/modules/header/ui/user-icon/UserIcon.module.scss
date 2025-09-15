@@ -5,11 +5,6 @@
 	&List {
 		background-color: var(--color-light);
 		color: var(--color-dark);
-
-		border-radius: var(--border-radius);
-		overflow: hidden;
-
-		box-shadow: 0 0 5px 3px var(--color-dark);
 	}
 
 	&Item {
@@ -49,5 +44,29 @@
 				left: 0;
 			}
 		}
+	}
+}
+
+.userMenu {
+	position: relative;
+}
+
+.dropDownModal {
+	position: absolute;
+	top: calc(100%);
+	left: 50%;
+	translate: -50% 0;
+
+	overflow: hidden;
+	border-radius: var(--border-radius);
+
+	opacity: 0;
+	visibility: hidden;
+	transition-duration: var(--transition-duration);
+
+	&.open {
+		box-shadow: 0 0 5px 3px var(--color-dark);
+		opacity: 1;
+		visibility: visible;
 	}
 }
