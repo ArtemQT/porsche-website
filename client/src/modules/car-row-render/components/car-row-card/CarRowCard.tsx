@@ -28,7 +28,7 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 			onMouseEnter={onMouseEnterCard}
 		>
 
-			<Link to={RoutePaths.modelsPage}
+			<Link to={`${RoutePaths.modelsPage}/${carRow.modelRow}`}
 				  className={styles.linkToModels}
 			/>
 
@@ -54,11 +54,12 @@ export const CarRowCard: FC<CarRowCardProps> = ({carRow}) => {
 				<div className={styles.cardFuelType}>{carRow.fuelType}</div>
 				<div className={styles.cardWrapper}>
 					<p className={styles.cardDescription}>{carRow.modelDescription}</p>
-					<Link className={styles.cardLink}
-						  to={RoutePaths.modelsPage}
+					<a className={styles.cardLink}
+					   href=''
+					   onClick={(e) => e.preventDefault()}
 					>
 						All {carRow.modelRow} models
-					</Link>
+					</a>
 				</div>
 			</div>
 		</li>

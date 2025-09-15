@@ -10,7 +10,7 @@ export enum RoutePaths {
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
+		path: RoutePaths.homePage,
 		element: <MainLanding/>,
 		children: [
 			{
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				element: <ModelsPage/>,
-				path: 'models'
+				path: `${RoutePaths.modelsPage}/:row`
 			}
 		]
 	}
