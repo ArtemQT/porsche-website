@@ -7,12 +7,9 @@ export const ModelsList = () => {
 		modelsList,
 		modelsRow,
 		modelsListError,
-		isLoading
+		isLoading,
+		skeletonsList
 	} = useModelsList();
-
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
 
 	if (modelsListError) {
 		return <div>{modelsListError.message}</div>;
@@ -25,9 +22,13 @@ export const ModelsList = () => {
 			</h3>
 			<ul className={styles.modelsList}>
 				{
-					modelsList?.map((model) => (
-						<ModelCard key={model.id} model={model} row={modelsRow}/>
-					))
+					isLoading ? (
+						skeletonsList.map(((SkeletonCard, index) => <SkeletonCard key={index}/>))
+					) : (
+						modelsList?.map((model) => (
+							<ModelCard key={model.id} model={model} row={modelsRow}/>
+						))
+					)
 				}
 			</ul>
 		</div>

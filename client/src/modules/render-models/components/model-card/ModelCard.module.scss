@@ -26,6 +26,11 @@
 
 	&Img {
 		margin-bottom: rem(35);
+
+		> img {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&Title {

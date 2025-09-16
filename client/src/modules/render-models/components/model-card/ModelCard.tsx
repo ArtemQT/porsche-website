@@ -42,6 +42,8 @@ export const ModelCard: FC<ModelCardProps> = ({model, row}) => {
 			<div className={styles.modelCardImg}>
 				<img src={`/car-models/${model.modelImage}`}
 					 alt=""
+					 width='300'
+					 height='100'
 				/>
 			</div>
 

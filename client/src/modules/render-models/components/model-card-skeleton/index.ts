@@ -1,0 +1,1 @@
+export {ModelCardSkeleton} from './ModelCardSkeleton'

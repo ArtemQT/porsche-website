@@ -1,0 +1,71 @@
+@use "@helpers" as *;
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.skeletonCard {
+	background-color: var(--color-light);
+	padding: rem(30);
+	border-radius: var(--border-radius-large);
+
+	* {
+		border-radius: var(--border-radius);
+
+		background: linear-gradient(
+						45deg,
+						var(--color-grey-light) 0%,
+						var(--color-grey-light) 40%,
+						var(--color-light) 60%,
+						var(--color-grey-light) 80%,
+						var(--color-grey-light) 100%
+		);
+		background-size: 200% 100%;
+		animation: shimmer 1.5s infinite;
+	}
+
+	&FuelType {
+		max-width: rem(60);
+		height: rem(30);
+		border-radius: var(--border-radius-small);
+		margin-bottom: rem(15);
+	}
+
+	&Img {
+		max-width: 100%;
+		height: rem(125);
+		margin-bottom: rem(35);
+	}
+
+	&Title {
+		max-width: 60%;
+		height: rem(35);
+		margin-bottom: rem(35);
+	}
+
+	&Info {
+
+		&List {
+			max-width: 75%;
+			margin-bottom: rem(25);
+			height: rem(150);
+		}
+
+		&Item {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&Button {
+		display: block;
+		width: 100%;
+		height: rem(40);
+		pointer-events: none;
+	}
+}

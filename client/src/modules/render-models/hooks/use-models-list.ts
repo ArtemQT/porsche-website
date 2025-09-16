@@ -2,6 +2,7 @@ import {useQuery} from "@tanstack/react-query";
 import {modelsListApi} from "../api/models-list-api.ts";
 import {MODELS_SERIES} from "../types/models-list-types.ts";
 import {useParams} from "react-router-dom";
+import {ModelCardSkeleton} from "../components/model-card-skeleton";
 
 const createModelsSeries = (modelsRow: string | undefined) => {
 	if (!modelsRow) {
@@ -30,10 +31,18 @@ export const useModelsList = () => {
 		...modelsListApi.getUseQueryParams(modelsSeries),
 	})
 
+	const skeletonsList = [
+		ModelCardSkeleton,
+		ModelCardSkeleton,
+		ModelCardSkeleton,
+		ModelCardSkeleton,
+	]
+
 	return {
 		modelsList: modelsListApiResponse?.data.carModels,
 		modelsRow: modelsListApiResponse?.data.carRow,
 		modelsListError,
 		isLoading,
+		skeletonsList,
 	}
 }
