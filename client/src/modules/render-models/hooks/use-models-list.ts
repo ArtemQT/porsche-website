@@ -26,9 +26,10 @@ export const useModelsList = () => {
 	const {
 		data: modelsListApiResponse,
 		error: modelsListError,
-		isLoading
+		isLoading,
 	} = useQuery({
 		...modelsListApi.getUseQueryParams(modelsSeries),
+		initialData: undefined
 	})
 
 	const skeletonsList = [

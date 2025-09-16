@@ -1,0 +1,31 @@
+@use '@helpers' as *;
+
+.backButton {
+	@include flex-center(true);
+	column-gap: rem(10);
+
+	position: relative;
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: 50%;
+		left: -30%;
+		translate: 0 -50%;
+
+		display: block;
+		width: rem(40);
+		height: rem(10);
+
+		opacity: 0;
+
+		background: url("@assets/icons/arrow-left.svg") center/cover no-repeat;
+		transition-duration: var(--transition-duration);
+	}
+
+	@include hover {
+		&::before {
+			opacity: 1;
+		}
+	}
+}

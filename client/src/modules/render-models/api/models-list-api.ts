@@ -24,7 +24,12 @@ class ModelsListApi {
 	}
 
 	getModelsList = async (modelsRow: MODELS_SERIES | null, signal: AbortSignal) => {
-		const response = await this.modelsListApi.get<IGetModelsListResponse>(`/${modelsRow}`, {signal});
+		const response = await this.modelsListApi.get<IGetModelsListResponse>(`/`, {
+			params: {
+				row: modelsRow
+			},
+			signal
+		});
 		return response.data;
 	}
 }

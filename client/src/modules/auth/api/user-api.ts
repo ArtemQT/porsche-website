@@ -1,5 +1,6 @@
 import axios, {type AxiosInstance} from "axios";
 import type {ILogoutResponse, IResponseAuth, IUserAuthInfo} from "../types/auth-types.ts";
+import {baseApiUrl} from "@config/api-config.ts";
 
 class UserApi {
 	private userApi: AxiosInstance;
@@ -7,7 +8,7 @@ class UserApi {
 
 	constructor() {
 		this.userApi = axios.create({
-			baseURL: 'http://localhost:3000/auth',
+			baseURL: `${baseApiUrl}/auth`,
 			withCredentials: true
 		})
 
