@@ -12,6 +12,11 @@ body {
 	&.dark {
 		background-color: var(--color-dark);
 	}
+
+	&.modalOpen {
+		height: 100vh;
+		overflow: hidden;
+	}
 }
 
 a,

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export const useModal = () => {
 
@@ -11,6 +11,18 @@ export const useModal = () => {
 	const handleOpen = () => {
 		setIsOpen(true);
 	}
+
+	useEffect(() => {
+		if (isOpen) {
+			document.body.classList.add("modalOpen");
+		} else {
+			document.body.classList.remove("modalOpen");
+		}
+
+		return () => {
+			document.body.classList.remove('modalOpen');
+		}
+	}, [isOpen]);
 
 	return {
 		isOpen,

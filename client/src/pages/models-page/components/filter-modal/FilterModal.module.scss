@@ -1,0 +1,57 @@
+@use "@helpers" as *;
+
+.filterModal {
+	z-index: 1000;
+	position: fixed;
+	top: 50%;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--color-light);
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding-block: rem(40);
+
+	visibility: hidden;
+	opacity: 0;
+	transition-duration: var(--transition-duration);
+	&[data-modal-visible="true"] {
+		visibility: visible;
+		opacity: 1;
+		top: 0;
+	}
+
+	&CloseButton {
+		@include square(40);
+
+		background-color: var(--color-grey-dark);
+		padding: rem(5);
+		border-radius: var(--border-radius-small);
+
+		align-self: end;
+		position: relative;
+		&::before, &::after {
+			content: "";
+
+			@include abs-center();
+			width: 80%;
+			height: rem(2);
+			background-color: var(--color-dark);
+		}
+
+		&::before {
+			rotate: 45deg;
+		}
+
+		&::after {
+			rotate: -45deg;
+		}
+	}
+
+	&ViewButton {
+		width: rem(180);
+		margin-top: rem(10);
+	}
+}

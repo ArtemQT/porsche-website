@@ -3,11 +3,45 @@
 .models {
 	&Title {
 		margin-bottom: rem(60);
+		@include tablet {
+			margin-bottom: rem(20);
+		}
 	}
 
 	&Container {
 		display: grid;
 		grid-template-columns: 20% 80%;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(20);
+		}
 	}
 }
 
+.mobileFilter{
+
+	&Button {
+		margin-bottom: rem(60);
+		width: rem(275);
+		letter-spacing: rem(2);
+
+		@include tablet-above{
+			display: none;
+		}
+	}
+
+	&Modal {
+		@include tablet-above{
+			display: none;
+		}
+	}
+
+}
+
+.filterWrapper {
+	@include tablet{
+		display: none;
+	}
+}
