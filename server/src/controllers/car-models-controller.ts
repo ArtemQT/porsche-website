@@ -5,7 +5,7 @@ export class CarModelsController {
 
 	static async getCarModelsByRow(req: Request, res: Response, next: NextFunction) {
 		try {
-			const row = req.params.row;
+			const row = req.query.row as string || undefined;
 
 			const {
 				carModels,
@@ -17,7 +17,7 @@ export class CarModelsController {
 					carModels,
 					carRow
 				},
-				message: `Car models for row ${row} successfully received`,
+				message: `Car models successfully received`,
 			});
 
 		} catch (err) {

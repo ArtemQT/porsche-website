@@ -7,7 +7,8 @@
       "@helpers/*": ["srs/styles/helpers/*"],
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@shared/*": ["src/shared/*"]
     },
 
     "resolveJsonModule": true,

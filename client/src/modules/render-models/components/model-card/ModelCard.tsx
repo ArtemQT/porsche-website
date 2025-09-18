@@ -1,6 +1,6 @@
 import styles from './ModelCard.module.scss'
 
-import type {IModelInfo} from "../../types/models-list-types.ts";
+import type {IModelInfo} from "../../../../shared/types/models-list-types.ts";
 import type {FC} from "react";
 
 interface IModelCardInfo {

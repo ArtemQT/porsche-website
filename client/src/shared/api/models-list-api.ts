@@ -34,5 +34,4 @@ class ModelsListApi {
 	}
 }
 
-
 export const modelsListApi = new ModelsListApi();

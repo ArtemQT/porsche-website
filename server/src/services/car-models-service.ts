@@ -6,13 +6,17 @@ export class CarModelsService {
 
 	static async getCarModelsByRow(row: string | undefined) {
 		if (!row) {
-			throw ApiError.badRequest('Parameter "row" on URL is required');
+			const carModels = await prisma.carModels.findMany();
+			return {
+				carModels,
+				row: undefined
+			}
 		}
 
 		const allModelSeriesValues = Object.values(ModelSeries);
 
 		const modelSeries = allModelSeriesValues.find(
-			(value) => value.endsWith(row)
+			(value) => value === row
 		)
 		if (!modelSeries) {
 			throw ApiError.badRequest(`No models found for row: ${row}`);

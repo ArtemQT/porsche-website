@@ -1,0 +1,48 @@
+@use "@helpers" as *;
+
+.field {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(10);
+
+	transition-duration: var(--transition-duration);
+
+	@include hover {
+		.fieldInput:checked + .fieldCustomInput {
+			background-color: var(--color-red);
+		}
+
+		.fieldCustomInput {
+			border-color: var(--color-red);
+		}
+	}
+
+	&CustomInput {
+		@include square(30);
+
+		display: inline-block;
+		border-radius: 50%;
+		border: rem(2) solid var(--color-dark);
+		background-color: transparent;
+
+		transition-duration: var(--transition-duration);
+
+		position: relative;
+		&::before {
+			@include abs-center();
+
+			content: "";
+
+			display: inline-block;
+			width: 45%;
+			aspect-ratio: 1;
+			background-color: var(--color-grey-light);
+			border-radius: inherit;
+		}
+	}
+
+	&Input:checked + &CustomInput {
+		background-color: var(--color-dark);
+	}
+
+}

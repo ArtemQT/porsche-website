@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
-import {modelsListApi} from "../api/models-list-api.ts";
-import {MODELS_SERIES} from "../types/models-list-types.ts";
+import {modelsListApi} from "../../../shared/api/models-list-api.ts";
+import {MODELS_SERIES} from "../../../shared/types/models-list-types.ts";
 import {useParams} from "react-router-dom";
 import {ModelCardSkeleton} from "../components/model-card-skeleton";
 

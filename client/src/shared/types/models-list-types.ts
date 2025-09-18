@@ -1,4 +1,3 @@
-
 export interface IGetModelsListResponse {
 	data: {
 		carModels: IModelInfo[],
@@ -19,6 +18,7 @@ export interface IModelInfo {
 }
 
 export enum MODELS_SERIES {
+	ALL_SERIES = '',
 	SERIES_911 = "SERIES_911",
 	SERIES_718 = "SERIES_718",
 }
