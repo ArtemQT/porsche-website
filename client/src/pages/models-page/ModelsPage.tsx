@@ -10,8 +10,8 @@ export const ModelsPage = () => {
 			<div className={`${styles.modelsContainer}`}>
 				<FilterContextProvider>
 					<ModelsFilter/>
+					<ModelsList/>
 				</FilterContextProvider>
-				<ModelsList/>
 			</div>
 		</section>
 	)
