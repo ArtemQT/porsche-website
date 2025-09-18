@@ -2,26 +2,13 @@ import {createContext, type FC, type PropsWithChildren, useState} from "react";
 import type {IFilterForm, IModelRowFilterList} from "../types/filter-types.ts";
 import {MODELS_SERIES} from "@shared/types/models-list-types.ts";
 import {useParams} from "react-router-dom";
+import {getModelSeries} from "@shared/helpers/get-model-series.ts";
 
 interface IFilterFormContext {
 	filterForm: IFilterForm,
 	modelRowFilterList: IModelRowFilterList[],
 	updateModelRow: (modelRowValue: MODELS_SERIES) => void,
-}
-
-const setInitialRow = (row: string | undefined) =>  {
-	if (!row) {
-		throw new Error('row must be provided in dynamic parameter')
-	}
-
-	const modelRows = Object.values(MODELS_SERIES);
-	const modelRow = modelRows.find(rowItem => rowItem.includes(row));
-
-	if (!modelRow) {
-		throw new Error(`Model series does not exist for the given row ${row}`);
-	}
-
-	return modelRow;
+	resetFilters: () => void,
 }
 
 export const FilterContext = createContext<IFilterFormContext | null>(null);
@@ -29,14 +16,22 @@ export const FilterContext = createContext<IFilterFormContext | null>(null);
 export const FilterContextProvider: FC<PropsWithChildren> = ({children}) => {
 	const {row} = useParams();
 
+	const initialModelRow = getModelSeries(row)
+
 	const [filterForm, setFilterForm] = useState<IFilterForm>({
-		modelRow: setInitialRow(row)
+		modelRow: initialModelRow
 	});
 
 	const updateModelRow = (modelRowValue: MODELS_SERIES) => {
 		setFilterForm({
 			...filterForm,
 			modelRow: modelRowValue
+		})
+	}
+
+	const resetFilters = () => {
+		setFilterForm({
+			modelRow: initialModelRow
 		})
 	}
 
@@ -61,7 +56,8 @@ export const FilterContextProvider: FC<PropsWithChildren> = ({children}) => {
 	const value: IFilterFormContext = {
 		filterForm,
 		modelRowFilterList,
-		updateModelRow
+		updateModelRow,
+		resetFilters
 	}
 
 	return (
