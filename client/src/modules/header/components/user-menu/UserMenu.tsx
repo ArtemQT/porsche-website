@@ -1,4 +1,4 @@
-import styles from './UserIcon.module.scss'
+import styles from './UserMenu.module.scss'
 
 import {type FC, useRef} from "react";
 import {ReactSVG} from "react-svg";
@@ -11,7 +11,7 @@ interface UserIconProps {
 	buttonClassname: string;
 }
 
-export const UserIcon: FC<UserIconProps> = ({buttonClassname}) => {
+export const UserMenu: FC<UserIconProps> = ({buttonClassname}) => {
 
 	const buttonRef = useRef<HTMLButtonElement>(null);
 	const listRef = useRef<HTMLUListElement>(null)

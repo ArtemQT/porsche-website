@@ -1,0 +1,15 @@
+.search {
+
+	&Field {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&Input {
+		border: none;
+		border-bottom: var(--border);
+		&:focus {
+			outline: none;
+		}
+	}
+}

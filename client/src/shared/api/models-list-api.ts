@@ -1,7 +1,11 @@
 import axios, {type AxiosInstance} from "axios";
 import {baseApiUrl} from "@config/api-config.ts";
 import {queryOptions} from "@tanstack/react-query";
-import {type IGetModelsListResponse, MODELS_SERIES} from "../types/models-list-types.ts";
+import {
+	type IGetModelsListBySearchResponse,
+	type IGetModelsListResponse,
+	MODELS_SERIES
+} from "../types/models-list-types.ts";
 
 class ModelsListApi {
 	private modelsListApi: AxiosInstance;
@@ -16,10 +20,21 @@ class ModelsListApi {
 		this.cacheKey = 'models-list'
 	}
 
-	getUseQueryParams = (modelsRow: MODELS_SERIES | null) => {
+	getUseQueryParamsListApi = (modelsRow: MODELS_SERIES | null) => {
 		return queryOptions({
 			queryKey: [this.cacheKey, modelsRow],
 			queryFn: ({signal}) => this.getModelsList(modelsRow, signal)
+		})
+	}
+
+	getUseQueryParamsSearchListApi = (search: string) => {
+		return queryOptions({
+			queryKey: [this.cacheKey, 'search', search],
+			queryFn: ({signal}) => this.getModelsListBySearch(search, signal),
+			enabled: !!search.trim(),
+
+			staleTime: 1000 * 60 * 1,
+			gcTime: 1000 * 60 * 2
 		})
 	}
 
@@ -30,6 +45,17 @@ class ModelsListApi {
 			},
 			signal
 		});
+		return response.data;
+	}
+
+	getModelsListBySearch = async (search: string, signal: AbortSignal) => {
+		const response = await this.modelsListApi.get<IGetModelsListBySearchResponse>('/search', {
+			params: {
+				search
+			},
+			signal
+		})
+
 		return response.data;
 	}
 }

@@ -6,6 +6,12 @@ export interface IGetModelsListResponse {
 	"message": string
 }
 
+export interface IGetModelsListBySearchResponse {
+	data: {
+		models: IModelInfo[]
+	}
+}
+
 export interface IModelInfo {
 	id: number,
 	modelSeries: MODELS_SERIES,

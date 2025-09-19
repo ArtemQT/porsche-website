@@ -14,7 +14,7 @@ export const useModelsList = () => {
 		error: modelsListError,
 		isLoading,
 	} = useQuery({
-		...modelsListApi.getUseQueryParams(filterForm.modelRow),
+		...modelsListApi.getUseQueryParamsListApi(filterForm.modelRow),
 	})
 
 	const skeletonsList = [

@@ -1,17 +1,17 @@
-import {UserIcon} from "../ui/user-icon";
-import {SearchIcon} from "../ui/search-icon";
+import {UserMenu} from "../components/user-menu";
+import {SearchMenu} from "../components/search-menu";
 import {BasketIcon} from "../ui/basket-icon";
 
 export const ICONS = [
 	{
 		id: 1,
 		name: 'profile',
-		IconComponent: UserIcon,
+		IconComponent: UserMenu,
 	},
 	{
 		id: 2,
 		name: 'search',
-		IconComponent: SearchIcon
+		IconComponent: SearchMenu
 	},
 	{
 		id: 3,

@@ -1,0 +1,27 @@
+@use "../../../../styles/helpers/index" as *;
+
+.searchMenu {
+	position: relative;
+}
+
+.dropDownModal {
+	z-index: 1000;
+	position: absolute;
+	top: 100%;
+	right: rem(-100);
+
+	background-color: var(--color-light);
+	width: rem(550);
+	height: rem(300);
+	padding: rem(30);
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 rem(10) rem(3) var(--color-dark);
+
+	opacity: 0;
+	visibility: hidden;
+	transition-duration: var(--transition-duration);
+	&.open {
+		opacity: 1;
+		visibility: visible;
+	}
+}
