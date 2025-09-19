@@ -1,15 +1,40 @@
+@use '@helpers' as *;
+
 .search {
 
 	&Field {
 		display: flex;
 		flex-direction: column;
+
+		position: relative;
+		&Placeholder {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			translate: 0 -50%;
+			transition-duration: var(--transition-duration);
+		}
+	}
+
+	&Form {
+		flex-grow: 1
 	}
 
 	&Input {
 		border: none;
-		border-bottom: var(--border);
+		border-bottom: rem(1) solid var(--color-dark);
+
 		&:focus {
 			outline: none;
 		}
+
+		&:focus + .searchFieldPlaceholder,
+		&[data-is-dirty='true'] + .searchFieldPlaceholder {
+			@include fluid-text(14, 16);
+
+			top: -75%;
+			translate: 0;
+		}
+
 	}
 }

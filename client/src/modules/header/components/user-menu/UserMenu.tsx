@@ -1,6 +1,6 @@
 import styles from './UserMenu.module.scss'
 
-import {type FC, useRef} from "react";
+import {type FC} from "react";
 import {ReactSVG} from "react-svg";
 import userIcon from '@assets/icons/profile.svg';
 
@@ -12,9 +12,6 @@ interface UserIconProps {
 }
 
 export const UserMenu: FC<UserIconProps> = ({buttonClassname}) => {
-
-	const buttonRef = useRef<HTMLButtonElement>(null);
-	const listRef = useRef<HTMLUListElement>(null)
 
 	const {
 		isOpen,
@@ -37,15 +34,12 @@ export const UserMenu: FC<UserIconProps> = ({buttonClassname}) => {
 		>
 			<button className={buttonClassname}
 					onMouseEnter={handleOpen}
-					ref={buttonRef}
 			>
 				<ReactSVG src={userIcon}/>
 			</button>
 
-			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}
-				 onMouseLeave={handleClose}
-			>
-				<ul className={styles.modalList} ref={listRef}>
+			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}>
+				<ul className={styles.modalList}>
 					{
 						isLoggedIn ? (
 							<li className={styles.modalItem}>

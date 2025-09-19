@@ -1,46 +1,26 @@
 import styles from './SearchForm.module.scss'
-import {useSearch} from "./hooks/use-search.ts";
+import type {ChangeEvent, FC} from "react";
 
-export const SearchForm = () => {
+interface SearchFormProps {
+	searchValue: string,
+	onChangeSearchValue: (e: ChangeEvent<HTMLInputElement>) => void
+}
 
-	const {
-		searchValue,
-		onChangeSearchValue,
-		isSearchLoading,
-		searchModelsList,
-	} = useSearch();
-
+export const SearchForm: FC<SearchFormProps> = ({searchValue, onChangeSearchValue}) => {
 	return (
-		<>
-			<form className={styles.searchForm}>
-				<label className={styles.searchField}>
-					<p className={styles.searchFieldPlaceholder}>What models are you looking for?</p>
-
-					<input className={styles.searchInput}
-						   type='text'
-						   name='search-model'
-						   value={searchValue}
-						   onChange={onChangeSearchValue}
-					/>
-				</label>
-			</form>
-			<ul>
-
-				{
-					isSearchLoading ? (
-						<div>Loading...</div>
-					) : (
-						searchModelsList?.map((item) => (
-							<li key={item.id}>
-								{item.modelName}
-								<br/>
-							</li>
-						))
-					)
-				}
-
-			</ul>
-		</>
-
+		<form className={styles.searchForm}>
+			<label className={styles.searchField}>
+				<input className={styles.searchInput}
+					   type='text'
+					   name='search-model'
+					   value={searchValue}
+					   onChange={onChangeSearchValue}
+					   data-is-dirty={!!searchValue}
+				/>
+				<p className={styles.searchFieldPlaceholder}>
+					What models are you looking for?
+				</p>
+			</label>
+		</form>
 	)
 }

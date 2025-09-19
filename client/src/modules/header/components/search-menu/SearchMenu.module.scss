@@ -1,7 +1,42 @@
-@use "../../../../styles/helpers/index" as *;
+@use "@helpers" as *;
 
-.searchMenu {
+.search{
+
+	&Menu {
+		position: relative;
+	}
+
+	&Wrapper {
+		display: flex;
+		gap: rem(20);
+		width: 100%;
+	}
+}
+
+.cancelButton{
+	@include fluid-text(14, 16);
+
+	overflow: hidden;
 	position: relative;
+	&::before {
+		content: "";
+
+		position: absolute;
+		top: 80%;
+		left: -100%;
+
+		width: 100%;
+		height: rem(1);
+		background-color: currentColor;
+
+		transition-duration: var(--transition-duration);
+	}
+
+	@include hover {
+		&::before {
+			left: 0;
+		}
+	}
 }
 
 .dropDownModal {
@@ -25,3 +60,4 @@
 		visibility: visible;
 	}
 }
+

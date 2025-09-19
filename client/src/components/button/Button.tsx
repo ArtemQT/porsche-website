@@ -16,7 +16,7 @@ export enum ButtonType {
 
 export const Button: FC<ButtonProps> = ({buttonType, children, className, ...props}) => {
 	return (
-		<button className={`${styles.button} ${styles[buttonType]} ${className}`}
+		<button className={`${styles.button} ${styles[buttonType]} ${className ? className : ''}`}
 				type='button'
 				{...props}
 		>

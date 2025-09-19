@@ -6,6 +6,7 @@ import {ReactSVG} from "react-svg";
 import searchIcon from '@assets/icons/search.svg';
 import {useModal} from "../../../modal";
 import {SearchForm} from "../../../search-models";
+import {useSearch} from "../../../search-models/hooks/use-search.ts";
 
 interface SearchIconProps {
 	buttonClassname: string;
@@ -13,12 +14,16 @@ interface SearchIconProps {
 
 export const SearchMenu: FC<SearchIconProps> = ({buttonClassname}) => {
 
-	const { isOpen, handleOpen, handleClose } = useModal()
+	const {isOpen, handleOpen, handleClose} = useModal()
+	const {
+		searchValue,
+		onChangeSearchValue,
+		isSearchLoading,
+		searchModelsList
+	} = useSearch();
 
 	return (
-		<div className={styles.searchMenu}
-			 onMouseLeave={handleClose}
-		>
+		<div className={styles.searchMenu}>
 			<button className={buttonClassname}
 					onMouseEnter={handleOpen}
 			>
@@ -26,7 +31,30 @@ export const SearchMenu: FC<SearchIconProps> = ({buttonClassname}) => {
 			</button>
 
 			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}>
-				<SearchForm/>
+				<div className={styles.searchWrapper}>
+					<SearchForm searchValue={searchValue}
+								onChangeSearchValue={onChangeSearchValue}
+					/>
+					<button className={styles.cancelButton}
+						 	onClick={handleClose}
+					>
+						Cancel
+					</button>
+				</div>
+				<ul>
+					{
+						isSearchLoading ? (
+							<div>Loading...</div>
+						) : (
+							searchModelsList?.map((item) => (
+								<li key={item.id}>
+									{item.modelName}
+									<br/>
+								</li>
+							))
+						)
+					}
+				</ul>
 			</div>
 		</div>
 
