@@ -24,4 +24,20 @@ export class CarModelsController {
 			next(err);
 		}
 	}
+
+	static async searchCarModels(req: Request, res: Response, next: NextFunction) {
+		try {
+			const search = req.query.search as string || undefined;
+
+			const searchResult = await CarModelsService.searchCarModelsByQuery(search);
+
+			res.status(200).json({
+				data: {
+					models: searchResult
+				}
+			})
+		} catch (err) {
+			next(err);
+		}
+	}
 }

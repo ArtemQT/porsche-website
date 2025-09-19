@@ -1,6 +1,6 @@
 import styles from './ModelCard.module.scss'
 
-import type {IModelInfo} from "../../../../shared/types/models-list-types.ts";
+import type {IModelInfo} from "@shared/types/models-list-types.ts";
 import type {FC} from "react";
 
 interface IModelCardInfo {
@@ -11,10 +11,9 @@ interface IModelCardInfo {
 
 interface ModelCardProps {
 	model: IModelInfo;
-	row: string | undefined;
 }
 
-export const ModelCard: FC<ModelCardProps> = ({model, row}) => {
+export const ModelCard: FC<ModelCardProps> = ({model}) => {
 	const modelCardInfo: IModelCardInfo[] = [
 		{
 			id: 1,
@@ -47,7 +46,7 @@ export const ModelCard: FC<ModelCardProps> = ({model, row}) => {
 				/>
 			</div>
 
-			<h4 className={styles.modelCardTitle}>{row} {model.modelName}</h4>
+			<h4 className={styles.modelCardTitle}>{model.modelName}</h4>
 
 			<ul className={styles.modelCardInfoList}>
 				{

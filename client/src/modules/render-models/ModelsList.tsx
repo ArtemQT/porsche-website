@@ -26,7 +26,7 @@ export const ModelsList = () => {
 						skeletonsList.map(((SkeletonCard, index) => <SkeletonCard key={index}/>))
 					) : (
 						modelsList?.map((model) => (
-							<ModelCard key={model.id} model={model} row={modelsRow}/>
+							<ModelCard key={model.id} model={model}/>
 						))
 					)
 				}

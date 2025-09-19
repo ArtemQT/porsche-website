@@ -4,7 +4,7 @@ import {Header} from "../../modules/header";
 import {Footer} from "./components/footer";
 import {LoginModal, LoginModalContextProvider, RegisterModal, RegisterModalContextProvider} from "../../modules/auth";
 import {Toaster} from "sonner";
-import {useScrollToTop} from "@hooks/useScrollToTop.ts";
+import {useScrollToTop} from "@shared/hooks/useScrollToTop.ts";
 
 export const MainLanding: FC = () => {
 	useScrollToTop()

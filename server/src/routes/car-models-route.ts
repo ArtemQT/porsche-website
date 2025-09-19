@@ -4,3 +4,4 @@ import {CarModelsController} from "../controllers/car-models-controller.js";
 export const carModelsRoute = Router();
 
 carModelsRoute.get('/', CarModelsController.getCarModelsByRow);
+carModelsRoute.get('/search', CarModelsController.searchCarModels);

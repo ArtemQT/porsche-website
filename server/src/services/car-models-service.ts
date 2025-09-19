@@ -30,4 +30,25 @@ export class CarModelsService {
 			carRow
 		};
 	}
+
+	static async searchCarModelsByQuery(search: string | undefined) {
+		if (!search) {
+			throw ApiError.badRequest(`query parameter search is required`);
+		}
+
+		if (search.trim().length === 0) {
+			return [];
+		}
+
+		const models = await prisma.carModels.findMany({
+			where: {
+				modelName: {
+					contains: search,
+					mode: 'insensitive'
+				}
+			}
+		});
+
+		return models;
+	}
 }
