@@ -1,5 +1,5 @@
 
-export interface IInitialSearchItem {
+export interface ISearchItemLink {
 	id: number;
 	label: string;
 	link: string;

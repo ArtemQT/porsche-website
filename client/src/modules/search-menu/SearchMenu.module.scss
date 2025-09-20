@@ -43,5 +43,18 @@
 	&Data {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+
+		&[data-is-hidden="true"] {
+			display: none;
+		}
+	}
+}
+
+.searchData {
+	&[data-is-visible="false"] {
+		display: none;
+	}
+	&[data-is-visible="true"] {
+		display: block;
 	}
 }

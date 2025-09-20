@@ -5,8 +5,9 @@ import {useModal} from "../modal";
 import {useSearch} from "../search-models/hooks/use-search.ts";
 import {SearchButton} from "./components/search-button";
 import {SearchWrapper} from "./components/search-wrapper";
-import {InitialSearchWrapper} from "./components/initial-search-wrapper";
 import {modelRowLinks, newInLinks} from "./constants/constants.ts";
+import {SearchInfo} from "./components/search-info";
+import {SearchInfoList} from "./components/search-info-list";
 
 interface SearchMenuProps {
 	buttonClassname: string;
@@ -15,11 +16,12 @@ interface SearchMenuProps {
 export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 
 	const {isOpen, handleOpen, handleClose} = useModal()
+
 	const {
 		searchValue,
 		onChangeSearchValue,
+		searchModelsList
 	} = useSearch();
-
 
 	return (
 		<div className={styles.searchMenu}
@@ -36,27 +38,21 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 							   handleClose={handleClose}
 				/>
 
-				<div className={styles.initialSearchData}>
-					<InitialSearchWrapper title='Model rows' listOfLinks={modelRowLinks}/>
-					<InitialSearchWrapper title='New In' listOfLinks={newInLinks}/>
+				<div className={styles.initialSearchData}
+					 data-is-hidden={!!searchValue}
+				>
+					<SearchInfoList title='Model rows' listOfLinks={modelRowLinks}/>
+					<SearchInfoList title='New In' listOfLinks={newInLinks}/>
+				</div>
+
+				<div className={styles.searchData}
+					 data-is-visible={!!searchValue}
+				>
+					<SearchInfo searchModelsList={searchModelsList}/>
 				</div>
 			</div>
+
+
 		</div>
 	)
 }
-
-
-{/*<ul>*/}
-{/*	{*/}
-{/*		isSearchLoading ? (*/}
-{/*			<div>Loading...</div>*/}
-{/*		) : (*/}
-{/*			searchModelsList?.map((item) => (*/}
-{/*				<li key={item.id}>*/}
-{/*					{item.modelName}*/}
-{/*					<br/>*/}
-{/*				</li>*/}
-{/*			))*/}
-{/*		)*/}
-{/*	}*/}
-{/*</ul>*/}
