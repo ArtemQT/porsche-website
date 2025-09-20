@@ -39,3 +39,13 @@
 	}
 
 }
+
+.skeleton {
+
+	&LinkList, &ImgList{
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(20);
+	}
+
+}

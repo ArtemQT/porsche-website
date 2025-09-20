@@ -73,3 +73,26 @@
 	animation: linearBgAnimation 1.5s infinite alternate linear;
 }
 
+@mixin skeleton-animation() {
+	@keyframes shimmer {
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
+	}
+
+	background: linear-gradient(
+					45deg,
+					var(--color-grey-light) 0%,
+					var(--color-grey-light) 40%,
+					var(--color-light) 60%,
+					var(--color-grey-light) 80%,
+					var(--color-grey-light) 100%
+	);
+	background-size: 200% 100%;
+
+	animation: shimmer 1.5s infinite;
+}
+

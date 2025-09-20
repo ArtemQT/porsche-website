@@ -9,7 +9,7 @@ export const useSearch = () => {
 
 	const {
 		data: searchResponse,
-		isLoading: isSearchLoading,
+		isFetching: isSearching,
 		error: searchError
 	} = useQuery({
 		...modelsListApi.getUseQueryParamsSearchListApi(debouncedValue),
@@ -21,7 +21,7 @@ export const useSearch = () => {
 
 	return {
 		searchModelsList: searchResponse?.data.models,
-		isSearchLoading,
+		isSearching,
 		searchError,
 
 		searchValue,

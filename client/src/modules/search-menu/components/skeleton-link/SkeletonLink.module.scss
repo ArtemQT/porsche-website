@@ -1,0 +1,10 @@
+@use "@helpers" as *;
+
+.skeletonLink {
+	@include skeleton-animation();
+
+	background-color: var(--color-light);
+	width: 85%;
+	height: rem(25);
+	border-radius: var(--border-radius);
+}

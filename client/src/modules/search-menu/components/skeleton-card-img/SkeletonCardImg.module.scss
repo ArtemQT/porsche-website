@@ -1,0 +1,11 @@
+@use "@helpers" as *;
+
+.skeletonCardImg {
+	@include skeleton-animation();
+
+	width: 100%;
+	height: rem(120);
+
+	background-color: var(--color-light);
+	border-radius: var(--border-radius);
+}

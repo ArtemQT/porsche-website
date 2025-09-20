@@ -1,0 +1,1 @@
+export {SkeletonCardImg} from './SkeletonCardImg'

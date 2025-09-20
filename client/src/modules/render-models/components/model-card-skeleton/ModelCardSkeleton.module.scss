@@ -1,32 +1,14 @@
 @use "@helpers" as *;
 
-@keyframes shimmer {
-	0% {
-		background-position: -200% 0;
-	}
-	100% {
-		background-position: 200% 0;
-	}
-}
-
 .skeletonCard {
 	background-color: var(--color-light);
 	padding: rem(30);
 	border-radius: var(--border-radius-large);
 
 	* {
-		border-radius: var(--border-radius);
+		@include skeleton-animation();
 
-		background: linear-gradient(
-						45deg,
-						var(--color-grey-light) 0%,
-						var(--color-grey-light) 40%,
-						var(--color-light) 60%,
-						var(--color-grey-light) 80%,
-						var(--color-grey-light) 100%
-		);
-		background-size: 200% 100%;
-		animation: shimmer 1.5s infinite;
+		border-radius: var(--border-radius);
 	}
 
 	&FuelType {

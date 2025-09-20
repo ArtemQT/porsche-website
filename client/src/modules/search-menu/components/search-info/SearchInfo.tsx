@@ -4,12 +4,15 @@ import type {IModelInfo} from "@shared/types/models-list-types.ts";
 import type {FC} from "react";
 import {SearchInfoList} from "../search-info-list";
 import type {ISearchItemLink} from "../../types/types.ts";
+import {SkeletonLink} from "../skeleton-link/SkeletonLink.tsx";
+import {SkeletonCardImg} from "../skeleton-card-img";
 
 interface SearchListProps {
 	searchModelsList: IModelInfo[] | undefined;
+	isSearching: boolean;
 }
 
-export const SearchInfo: FC<SearchListProps> = ({searchModelsList}) => {
+export const SearchInfo: FC<SearchListProps> = ({searchModelsList, isSearching}) => {
 
 	const listOfLinks: ISearchItemLink[] | undefined = searchModelsList?.map(modelItem => {
 		return {
@@ -21,22 +24,40 @@ export const SearchInfo: FC<SearchListProps> = ({searchModelsList}) => {
 
 	return (
 		<div className={styles.searchInfoWrapper}>
-			<SearchInfoList title='Models' listOfLinks={listOfLinks}/>
-
-			<ul className={styles.searchInfoImgList}>
-				{
-					searchModelsList?.map(searchItem => (
-						<li key={searchItem.id}
-							className={styles.searchInfoImgItem}
-						>
-							<h4 className={styles.searchInfoImgTitle}>{searchItem.modelName}</h4>
-							<img src={`/car-models/${searchItem.modelImage}`}
-								 alt=""
-							/>
-						</li>
-					))
-				}
-			</ul>
+			{
+				isSearching ? (
+					<>
+						<div className={styles.skeletonLinkList}>
+							{
+								Array.from({length: 6}).map((_, index) => <SkeletonLink key={index}/>)
+							}
+						</div>
+						<div className={styles.skeletonImgList}>
+							{
+								Array.from({length: 2}).map((_, index) => <SkeletonCardImg key={index}/>)
+							}
+						</div>
+					</>
+				) : (
+					<>
+						<SearchInfoList title='Models' listOfLinks={listOfLinks}/>
+						<ul className={styles.searchInfoImgList}>
+							{
+								searchModelsList?.map(searchItem => (
+									<li key={searchItem.id}
+										className={styles.searchInfoImgItem}
+									>
+										<h4 className={styles.searchInfoImgTitle}>{searchItem.modelName}</h4>
+										<img src={`/car-models/${searchItem.modelImage}`}
+											 alt=""
+										/>
+									</li>
+								))
+							}
+						</ul>
+					</>
+				)
+			}
 		</div>
 
 	)

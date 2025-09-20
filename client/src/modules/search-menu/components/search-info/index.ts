@@ -1,1 +1,1 @@
-export {SearchInfo} from './SearchInfo.tsx'
+export {SearchInfo} from './SearchInfo'

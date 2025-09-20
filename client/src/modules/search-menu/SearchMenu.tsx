@@ -20,7 +20,8 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 	const {
 		searchValue,
 		onChangeSearchValue,
-		searchModelsList
+		searchModelsList,
+		isSearching
 	} = useSearch();
 
 	return (
@@ -32,7 +33,7 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 						  handleOpenDropDownMenu={handleOpen}
 			/>
 
-			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : styles.open}`}>
+			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}>
 				<SearchWrapper searchValue={searchValue}
 							   onChangeSearchValue={onChangeSearchValue}
 							   handleClose={handleClose}
@@ -48,7 +49,7 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 				<div className={styles.searchData}
 					 data-is-visible={!!searchValue}
 				>
-					<SearchInfo searchModelsList={searchModelsList}/>
+					<SearchInfo searchModelsList={searchModelsList} isSearching={isSearching}/>
 				</div>
 			</div>
 
