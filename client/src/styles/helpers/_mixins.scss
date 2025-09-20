@@ -50,3 +50,26 @@
 	overflow: hidden !important;
 }
 
+@mixin linear-shift-bg-animation($color) {
+	@keyframes linearBgAnimation {
+		from {
+			background-position: left;
+		}
+		to {
+			background-position: right;
+		}
+	}
+
+	@if ($color=='dark') {
+		background: var(--dark-red-gradient-background);
+	} @else if($color=='light') {
+		background: var(--light-red-gradient-background);
+	}
+
+	background-size: 200% auto;
+	background-clip: text;
+	color: transparent;
+
+	animation: linearBgAnimation 1.5s infinite alternate linear;
+}
+

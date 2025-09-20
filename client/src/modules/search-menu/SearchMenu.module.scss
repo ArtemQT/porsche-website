@@ -1,0 +1,47 @@
+@use "@helpers" as *;
+
+.searchMenu{
+	position: relative;
+}
+
+.dropDownModal {
+	z-index: 1000;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	translate: -50% 0;
+
+	background-color: var(--color-light);
+	width: rem(550);
+	height: rem(400);
+	padding: rem(30);
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 rem(10) rem(3) var(--color-dark);
+
+	opacity: 0;
+	visibility: hidden;
+	transition-duration: var(--transition-duration);
+	&.open {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: rem(-15);
+		left: 0;
+		width: 100%;
+		height: rem(15);
+		background: transparent;
+	}
+
+}
+
+.initialSearch {
+
+	&Data {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

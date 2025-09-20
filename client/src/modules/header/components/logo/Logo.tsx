@@ -2,7 +2,7 @@ import styles from './Logo.module.scss'
 
 import type {FC} from "react";
 import {Link} from "react-router-dom";
-import {RoutePaths} from "@config/router.tsx";
+import {RoutePaths} from "@config/route-paths.ts";
 
 interface LogoProps {
 	isScrolledHeader: boolean;

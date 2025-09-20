@@ -1,6 +1,6 @@
 import {UserMenu} from "../components/user-menu";
-import {SearchMenu} from "../components/search-menu";
 import {BasketIcon} from "../ui/basket-icon";
+import {SearchMenu} from "../../search-menu";
 
 export const ICONS = [
 	{

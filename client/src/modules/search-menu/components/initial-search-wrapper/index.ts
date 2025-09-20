@@ -1,0 +1,1 @@
+export {InitialSearchWrapper} from './InitialSearchWrapper'

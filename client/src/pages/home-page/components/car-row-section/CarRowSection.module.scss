@@ -17,19 +17,7 @@
 		background-clip: text;
 
 		&.dark {
-			color: transparent;
-			background: linear-gradient(90deg,
-					var(--color-light),
-					var(--color-light) 45%,
-					var(--color-red) 50%,
-					var(--color-light) 55%,
-					var(--color-light)
-			);
-
-			background-size: 200% auto;
-			background-clip: text;
-
-			animation: linearBgAnimation 1.5s infinite alternate linear;
+			@include linear-shift-bg-animation('light');
 		}
 	}
 }

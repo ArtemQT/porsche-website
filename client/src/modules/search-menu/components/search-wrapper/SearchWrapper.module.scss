@@ -1,0 +1,38 @@
+@use "@helpers" as *;
+
+.search{
+
+	&Wrapper {
+		display: flex;
+		gap: rem(20);
+		width: 100%;
+
+		margin-bottom: rem(35);
+	}
+}
+
+.cancelButton{
+	@include fluid-text(14, 16);
+
+	overflow: hidden;
+	position: relative;
+	&::before {
+		content: "";
+
+		position: absolute;
+		top: 80%;
+		left: 0;
+
+		width: 100%;
+		height: rem(1);
+		background-color: currentColor;
+
+		transition-duration: var(--transition-duration);
+	}
+
+	@include hover {
+		&::before {
+			left: 100%;
+		}
+	}
+}

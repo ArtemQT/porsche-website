@@ -1,0 +1,61 @@
+@use "@helpers" as *;
+
+.initialSearch {
+
+	&Title {
+		@include fluid-text(18, 20);
+		@include linear-shift-bg-animation('dark');
+
+		margin-bottom: rem(15);
+	}
+
+	&List {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(20);
+	}
+
+	&Item {
+		@include fluid-text(14, 16);
+		display: inline-flex;
+		align-items: center;
+		gap: rem(5);
+		transition-duration: var(--transition-duration);
+		overflow: hidden;
+		width: fit-content;
+
+		&::before {
+			@include square(15);
+			content: "";
+			background: url("@assets/icons/loupe.svg") center/cover no-repeat;
+		}
+
+		&Text {
+			position: relative;
+			overflow: hidden;
+
+			&::after {
+				content: "";
+
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				//opacity: 1;
+
+				width: 100%;
+				height: rem(0.5);
+				background-color: currentColor;
+
+				transition-duration: var(--transition-duration);
+			}
+
+		}
+
+		@include hover {
+			.initialSearchItemText::after {
+				left: 100%;
+				//opacity: 0;
+			}
+		}
+	}
+}

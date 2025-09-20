@@ -4,7 +4,7 @@ import {type FC, useRef} from "react";
 import type {ICarRowModels} from "../../constants/constants.ts";
 import {Link} from "react-router-dom";
 import {useCardControl} from "../../hooks/useCardControl.ts";
-import {RoutePaths} from "@config/router.tsx";
+import {RoutePaths} from "@config/route-paths.ts";
 
 interface CarRowCardProps {
 	carRow: ICarRowModels;

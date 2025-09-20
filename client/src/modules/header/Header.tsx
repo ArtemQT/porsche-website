@@ -7,7 +7,7 @@ import {IconsList} from "./components/icons-list/IconsList.tsx";
 import {BurgerMenu} from "./components/burger-menu/BurgerMenu.tsx";
 import {useAnimatedLogo} from "./hooks/useAnimatedLogo.ts";
 import {useLocation} from "react-router-dom";
-import {RoutePaths} from "@config/router.tsx";
+import {RoutePaths} from "@config/route-paths.ts";
 
 export const Header: FC = () => {
 

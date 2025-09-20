@@ -9,7 +9,7 @@
 	--color-grey-light: #F5F5F5;
 	--color-grey-dark: #E7E8EA;
 	--color-red: #FF0000;
-	--color-accent: #3D2B1F ;
+	--color-accent: #3D2B1F;
 
 	// Определение шрифтов
 	--font-family-base: 'Futura-new-book', sans-serif;
@@ -40,5 +40,23 @@
 	@include mobile {
 		--section-padding-y: 35px;
 	}
+
+	// Анимация переливания красного цвета
+	--light-red-gradient-background: linear-gradient(90deg,
+			var(--color-light),
+			var(--color-light) 45%,
+			var(--color-red) 50%,
+			var(--color-light) 55%,
+			var(--color-light)
+	);
+	--dark-red-gradient-background: linear-gradient(90deg,
+			var(--color-dark),
+			var(--color-dark) 45%,
+			var(--color-red) 50%,
+			var(--color-dark) 55%,
+			var(--color-dark)
+	);
+
+
 
 }
