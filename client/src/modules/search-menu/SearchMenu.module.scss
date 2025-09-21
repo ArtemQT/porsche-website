@@ -1,22 +1,16 @@
 @use "@helpers" as *;
 
 .searchMenu{
-	position: relative;
+	@include mobile-above {
+		position: relative;
+	}
 }
 
 .dropDownModal {
-	z-index: 1000;
 	position: absolute;
-	top: 100%;
-	left: 50%;
-	translate: -50% 0;
-
+	z-index: 1000;
 	background-color: var(--color-light);
-	width: rem(550);
-	height: rem(400);
 	padding: rem(30);
-	border-radius: var(--border-radius);
-	box-shadow: 0 0 rem(10) rem(3) var(--color-dark);
 
 	opacity: 0;
 	visibility: hidden;
@@ -36,6 +30,21 @@
 		background: transparent;
 	}
 
+	@include mobile {
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+	}
+
+	@include mobile-above {
+		top: 100%;
+		right: rem(-100);
+		width: 50vw;
+		height: rem(400);
+		border-radius: var(--border-radius);
+		box-shadow: 0 0 rem(10) rem(3) var(--color-dark);
+	}
 }
 
 .initialSearch {
@@ -46,6 +55,10 @@
 
 		&[data-is-hidden="true"] {
 			display: none;
+		}
+
+		@include desktop {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 }

@@ -5,9 +5,22 @@
 	&Wrapper {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+
+		@include tablet {
+			display: block;
+		}
+
+		@include mobile {
+			display: grid;
+		}
+
+		@include mobile-s {
+			display: block;
+		}
 	}
 
 	&Img{
+
 
 		&List {
 			display: flex;
@@ -18,6 +31,19 @@
 			scrollbar-width: thin;
 			scrollbar-color: var(--color-grey-light);
 			padding-right: rem(5);
+
+			@include tablet {
+				display: none;
+			}
+
+			@include mobile {
+				display: flex;
+				max-height: 80vh;
+			}
+
+			@include mobile-s {
+				display: none;
+			}
 		}
 
 		&Item {
@@ -46,6 +72,28 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: rem(20);
+
 	}
 
+	&ImgList {
+		@include tablet {
+			display: none;
+		}
+
+		@include mobile {
+			display: flex;
+		}
+
+		@include mobile-s {
+			display: none;
+		}
+	}
+
+}
+
+.searchTitle {
+	@include fluid-text(18, 20);
+	@include linear-shift-bg-animation('dark');
+
+	margin-bottom: rem(15);
 }

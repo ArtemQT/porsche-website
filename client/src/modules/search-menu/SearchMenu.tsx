@@ -21,12 +21,18 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 		searchValue,
 		onChangeSearchValue,
 		searchModelsList,
-		isSearching
+		isSearching,
+		resetSearchValue
 	} = useSearch();
+
+	const handleCloseMenu = () => {
+		handleClose();
+		resetSearchValue();
+	}
 
 	return (
 		<div className={styles.searchMenu}
-			 onMouseLeave={handleClose}
+			 onMouseLeave={handleCloseMenu}
 		>
 
 			<SearchButton buttonClassname={buttonClassname}
@@ -36,7 +42,7 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}>
 				<SearchWrapper searchValue={searchValue}
 							   onChangeSearchValue={onChangeSearchValue}
-							   handleClose={handleClose}
+							   handleClose={handleCloseMenu}
 				/>
 
 				<div className={styles.initialSearchData}

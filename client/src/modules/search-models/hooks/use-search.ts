@@ -19,12 +19,17 @@ export const useSearch = () => {
 		setSearchValue(e.currentTarget.value);
 	}
 
+	const resetSearchValue = () => {
+		setSearchValue('');
+	}
+
 	return {
 		searchModelsList: searchResponse?.data.models,
 		isSearching,
 		searchError,
 
 		searchValue,
-		onChangeSearchValue
+		onChangeSearchValue,
+		resetSearchValue
 	}
 }
