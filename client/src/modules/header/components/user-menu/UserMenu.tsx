@@ -34,6 +34,7 @@ export const UserMenu: FC<UserIconProps> = ({buttonClassname}) => {
 		>
 			<button className={buttonClassname}
 					onMouseEnter={handleOpen}
+					onTouchStart={handleOpen}
 			>
 				<ReactSVG src={userIcon}/>
 			</button>

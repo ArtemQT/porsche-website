@@ -11,6 +11,7 @@ export const SearchButton: FC<SearchButtonProps> = ({buttonClassname, handleOpen
 	return (
 		<button className={buttonClassname}
 				onMouseEnter={handleOpenDropDownMenu}
+				onTouchStart={handleOpenDropDownMenu}
 		>
 			<ReactSVG src={searchIcon}/>
 		</button>
