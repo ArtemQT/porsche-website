@@ -3,6 +3,7 @@ import {MainLanding} from "../pages/main-landing";
 import {HomePage} from "../pages/home-page";
 import {ModelsPage} from "../pages/models-page";
 import {RoutePaths} from "@config/route-paths.ts";
+import {ModelConfigPage} from "../pages/model-config-page";
 
 export const router = createBrowserRouter([
 	{
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
 			{
 				element: <ModelsPage/>,
 				path: `${RoutePaths.modelsPage}/:row`
+			},
+			{
+				element: <ModelConfigPage/>,
+				path: `${RoutePaths.modelConfigPage}/:modelId`
 			}
 		]
 	}

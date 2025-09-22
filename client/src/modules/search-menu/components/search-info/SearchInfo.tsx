@@ -6,6 +6,7 @@ import {SearchInfoList} from "../search-info-list";
 import type {ISearchItemLink} from "../../types/types.ts";
 import {SkeletonLink} from "../skeleton-link/SkeletonLink.tsx";
 import {SkeletonCardImg} from "../skeleton-card-img";
+import {RoutePaths} from "@config/route-paths.ts";
 
 interface SearchListProps {
 	searchModelsList: IModelInfo[] | undefined;
@@ -19,7 +20,7 @@ export const SearchInfo: FC<SearchListProps> = ({searchModelsList, isSearching, 
 		return {
 			id: modelItem.id,
 			label: modelItem.modelName,
-			link: ''
+			link: `${RoutePaths.modelConfigPage}/${modelItem.id}`
 		}
 	})
 

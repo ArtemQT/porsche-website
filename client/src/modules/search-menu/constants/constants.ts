@@ -1,7 +1,7 @@
 import {RoutePaths} from "@config/route-paths.ts";
-import type {IInitialSearchItem} from "../types/types.ts";
+import type {ISearchItemLink} from "../types/types.ts";
 
-export const modelRowLinks: IInitialSearchItem[] = [
+export const modelRowLinks: ISearchItemLink[] = [
 	{
 		id: 1,
 		label: '911 row',
@@ -14,7 +14,7 @@ export const modelRowLinks: IInitialSearchItem[] = [
 	}
 ]
 
-export const newInLinks: IInitialSearchItem[] = [
+export const newInLinks: ISearchItemLink[] = [
 	{
 		id: 1,
 		label: '911 Carrera GTS',
