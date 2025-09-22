@@ -31,9 +31,20 @@ model CarModels {
   fuelType          String      @db.VarChar(64)
   powerKwKp         String      @db.VarChar(64)
   modelImage        String      @db.VarChar(64)
+
+  modelDetail ModelDetail?
 }
 
 enum ModelSeries {
   SERIES_911
   SERIES_718
+}
+
+model ModelDetail {
+  id            Int      @id @default(autoincrement())
+  carModelId    Int      @unique
+  price         Int
+  previewImages String[]
+
+  carModel CarModels @relation(fields: [carModelId], references: [id])
 }
