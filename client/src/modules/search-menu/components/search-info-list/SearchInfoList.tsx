@@ -6,9 +6,10 @@ import {Link} from "react-router-dom";
 interface InitialSearchWrapperProps {
 	title: string;
 	listOfLinks: ISearchItemLink[] | undefined;
+	handleClose: () => void;
 }
 
-export const SearchInfoList: FC<InitialSearchWrapperProps> = ({title, listOfLinks}) => {
+export const SearchInfoList: FC<InitialSearchWrapperProps> = ({title, listOfLinks, handleClose}) => {
 	return (
 		<div>
 			<h3 className={styles.initialSearchTitle}>{title}</h3>
@@ -16,7 +17,9 @@ export const SearchInfoList: FC<InitialSearchWrapperProps> = ({title, listOfLink
 				{
 					listOfLinks?.map(linkItem => (
 						<li key={linkItem.id} className={styles.initialSearchItem}>
-							<Link to={linkItem.link}>
+							<Link to={linkItem.link}
+								  onClick={handleClose}
+							>
 								<span className={styles.initialSearchItemText}>{linkItem.label}</span>
 							</Link>
 						</li>

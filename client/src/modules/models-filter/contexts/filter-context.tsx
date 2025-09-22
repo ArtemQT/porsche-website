@@ -1,4 +1,4 @@
-import {createContext, type FC, type PropsWithChildren, useState} from "react";
+import {createContext, type FC, type PropsWithChildren, useEffect, useState} from "react";
 import type {IFilterForm, IModelRowFilterList} from "../types/filter-types.ts";
 import {MODELS_SERIES} from "@shared/types/models-list-types.ts";
 import {useParams} from "react-router-dom";
@@ -21,6 +21,13 @@ export const FilterContextProvider: FC<PropsWithChildren> = ({children}) => {
 	const [filterForm, setFilterForm] = useState<IFilterForm>({
 		modelRow: initialModelRow
 	});
+
+	useEffect(() => {
+		setFilterForm({
+			...filterForm,
+			modelRow: initialModelRow
+		})
+	}, [initialModelRow]);
 
 	const updateModelRow = (modelRowValue: MODELS_SERIES) => {
 		setFilterForm({
@@ -65,5 +72,4 @@ export const FilterContextProvider: FC<PropsWithChildren> = ({children}) => {
 			{children}
 		</FilterContext.Provider>
 	)
-
 }

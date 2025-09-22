@@ -48,18 +48,19 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 				<div className={styles.initialSearchData}
 					 data-is-hidden={!!searchValue}
 				>
-					<SearchInfoList title='Model rows' listOfLinks={modelRowLinks}/>
-					<SearchInfoList title='New In' listOfLinks={newInLinks}/>
+					<SearchInfoList title='Model rows' listOfLinks={modelRowLinks} handleClose={handleCloseMenu}/>
+					<SearchInfoList title='New In' listOfLinks={newInLinks} handleClose={handleCloseMenu}/>
 				</div>
 
 				<div className={styles.searchData}
 					 data-is-visible={!!searchValue}
 				>
-					<SearchInfo searchModelsList={searchModelsList} isSearching={isSearching}/>
+					<SearchInfo searchModelsList={searchModelsList}
+								isSearching={isSearching}
+								handleClose={handleCloseMenu}
+					/>
 				</div>
 			</div>
-
-
 		</div>
 	)
 }

@@ -10,9 +10,10 @@ import {SkeletonCardImg} from "../skeleton-card-img";
 interface SearchListProps {
 	searchModelsList: IModelInfo[] | undefined;
 	isSearching: boolean;
+	handleClose: () => void;
 }
 
-export const SearchInfo: FC<SearchListProps> = ({searchModelsList, isSearching}) => {
+export const SearchInfo: FC<SearchListProps> = ({searchModelsList, isSearching, handleClose}) => {
 
 	const listOfLinks: ISearchItemLink[] | undefined = searchModelsList?.map(modelItem => {
 		return {
@@ -40,7 +41,7 @@ export const SearchInfo: FC<SearchListProps> = ({searchModelsList, isSearching})
 					</>
 				) : (
 					<>
-						<SearchInfoList title='Models' listOfLinks={listOfLinks}/>
+						<SearchInfoList title='Models' listOfLinks={listOfLinks} handleClose={handleClose}/>
 						<ul className={styles.searchInfoImgList}>
 							{
 								searchModelsList?.map(searchItem => (
