@@ -1,8 +1,9 @@
+import styles from './BasketIcon.module.scss'
+
 import type {FC} from "react";
 import {ReactSVG} from "react-svg";
 
-import basketIcon from '@assets/icons/basket.svg';
-import {Modal, useModal} from "../../../modal";
+import basketIcon from '@assets/icons/porsche-config.svg';
 
 interface UserIconProps {
 	buttonClassname: string;
@@ -10,18 +11,12 @@ interface UserIconProps {
 
 export const BasketIcon: FC<UserIconProps> = ({buttonClassname}) => {
 
-	const { isOpen, handleOpen, handleClose } = useModal()
-
 	return (
 		<>
-			<button className={buttonClassname}
-					onClick={handleOpen}
+			<button className={`${styles.basketIconButton} ${buttonClassname}`}
 			>
 				<ReactSVG src={basketIcon}/>
 			</button>
-			<Modal isOpen={isOpen} onClose={handleClose}>
-				<></>
-			</Modal>
 		</>
 
 	)

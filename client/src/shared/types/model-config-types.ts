@@ -1,10 +1,12 @@
 
 export interface IModelDetailResponse {
-	modelDetail: {
-		modelName: string;
-		modelSeries: string;
-		price: number;
-		previewImages: string[];
-	},
+	modelDetail: IModelDetail,
 	message: string;
+}
+
+export interface IModelDetail {
+	modelName: string;
+	modelSeries: string;
+	price: number;
+	previewImages: string[];
 }

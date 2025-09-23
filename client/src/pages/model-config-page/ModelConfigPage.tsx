@@ -1,4 +1,5 @@
 import {useModelConfig} from "@shared/hooks/useModelConfig.ts";
+import {ModelViewSection} from "./components/model-view-section";
 
 export const ModelConfigPage = () => {
 
@@ -13,15 +14,11 @@ export const ModelConfigPage = () => {
 	}
 
 	return (
-		<section>
-			<h2>Model configuration Page!!!</h2>
-			{
-				isLoadingModel ? (
-					<div>Loading ...</div>
-				) : (
-					JSON.stringify(model)
-				)
-			}
-		</section>
+		<>
+			<ModelViewSection model={model}
+							  isModelLoading={isLoadingModel}
+			/>
+		</>
+
 	)
 }

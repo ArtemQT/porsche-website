@@ -1,0 +1,8 @@
+@use "@helpers" as *;
+
+.basketIconButton {
+
+	& svg {
+		@include square(35);
+	}
+}
