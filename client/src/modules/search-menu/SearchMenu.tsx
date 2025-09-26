@@ -5,9 +5,11 @@ import {useModal} from "../modal";
 import {useSearch} from "../search-models/hooks/use-search.ts";
 import {SearchButton} from "./components/search-button";
 import {SearchWrapper} from "./components/search-wrapper";
-import {modelRowLinks, newInLinks} from "./constants/constants.ts";
+import {modelRowLinks} from "./constants/constants.ts";
 import {SearchInfo} from "./components/search-info";
 import {SearchInfoList} from "./components/search-info-list";
+import {useNewInModels} from "./hooks/useNewInModels.ts";
+import {SkeletonLink} from "./components/skeleton-link/SkeletonLink.tsx";
 
 interface SearchMenuProps {
 	buttonClassname: string;
@@ -30,6 +32,12 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 		resetSearchValue();
 	}
 
+	const {
+		newInList,
+		isLoading: isNewInModelsListLoading,
+	} = useNewInModels();
+
+
 	return (
 		<div className={styles.searchMenu}
 			 onMouseLeave={handleCloseMenu}
@@ -49,7 +57,20 @@ export const SearchMenu: FC<SearchMenuProps> = ({buttonClassname}) => {
 					 data-is-hidden={!!searchValue}
 				>
 					<SearchInfoList title='Model rows' listOfLinks={modelRowLinks} handleClose={handleCloseMenu}/>
-					<SearchInfoList title='New In' listOfLinks={newInLinks} handleClose={handleCloseMenu}/>
+
+					{
+						isNewInModelsListLoading ? (
+							<ul className={styles.skeletonList}>
+								{
+									Array.from({length: 5}, (_, index) => (
+										<li key={index}><SkeletonLink/></li>
+									))
+								}
+							</ul>
+						) : (
+							<SearchInfoList title='New In' listOfLinks={newInList} handleClose={handleCloseMenu}/>
+						)
+					}
 				</div>
 
 				<div className={styles.searchData}
