@@ -5,11 +5,14 @@
 	&Wrapper {
 		position: absolute;
 		z-index: 10;
-
 		bottom: 15%;
 		left: 10%;
-
 		cursor: pointer;
+
+		&[data-is-loading='true'] {
+			cursor: auto;
+		}
+
 		@include hover {
 
 			& .descriptionTitle {
@@ -32,6 +35,33 @@
 		transition-duration: var(--transition-duration);
 
 		margin-bottom: rem(10);
+	}
+
+}
+
+.modelLink {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.skeleton {
+
+	&Title, &Link {
+		@include skeleton-animation();
+		height: rem(50);
+		border-radius: var(--border-radius);
+	}
+
+	&Title {
+		width: rem(300);
+		margin-bottom: rem(30);
+	}
+
+	&Link {
+		width: rem(150);
 	}
 
 }
