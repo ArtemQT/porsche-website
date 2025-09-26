@@ -1,0 +1,136 @@
+@use "@helpers" as *;
+.preview {
+
+	&Skeleton {
+		@include skeleton-animation();
+
+
+		position: relative;
+		left: 50%;
+		translate: -50% 0;
+		height: rem(300);
+		width: 50%;
+		border: rem(3) solid var(--color-grey-dark);
+		border-radius: var(--border-radius-large);
+
+		@include desktop {
+			width: 60%;
+		}
+
+		@include tablet {
+			width: 90%;
+			height: rem(250);
+		}
+
+		@include mobile-s {
+			height: rem(175);
+		}
+	}
+
+	&Slide {
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
+		height: rem(300) !important;
+
+
+		@include mobile-s {
+			height: rem(150) !important;
+		}
+	}
+
+	&Img {
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&Img.img-0 {
+		width: 60%;
+
+		@include desktop {
+			width: 70%;
+		}
+
+		@include tablet {
+			width: 85%;
+		}
+
+		@include mobile-s {
+			width: 80%;
+		}
+	}
+
+	&Img.img-1 {
+		max-width: 30%;
+
+		@include desktop {
+			max-width: 50%;
+		}
+
+		@include tablet{
+			max-width: 40%;
+		}
+
+		@include mobile {
+			max-width: 50%;
+		}
+	}
+
+	&Wrapper {
+		--target-position: -60%;
+		@include desktop {
+			--target-position: -50%;
+		}
+		@include mobile {
+			--target-position: -30%;
+		}
+
+		@include mobile-s {
+			--target-position: -10%;
+		}
+
+		position: relative;
+		&::after {
+			content: attr(data-model-row);
+
+			position: absolute;
+			z-index: -1;
+			top: var(--target-position);
+			left: 50%;
+			translate: -50% 0;
+
+			display: block;
+			font-size: rem(200);
+			font-weight: 500;
+			color: var(--color-grey);
+			opacity: 0.9;
+			letter-spacing: rem(-10);
+
+			animation: upAnimation 1s;
+			animation-iteration-count: 1;
+
+			@include desktop {
+				font-size: rem(160);
+			}
+
+			@include mobile {
+				font-size: rem(120);
+			}
+
+			@include mobile-s {
+				display: none;
+			}
+		}
+	}
+}
+
+@keyframes upAnimation {
+	from{
+		top: 0;
+	}
+	to {
+		top: var(--target-position);
+	}
+}
+
+

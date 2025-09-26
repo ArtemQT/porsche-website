@@ -27,13 +27,14 @@ export class ModelDetailService {
 
 		const modelName = modelDetail.carModel.modelName;
 		const modelSeries = modelName.split(' ')[0];
+		const parsedModelName = modelName.split(' ').slice(1).join(' ');
 
 		if (!modelSeries) {
 			throw Error('There is no row in CarModel.modelName');
 		}
 
 		const modelDetailDto = {
-			modelName: modelDetail.carModel.modelName,
+			modelName: parsedModelName,
 			modelSeries,
 			price: modelDetail.price,
 			previewImages: modelDetail.previewImages,

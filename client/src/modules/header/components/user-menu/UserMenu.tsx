@@ -39,7 +39,9 @@ export const UserMenu: FC<UserIconProps> = ({buttonClassname}) => {
 				<ReactSVG src={userIcon}/>
 			</button>
 
-			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}>
+			<div className={`${styles.dropDownModal} ${isOpen ? styles.open : ''}`}
+				 onClick={handleClose}
+			>
 				<ul className={styles.modalList}>
 					{
 						isLoggedIn ? (

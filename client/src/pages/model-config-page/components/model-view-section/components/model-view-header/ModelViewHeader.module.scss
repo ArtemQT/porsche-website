@@ -1,0 +1,88 @@
+@use "@helpers" as *;
+
+.modelView {
+	&Header {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: rem(120);
+
+		@include mobile {
+			margin-bottom: rem(60);
+		}
+
+		@include mobile-s {
+			margin-bottom: rem(0);
+		}
+	}
+
+	&Wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+
+		@include mobile {
+			margin-bottom: rem(15);
+		}
+
+		@include mobile-s {
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			row-gap: rem(40);
+		}
+	}
+}
+
+.modelName {
+	align-self: center;
+	font-weight: 400;
+
+	&[data-is-skeleton="true"] {
+		@include skeleton-animation();
+
+		border: rem(3) solid var(--color-grey-dark);
+		border-radius: var(--border-radius);
+		width: rem(400);
+		height: rem(75);
+
+		@include mobile {
+			width: 70%;
+			height: rem(50);
+			margin-bottom: rem(20);
+		}
+	}
+}
+
+.saveConfigButton {
+	display: inline-flex;
+	align-items: end;
+	column-gap: rem(15);
+
+	&[data-is-disabled="true"] {
+		cursor: not-allowed;
+	}
+
+	&::after {
+		@include square(30);
+
+		content: '';
+		background: url('@assets/icons/save-configuration.svg') center/contain no-repeat;
+		transition-duration: var(--transition-duration);
+	}
+
+	&[data-is-disabled="false"] {
+		@include hover {
+			opacity: 0.5;
+			&::after {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}
+
+.backButton {
+
+	@include mobile-s {
+		align-self: start;
+	}
+}
