@@ -20,7 +20,9 @@ export const ModelConfigPage = () => {
 							  isModelLoading={isLoadingModel}
 			/>
 
-			<ConfigSection />
+			<ConfigSection modelPrice={model?.price}
+						   isModelLoading={isLoadingModel}
+			/>
 		</>
 
 	)

@@ -1,9 +1,17 @@
 import {ModelConfig} from "../../../../modules/model-config";
+import type {FC} from "react";
 
-export const ConfigSection = () => {
+interface ConfigSectionProps {
+	modelPrice: number | undefined;
+	isModelLoading: boolean;
+}
+
+export const ConfigSection:FC<ConfigSectionProps> = ({modelPrice, isModelLoading}) => {
 	return (
 		<section className='section'>
-			<ModelConfig/>
+			<ModelConfig modelPrice={modelPrice}
+						 isModelLoading={isModelLoading}
+			/>
 		</section>
 	)
 }

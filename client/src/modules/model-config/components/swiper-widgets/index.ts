@@ -1,0 +1,1 @@
+export {SwiperWidgets} from './SwiperWidgets'

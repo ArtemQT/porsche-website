@@ -11,3 +11,9 @@ export interface IConfigSwiperText {
 	price: number;
 	priceDescription?: string
 }
+
+export interface IPaginationBullet {
+	index: number;
+	img: string;
+	description: string;
+}

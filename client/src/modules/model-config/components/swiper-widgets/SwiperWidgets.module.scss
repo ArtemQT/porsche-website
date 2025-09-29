@@ -1,0 +1,22 @@
+@use '@helpers' as *;
+
+.toggleMenuButton {
+	padding-block: rem(10);
+}
+
+.swiperWidgetsWrapper {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modelPrice {
+	font-weight: 500;
+
+	padding: rem(15) rem(40);
+	border-radius: var(--border-radius);
+	background-color: var(--color-dark);
+	color: var(--color-light);
+}

@@ -13,6 +13,7 @@ export const InteriorSwiper = () => {
 				centeredSlides={true}
 				slidesPerView={1}
 				speed={800}
+				className={styles.interiorSwiper}
 			>
 				{
 					interiorSwiperConfig.map(slide => (

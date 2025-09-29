@@ -7,7 +7,28 @@ import {InteriorSwiper} from "./components/interior-swiper";
 import {PackageSwiper} from "./components/package-swiper";
 import {ExhaustSystemSwiper} from "./components/exhaust-system-swiper";
 
-export const ModelConfig = () => {
+import {useConfigMenu} from "./hooks/useConfigMenu.ts";
+import {SwiperWidgets} from "./components/swiper-widgets";
+import type {FC} from "react";
+
+interface ModelConfig {
+	modelPrice: number | undefined;
+	isModelLoading: boolean;
+}
+
+export const ModelConfig:FC<ModelConfig> = ({modelPrice, isModelLoading}) => {
+
+	const {
+		isOpenConfigMenu,
+		toggleConfigMenu,
+
+		activeIndex,
+		handleSetActiveIndex,
+
+		setSwiperInstance,
+
+		onBulletClick
+	} = useConfigMenu()
 
 	const swiperList = [
 		ExteriorSwiper,
@@ -18,19 +39,36 @@ export const ModelConfig = () => {
 	]
 
 	return (
-		<Swiper
-			spaceBetween='30'
-			slidesPerView={3}
-			centeredSlides={true}
-			initialSlide={2}
-			className={styles.swiper}
-			speed={800}
-		>
-			{
-				swiperList.map(((Swiper, index) => (
-					<SwiperSlide key={index} className={styles.swiperConfigSlide}><Swiper/></SwiperSlide>
-				)))
-			}
-		</Swiper>
+		<div>
+			<Swiper
+				spaceBetween='30'
+				slidesPerView={3}
+				centeredSlides={true}
+				initialSlide={0}
+				grabCursor={true}
+				speed={800}
+
+				className={`${styles.swiper} ${isOpenConfigMenu ? '' : styles.hidden}`}
+				onSwiper={swiper => setSwiperInstance(swiper)}
+				onSlideChange={swiper => handleSetActiveIndex(swiper.activeIndex)}
+			>
+				{
+					swiperList.map(((Swiper, index) => (
+						<SwiperSlide key={index} className={styles.swiperConfigSlide}>
+							<Swiper/>
+						</SwiperSlide>
+					)))
+				}
+			</Swiper>
+
+			<SwiperWidgets isOpenConfigMenu={isOpenConfigMenu}
+						   toggleConfigMenu={toggleConfigMenu}
+						   activeIndex={activeIndex}
+						   onBulletClick={onBulletClick}
+						   modelPrice={modelPrice}
+						   isModelLoading={isModelLoading}
+			/>
+		</div>
+
 	)
 }

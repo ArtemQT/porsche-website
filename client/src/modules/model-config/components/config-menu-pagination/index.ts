@@ -1,0 +1,1 @@
+export {ConfigMenuPagination} from './ConfigMenuPagination'

@@ -1,0 +1,43 @@
+@use '@helpers' as *;
+
+.pagination {
+
+	&List {
+		@include abs-center();
+
+		display: flex;
+		align-items: center;
+		column-gap: rem(50);
+
+		&[data-is-config-menu-open='false'] {
+			pointer-events: none;
+		}
+	}
+
+	&Button {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		row-gap: rem(10);
+
+		transition-duration: var(--transition-duration);
+		&.active {
+			transform: translateY(rem(-20));
+		}
+
+		@include hover {
+			color: var(--color-red);
+		}
+	}
+
+	&Img {
+		padding: rem(15);
+		background-color: var(--color-dark);
+		border-radius: 50%;
+
+		> img {
+			@include square(25)
+		}
+	}
+}

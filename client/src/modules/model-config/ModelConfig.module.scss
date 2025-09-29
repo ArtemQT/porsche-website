@@ -3,6 +3,11 @@
 .swiper {
 	padding-inline: rem(20);
 	padding-top: rem(55);
+	margin-bottom: rem(100);
+
+	&.hidden {
+		display: none !important;
+	}
 
 	&Wrapper {
 		height: rem(300) !important;
@@ -130,6 +135,8 @@
 }
 
 .interiorSwiper {
+	overflow: visible !important;
+
 	&Slide {
 
 		&Img {
