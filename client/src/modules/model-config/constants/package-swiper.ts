@@ -19,7 +19,7 @@ export const packageSwiperConfig: IConfigSwiperText[] = [
 	},
 	{
 		title: 'Weissach package',
-		description: '',
+		description: 'Maximum sporty character and lightness. Carbon fiber parts - hood, roof and fender - emphasize aggression, while the lightweight interior and chassis provide real racing dynamics. Ideal for those who dream of the track without leaving the road.',
 		price: 35000,
 	},
 ]
