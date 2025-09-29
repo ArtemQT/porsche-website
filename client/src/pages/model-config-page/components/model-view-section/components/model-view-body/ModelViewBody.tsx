@@ -25,6 +25,8 @@ export const ModelViewBody:FC<ModelViewBodyProps> = ({isModelLoading, modelSerie
 							navigation
 							slidesPerView={1}
 							centeredSlides={true}
+							loop
+							speed={800}
 						>
 							{
 								previewImages?.map((img, index) => (

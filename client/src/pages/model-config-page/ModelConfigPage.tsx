@@ -1,5 +1,6 @@
 import {useModelConfig} from "@shared/hooks/useModelConfig.ts";
 import {ModelViewSection} from "./components/model-view-section";
+import {ConfigSection} from "./components/config-section";
 
 export const ModelConfigPage = () => {
 
@@ -18,6 +19,8 @@ export const ModelConfigPage = () => {
 			<ModelViewSection model={model}
 							  isModelLoading={isLoadingModel}
 			/>
+
+			<ConfigSection />
 		</>
 
 	)

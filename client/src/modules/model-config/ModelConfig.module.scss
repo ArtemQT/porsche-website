@@ -1,0 +1,150 @@
+@use '@helpers' as *;
+
+.swiper {
+	padding-inline: rem(20);
+	padding-top: rem(55);
+
+	&Wrapper {
+		height: rem(300) !important;
+		background-color: var(--color-grey-dark) !important;
+		border-radius: var(--border-radius-large) !important;
+		padding-block: rem(30) !important;
+		overflow: hidden !important;
+	}
+
+	&Title {
+		padding-left: rem(35);
+		margin-bottom: rem(20);
+		font-weight: 400;
+	}
+
+	&Slide {
+		position: relative;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		justify-content: center !important;
+
+		&Img {
+			max-width: 70%;
+			margin-bottom: rem(20);
+		}
+
+		&Title {
+			@include fluid-text(16, 18);
+
+			font-weight: 400;
+		}
+
+		&Price {
+			align-self: start;
+
+			font-size: rem(14);
+
+			margin-left: rem(35);
+			margin-bottom: rem(20);
+			padding: rem(5) rem(20);
+			border: var(--border);
+			border-radius: var(--border-radius);
+			width: fit-content;
+
+			transition-duration: var(--transition-duration);
+			@include hover {
+				background-color: var(--color-dark);
+				color: var(--color-light);
+			}
+		}
+	}
+
+	&ConfigSlide {
+		transition-duration: var(--transition-duration);
+	}
+
+	&ConfigSlide:global(.swiper-slide-active) {
+		transform: translateY(rem(-50)) !important;
+	}
+
+}
+
+.wheelsSwiper {
+	padding-inline: rem(30);
+	padding-top: rem(25);
+
+	overflow-x: hidden !important;
+	overflow-y: visible !important;
+
+	&Slide {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		justify-content: center !important;
+		transition-duration: var(--transition-duration) !important;
+
+		&:global(.swiper-slide-active) {
+			transform: translateY(rem(-20)) !important;
+		}
+
+		&Price {
+			font-size: rem(14);
+
+			padding: rem(5) rem(20);
+			margin-bottom: rem(5);
+			border: var(--border);
+			border-radius: var(--border-radius);
+			width: fit-content;
+
+			transition-duration: var(--transition-duration);
+			@include hover {
+				background-color: var(--color-dark);
+				color: var(--color-light);
+			}
+		}
+
+		&Img {
+			width: rem(75);
+			height: rem(85);
+			object-fit: contain;
+			margin-bottom: rem(10);
+		}
+
+		&Title {
+			@include fluid-text(16, 18);
+
+			font-weight: 400;
+			text-align: center;
+		}
+	}
+
+}
+
+.interiorSwiper {
+	&Slide {
+
+		&Img {
+			width: 70%;
+			border-radius: var(--border-radius-large);
+			margin-bottom: rem(10);
+		}
+
+		&Price {
+			z-index: 100;
+			position: absolute;
+			right: 2%;
+			top: -22%;
+
+			font-size: rem(14);
+
+			padding: rem(5) rem(20);
+			border: var(--border);
+			border-radius: var(--border-radius);
+			width: fit-content;
+
+			transition-duration: var(--transition-duration);
+			@include hover {
+				background-color: var(--color-dark);
+				color: var(--color-light);
+			}
+		}
+	}
+}
+

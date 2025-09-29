@@ -1,0 +1,1 @@
+export {WheelsSwiper} from './WheelsSwiper'
