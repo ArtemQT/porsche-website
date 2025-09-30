@@ -3,8 +3,12 @@ import styles from "../../ModelConfig.module.scss"
 import {exteriorSwiperConfig} from "../../constants/exterior-swiper.ts";
 import {Navigation} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
+import {useConfig} from "../../hooks/useConfig.ts";
 
 export const ExteriorSwiper = () => {
+
+	const {changeConfigHandler} = useConfig()
+
 	return (
 		<article className={styles.swiperWrapper}>
 			<h3 className={`h4 ${styles.swiperTitle}`}>Exterior colours</h3>
@@ -14,6 +18,7 @@ export const ExteriorSwiper = () => {
 				centeredSlides={true}
 				slidesPerView={1}
 				speed={800}
+				onSlideChange={(swiper) => changeConfigHandler(swiper.activeIndex, 'exterior')}
 			>
 				{
 					exteriorSwiperConfig.map(slide => (

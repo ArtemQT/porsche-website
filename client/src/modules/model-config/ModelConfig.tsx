@@ -7,16 +7,11 @@ import {InteriorSwiper} from "./components/interior-swiper";
 import {PackageSwiper} from "./components/package-swiper";
 import {ExhaustSystemSwiper} from "./components/exhaust-system-swiper";
 
-import {useConfigMenu} from "./hooks/useConfigMenu.ts";
+import {useConfigSwiper} from "./hooks/useConfigSwiper.ts";
 import {SwiperWidgets} from "./components/swiper-widgets";
-import type {FC} from "react";
+import {ConfigContextProvider} from "./contexts/ConfigContext.tsx";
 
-interface ModelConfig {
-	modelPrice: number | undefined;
-	isModelLoading: boolean;
-}
-
-export const ModelConfig:FC<ModelConfig> = ({modelPrice, isModelLoading}) => {
+export const ModelConfig = () => {
 
 	const {
 		isOpenConfigMenu,
@@ -28,7 +23,7 @@ export const ModelConfig:FC<ModelConfig> = ({modelPrice, isModelLoading}) => {
 		setSwiperInstance,
 
 		onBulletClick
-	} = useConfigMenu()
+	} = useConfigSwiper()
 
 	const swiperList = [
 		ExteriorSwiper,
@@ -39,7 +34,7 @@ export const ModelConfig:FC<ModelConfig> = ({modelPrice, isModelLoading}) => {
 	]
 
 	return (
-		<div>
+		<ConfigContextProvider>
 			<Swiper
 				spaceBetween='30'
 				slidesPerView={3}
@@ -65,10 +60,7 @@ export const ModelConfig:FC<ModelConfig> = ({modelPrice, isModelLoading}) => {
 						   toggleConfigMenu={toggleConfigMenu}
 						   activeIndex={activeIndex}
 						   onBulletClick={onBulletClick}
-						   modelPrice={modelPrice}
-						   isModelLoading={isModelLoading}
 			/>
-		</div>
-
+		</ConfigContextProvider>
 	)
 }

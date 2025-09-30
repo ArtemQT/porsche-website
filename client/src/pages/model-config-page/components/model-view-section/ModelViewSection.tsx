@@ -1,15 +1,15 @@
 import styles from './ModelViewSection.module.scss'
-import type {FC} from "react";
-import type {IModelDetail} from "@shared/types/model-config-types.ts";
 import {ModelViewHeader} from "./components/model-view-header";
 import {ModelViewBody} from "./components/model-view-body";
+import {useModel} from "../../../../modules/model-config";
 
-interface ModelViewSectionProps {
-	model: Omit<IModelDetail, 'price'> | undefined;
-	isModelLoading: boolean;
-}
+export const ModelViewSection = () => {
 
-export const ModelViewSection: FC<ModelViewSectionProps> = ({model, isModelLoading}) => {
+	const {
+		model,
+		isModelLoading
+	} = useModel()
+
 	return (
 		<section className={styles.section}>
 			<ModelViewHeader isModelLoading={isModelLoading}

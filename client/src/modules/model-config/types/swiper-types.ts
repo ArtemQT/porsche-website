@@ -1,4 +1,5 @@
-export interface IConfigSwiper{
+export interface IConfigSwiper {
+	index: number;
 	path: string;
 	label: string;
 	price: number;
@@ -6,6 +7,7 @@ export interface IConfigSwiper{
 }
 
 export interface IConfigSwiperText {
+	index: number;
 	title: string;
 	description: string;
 	price: number;
@@ -16,4 +18,19 @@ export interface IPaginationBullet {
 	index: number;
 	img: string;
 	description: string;
+}
+
+export interface IConfiguration {
+	readonly exterior: IConfigSwiper;
+	readonly wheels: IConfigSwiper;
+	readonly interior: IConfigSwiper;
+	readonly carPackage: IConfigSwiperText;
+	readonly exhaust: IConfigSwiperText;
+	readonly startPrice: number | undefined;
+	configPrice: number;
+	totalPrice: number | undefined;
+}
+
+export type TConfigArray = {
+	[K in keyof Omit<IConfiguration, 'startPrice' | 'configPrice' | 'totalPrice'>]: readonly IConfigSwiperText[] | IConfigSwiper[];
 }

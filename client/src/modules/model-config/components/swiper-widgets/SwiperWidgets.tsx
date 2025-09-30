@@ -3,17 +3,21 @@ import styles from './SwiperWidgets.module.scss'
 import type {FC} from "react";
 import {Button, ButtonType} from "@components/button";
 import {ConfigMenuPagination} from "../config-menu-pagination";
+import {useModel} from "../../hooks/useModel.ts";
 
 interface SwiperWidgetsProps {
 	isOpenConfigMenu: boolean;
 	toggleConfigMenu: () => void;
 	activeIndex: number;
 	onBulletClick: (index: number) => void;
-	modelPrice: number | undefined;
-	isModelLoading: boolean;
 }
 
-export const SwiperWidgets:FC<SwiperWidgetsProps> = ({isOpenConfigMenu, toggleConfigMenu, activeIndex, onBulletClick, modelPrice}) => {
+export const SwiperWidgets:FC<SwiperWidgetsProps> = ({isOpenConfigMenu, toggleConfigMenu, activeIndex, onBulletClick}) => {
+
+	const {
+		// isModelLoading,
+		model
+	} = useModel();
 
 	return (
 		<div className={`${styles.swiperWidgetsWrapper} container`} id='config-menu'>
@@ -29,7 +33,7 @@ export const SwiperWidgets:FC<SwiperWidgetsProps> = ({isOpenConfigMenu, toggleCo
 								  isOpenConfigMenu={isOpenConfigMenu}
 			/>
 
-			<div className={styles.modelPrice}>{modelPrice} £</div>
+			<div className={styles.modelPrice}>{model?.price} £</div>
 		</div>
 	)
 }

@@ -2,8 +2,12 @@ import styles from "../../ModelConfig.module.scss";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
 import {packageSwiperConfig} from "../../constants/package-swiper.ts";
+import {useConfig} from "../../hooks/useConfig.ts";
 
 export const PackageSwiper = () => {
+
+	const {changeConfigHandler} = useConfig()
+
 	return (
 		<article className={styles.swiperWrapper}>
 			<h3 className={`h4 ${styles.swiperTitle}`}>Porsche package</h3>
@@ -14,6 +18,7 @@ export const PackageSwiper = () => {
 				slidesPerView={1}
 				speed={800}
 				spaceBetween={30}
+				onSlideChange={(swiper) => changeConfigHandler(swiper.activeIndex, 'carPackage')}
 			>
 				{
 					packageSwiperConfig.map(((slide, i) => (

@@ -3,8 +3,12 @@ import styles from "../../ModelConfig.module.scss";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
 import {exhaustSwiperConfig} from "../../constants/exhaust-system-swiper.ts";
+import {useConfig} from "../../hooks/useConfig.ts";
 
 export const ExhaustSystemSwiper = () => {
+
+	const {changeConfigHandler} = useConfig()
+
 	return (
 		<article className={styles.swiperWrapper}>
 			<h3 className={`h4 ${styles.swiperTitle}`}>Exhaust system</h3>
@@ -15,6 +19,7 @@ export const ExhaustSystemSwiper = () => {
 				slidesPerView={1}
 				speed={800}
 				spaceBetween={30}
+				onSlideChange={(swiper) => changeConfigHandler(swiper.activeIndex, 'exhaust')}
 			>
 				{
 					exhaustSwiperConfig.map(((slide, i) => (
