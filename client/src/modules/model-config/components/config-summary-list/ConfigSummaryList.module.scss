@@ -1,0 +1,115 @@
+@use '@helpers' as *;
+
+.config {
+
+	&Summary {
+		@include fluid-text(16, 18);
+
+		padding: rem(15) rem(30);
+		width: rem(400);
+		border-radius: var(--border-radius);
+		background-color: var(--color-dark);
+		color: var(--color-light);
+	}
+
+	&Details {
+		max-height: 0;
+		opacity: 0;
+		transform: translateY(rem(-10));
+
+		transition-duration: var(--transition-duration);
+		&[data-is-show='true'] {
+			max-height: rem(500);
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	&TotalPrice {
+		text-align: center;
+		padding-bottom: rem(15);
+		margin-bottom: rem(15);
+		border-bottom: rem(1) solid var(--color-light);
+
+		@include hover {
+			& > span {
+				color: var(--color-red);
+			}
+		}
+
+		> span {
+			transition-duration: var(--transition-duration);
+		}
+	}
+
+	&Button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+		color: var(--color-light);
+		column-gap: rem(10);
+		padding-bottom: rem(15);
+		margin-bottom: rem(15);
+		border-bottom: rem(1) solid var(--color-light);
+
+		@include hover {
+			color: var(--color-red);
+
+			& svg {
+				transform: rotate(360deg);
+			}
+		}
+	}
+
+	&Icon {
+		@include square(20);
+
+		& svg {
+			width: 100%;
+			height: 100%;
+			transition: var(--transition-duration);
+		}
+	}
+
+	&List {
+		@include flex-center();
+
+		flex-direction: column;
+	}
+
+	&Option {
+		width: 100%;
+		padding-bottom: rem(10);
+		margin-bottom: rem(10);
+		border-bottom: rem(1) solid transparent;
+
+		transition-duration: var(--transition-duration);
+
+		@include hover {
+			border-color: var(--color-light);
+		}
+
+		&Label {
+			color: var(--color-grey-dark);
+		}
+	}
+
+	&StartPrice, &OptionsPrice {
+		text-align: center;
+		padding-bottom: rem(15);
+		margin-bottom: rem(10);
+		border-bottom: rem(1) solid var(--color-light);
+
+		@include hover {
+			& > span {
+				color: var(--color-red);
+			}
+		}
+
+		> span {
+			transition-duration: var(--transition-duration);
+		}
+	}
+}

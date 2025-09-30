@@ -8,7 +8,9 @@
 	position: relative;
 
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	row-gap: rem(50);
+	justify-content: center;
 	align-items: center;
 }
 
@@ -19,4 +21,12 @@
 	border-radius: var(--border-radius);
 	background-color: var(--color-dark);
 	color: var(--color-light);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: rem(50);
+	align-items: center;
 }

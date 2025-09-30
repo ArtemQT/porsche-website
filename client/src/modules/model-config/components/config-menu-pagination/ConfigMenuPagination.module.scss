@@ -3,8 +3,6 @@
 .pagination {
 
 	&List {
-		@include abs-center();
-
 		display: flex;
 		align-items: center;
 		column-gap: rem(50);

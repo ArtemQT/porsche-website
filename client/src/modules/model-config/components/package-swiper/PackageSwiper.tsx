@@ -31,7 +31,7 @@ export const PackageSwiper = () => {
 										<span>{slide.priceDescription}</span>
 								}
 							</p>
-							<h4 className={styles.swiperSlidePackageTitle}>{slide.title}</h4>
+							<h4 className={styles.swiperSlidePackageTitle}>{slide.label}</h4>
 							<p className={styles.swiperSlideDescription}>{slide.description}</p>
 						</SwiperSlide>
 					)))

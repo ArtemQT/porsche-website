@@ -1,14 +1,15 @@
 import styles from './ConfigMenuPagination.module.scss'
-import type {FC} from "react";
 import {configMenuPaginationList} from "../../constants/config-menu-pagination.ts";
+import {useSwiperConfig} from "../../hooks/useSwiperConfig.ts";
 
-interface ConfigMenuPaginationProps {
-	activeIndex: number;
-	onBulletClick: (index: number) => void;
-	isOpenConfigMenu: boolean;
-}
+export const ConfigMenuPagination = () => {
 
-export const ConfigMenuPagination:FC<ConfigMenuPaginationProps> = ({activeIndex, onBulletClick, isOpenConfigMenu}) => {
+	const {
+		isOpenConfigMenu,
+		onBulletClick,
+		activeIndex
+	} = useSwiperConfig()
+
 	return (
 		<ul className={styles.paginationList}
 			data-is-config-menu-open={isOpenConfigMenu}

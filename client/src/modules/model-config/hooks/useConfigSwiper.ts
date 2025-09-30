@@ -31,8 +31,8 @@ export const useConfigSwiper = () => {
 
 	return {
 		isOpenConfigMenu,
-		toggleConfigMenu,
 		activeIndex,
+		toggleConfigMenu,
 		handleSetActiveIndex,
 		setSwiperInstance,
 		onBulletClick

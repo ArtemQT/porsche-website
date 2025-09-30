@@ -1,5 +1,5 @@
 import type {IConfiguration} from "../types/swiper-types.ts";
-import {createContext, type FC, type PropsWithChildren, useState} from "react";
+import {createContext, type FC, type PropsWithChildren, useEffect, useState} from "react";
 import {useModel} from "../hooks/useModel.ts";
 import {exteriorSwiperConfig} from "../constants/exterior-swiper.ts";
 import {interiorSwiperConfig} from '../constants/interior-swiper.ts'
@@ -35,6 +35,13 @@ export const ConfigContextProvider: FC<PropsWithChildren> = ({children}) => {
 		totalPrice: model?.price
 	});
 
+	useEffect(() => {
+		setConfiguration({
+			...configuration,
+			startPrice: model?.price,
+			totalPrice: model?.price
+		})
+	}, [model]);
 
 	const changeConfigHandler = (
 		activeIndex: number,
@@ -61,8 +68,6 @@ export const ConfigContextProvider: FC<PropsWithChildren> = ({children}) => {
 		configuration,
 		changeConfigHandler
 	}
-
-	console.log(configuration);
 
 	return (
 		<ConfigContext.Provider value={contextValue}>

@@ -1,37 +1,18 @@
 import styles from './ModelConfig.module.scss'
 
 import {Swiper, SwiperSlide} from "swiper/react";
-import {ExteriorSwiper} from "./components/exterior-swiper";
-import {WheelsSwiper} from "./components/wheels-swiper";
-import {InteriorSwiper} from "./components/interior-swiper";
-import {PackageSwiper} from "./components/package-swiper";
-import {ExhaustSystemSwiper} from "./components/exhaust-system-swiper";
-
-import {useConfigSwiper} from "./hooks/useConfigSwiper.ts";
 import {SwiperWidgets} from "./components/swiper-widgets";
 import {ConfigContextProvider} from "./contexts/ConfigContext.tsx";
+import {useSwiperConfig} from "./hooks/useSwiperConfig.ts";
 
 export const ModelConfig = () => {
 
 	const {
 		isOpenConfigMenu,
-		toggleConfigMenu,
-
-		activeIndex,
+		swiperList,
 		handleSetActiveIndex,
-
-		setSwiperInstance,
-
-		onBulletClick
-	} = useConfigSwiper()
-
-	const swiperList = [
-		ExteriorSwiper,
-		WheelsSwiper,
-		InteriorSwiper,
-		PackageSwiper,
-		ExhaustSystemSwiper
-	]
+		setSwiperInstanceHandler
+	} = useSwiperConfig()
 
 	return (
 		<ConfigContextProvider>
@@ -44,7 +25,7 @@ export const ModelConfig = () => {
 				speed={800}
 
 				className={`${styles.swiper} ${isOpenConfigMenu ? '' : styles.hidden}`}
-				onSwiper={swiper => setSwiperInstance(swiper)}
+				onSwiper={swiper => setSwiperInstanceHandler(swiper)}
 				onSlideChange={swiper => handleSetActiveIndex(swiper.activeIndex)}
 			>
 				{
@@ -56,11 +37,7 @@ export const ModelConfig = () => {
 				}
 			</Swiper>
 
-			<SwiperWidgets isOpenConfigMenu={isOpenConfigMenu}
-						   toggleConfigMenu={toggleConfigMenu}
-						   activeIndex={activeIndex}
-						   onBulletClick={onBulletClick}
-			/>
+			<SwiperWidgets />
 		</ConfigContextProvider>
 	)
 }

@@ -8,7 +8,7 @@ export interface IConfigSwiper {
 
 export interface IConfigSwiperText {
 	index: number;
-	title: string;
+	label: string;
 	description: string;
 	price: number;
 	priceDescription?: string
@@ -34,3 +34,9 @@ export interface IConfiguration {
 export type TConfigArray = {
 	[K in keyof Omit<IConfiguration, 'startPrice' | 'configPrice' | 'totalPrice'>]: readonly IConfigSwiperText[] | IConfigSwiper[];
 }
+
+export type TConfigDisplayItem = {
+	index: number;
+	key: keyof Omit<IConfiguration, 'totalPrice' | 'startPrice' | 'configPrice'>;
+	label: string;
+};

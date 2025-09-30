@@ -8,7 +8,6 @@ export const exteriorSwiperConfig: IConfigSwiper[] = [
 		price: 0,
 		priceDescription: 'Base color / No additional cost'
 	},
-
 	{
 		index: 1,
 		path: '/config/exterior/ash-grey.png',

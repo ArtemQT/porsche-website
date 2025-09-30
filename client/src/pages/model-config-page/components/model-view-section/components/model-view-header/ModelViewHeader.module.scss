@@ -18,7 +18,7 @@
 	&Wrapper {
 		display: flex;
 		justify-content: space-between;
-		align-items: end;
+		align-items: start;
 
 		@include mobile {
 			margin-bottom: rem(15);
@@ -85,4 +85,39 @@
 	@include mobile-s {
 		align-self: start;
 	}
+}
+
+.buttonWrapper {
+	display: flex;
+	align-items: end;
+	flex-direction: column;
+	row-gap: rem(20);
+}
+
+.toggleConfigMenuButton {
+	@include flex-center(true);
+	column-gap: rem(20);
+
+	> span {
+		transition-duration: var(--transition-duration);
+	}
+
+	@include hover {
+		> span {
+			opacity: 0.5;
+		}
+		&::after {
+			transform: rotate(360deg);
+		}
+	}
+
+	&::after {
+		content: '';
+
+		width: rem(55);
+		height: rem(50);
+		background: url('@assets/icons/porsche-model.svg') center/cover no-repeat;
+		transition-duration: 0.7s;
+	}
+
 }

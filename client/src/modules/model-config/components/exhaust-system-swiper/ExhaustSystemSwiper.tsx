@@ -32,7 +32,7 @@ export const ExhaustSystemSwiper = () => {
 										<span>{slide.priceDescription}</span>
 								}
 							</p>
-							<h4 className={styles.swiperSlideExhaustTitle}>{slide.title}</h4>
+							<h4 className={styles.swiperSlideExhaustTitle}>{slide.label}</h4>
 							<p className={styles.swiperSlideDescription}>{slide.description}</p>
 						</SwiperSlide>
 					)))

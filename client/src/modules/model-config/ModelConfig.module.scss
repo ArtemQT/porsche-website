@@ -1,9 +1,11 @@
 @use '@helpers' as *;
 
+
 .swiper {
-	padding-inline: rem(20);
-	padding-top: rem(55);
-	margin-bottom: rem(100);
+	padding-inline: rem(20) !important;
+	padding-top: rem(55) !important;
+	margin-bottom: rem(50) !important;
+	overflow: visible !important;
 
 	&.hidden {
 		display: none !important;
@@ -84,11 +86,9 @@
 }
 
 .wheelsSwiper {
-	padding-inline: rem(30);
+	padding-inline: rem(30) !important;
 	padding-top: rem(25);
-
-	overflow-x: hidden !important;
-	overflow-y: visible !important;
+	overflow: visible !important;
 
 	&Slide {
 		display: flex !important;
