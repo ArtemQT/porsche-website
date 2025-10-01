@@ -11,7 +11,9 @@ model User {
   id       Int    @id @default(autoincrement())
   email    String @unique @db.VarChar(255)
   password String
-  token    Token?
+
+  token  Token?
+  config UserConfig[]
 }
 
 model Token {
@@ -33,6 +35,7 @@ model CarModels {
   modelImage        String      @db.VarChar(64)
 
   modelDetail ModelDetail?
+  UserConfig  UserConfig[]
 }
 
 enum ModelSeries {
@@ -47,4 +50,24 @@ model ModelDetail {
   previewImages String[]
 
   carModel CarModels @relation(fields: [carModelId], references: [id])
+}
+
+model UserConfig {
+  id      Int @id @default(autoincrement())
+  userId  Int
+  modelId Int
+
+  exterior Json
+  wheels   Json
+  interior Json
+  package  Json
+  exhaust  Json
+
+  configPrice Int
+  totalPrice  Int
+
+  configHash String @unique
+
+  user  User      @relation(fields: [userId], references: [id])
+  model CarModels @relation(fields: [modelId], references: [id])
 }
