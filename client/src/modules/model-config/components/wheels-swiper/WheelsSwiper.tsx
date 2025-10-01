@@ -15,11 +15,17 @@ export const WheelsSwiper = () => {
 				modules={[Navigation]}
 				navigation
 				centeredSlides={true}
-				slidesPerView={3}
+				slidesPerView={1}
 				speed={800}
 				className={styles.wheelsSwiper}
 				spaceBetween={30}
 				onSlideChange={(swiper) => changeConfigHandler(swiper.activeIndex, 'wheels')}
+
+				breakpoints={{
+					480: {
+						slidesPerView: 3,
+					}
+				}}
 			>
 				{
 					wheelsSwiperConfig.map(((slide, i) => (

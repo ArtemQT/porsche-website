@@ -6,6 +6,8 @@ import {WheelsSwiper} from "../components/wheels-swiper";
 import {InteriorSwiper} from "../components/interior-swiper";
 import {PackageSwiper} from "../components/package-swiper";
 import {ExhaustSystemSwiper} from "../components/exhaust-system-swiper";
+import type {SwiperProps} from "swiper/react";
+import {EffectCoverflow} from "swiper/modules";
 
 interface SwiperConfigContext {
 	isOpenConfigMenu: boolean;
@@ -15,12 +17,13 @@ interface SwiperConfigContext {
 	handleSetActiveIndex: (index: number) => void;
 	setSwiperInstanceHandler: (swiper: Swiper) => void;
 	onBulletClick: (index: number) => void;
-	swiperList: (()=>JSX.Element)[];
+	swiperList: (() => JSX.Element)[];
+	swiperProps: SwiperProps;
 }
 
 export const SwiperConfigContext = createContext<SwiperConfigContext | null>(null);
 
-export const SwiperConfigContextProvider: FC<PropsWithChildren> = ({ children }) => {
+export const SwiperConfigContextProvider: FC<PropsWithChildren> = ({children}) => {
 
 	const [isOpenConfigMenu, setOpenConfigMenu] = useState<boolean>(false);
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -57,10 +60,34 @@ export const SwiperConfigContextProvider: FC<PropsWithChildren> = ({ children })
 		ExhaustSystemSwiper
 	]
 
+	const swiperProps: SwiperProps = {
+		modules: [EffectCoverflow],
+		spaceBetween: '30',
+		slidesPerView: 'auto',
+		centeredSlides: true,
+		initialSlide: 0,
+		grabCursor: true,
+		speed: 800,
+
+		observer: true,
+		observeParents: true,
+		watchSlidesProgress: true,
+
+		effect: "coverflow",
+		coverflowEffect: {
+			rotate: 0,
+			stretch: 50,
+			depth: 200,
+			modifier: 1,
+			slideShadows: false
+		}
+	}
+
 	const contextValue: SwiperConfigContext = {
 		isOpenConfigMenu,
 		activeIndex,
 		swiperList,
+		swiperProps,
 
 		toggleConfigMenu,
 		handleSetActiveIndex,

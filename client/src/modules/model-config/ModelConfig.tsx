@@ -10,6 +10,7 @@ export const ModelConfig = () => {
 	const {
 		isOpenConfigMenu,
 		swiperList,
+		swiperProps,
 		handleSetActiveIndex,
 		setSwiperInstanceHandler
 	} = useSwiperConfig()
@@ -17,13 +18,7 @@ export const ModelConfig = () => {
 	return (
 		<ConfigContextProvider>
 			<Swiper
-				spaceBetween='30'
-				slidesPerView={3}
-				centeredSlides={true}
-				initialSlide={0}
-				grabCursor={true}
-				speed={800}
-
+				{...swiperProps}
 				className={`${styles.swiper} ${isOpenConfigMenu ? '' : styles.hidden}`}
 				onSwiper={swiper => setSwiperInstanceHandler(swiper)}
 				onSlideChange={swiper => handleSetActiveIndex(swiper.activeIndex)}

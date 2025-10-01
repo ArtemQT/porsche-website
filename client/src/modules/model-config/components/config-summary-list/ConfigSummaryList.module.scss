@@ -10,6 +10,10 @@
 		border-radius: var(--border-radius);
 		background-color: var(--color-dark);
 		color: var(--color-light);
+
+		@include mobile-s {
+			width: 100%;
+		}
 	}
 
 	&Details {

@@ -21,14 +21,12 @@
 		align-items: start;
 
 		@include mobile {
-			margin-bottom: rem(15);
-		}
-
-		@include mobile-s {
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
 			row-gap: rem(40);
+
+			margin-bottom: rem(15);
 		}
 	}
 }
@@ -82,7 +80,7 @@
 
 .backButton {
 
-	@include mobile-s {
+	@include mobile {
 		align-self: start;
 	}
 }
@@ -92,6 +90,10 @@
 	align-items: end;
 	flex-direction: column;
 	row-gap: rem(20);
+
+	@include mobile {
+		align-items: center;
+	}
 }
 
 .toggleConfigMenuButton {

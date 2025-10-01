@@ -10,6 +10,14 @@
 		&[data-is-config-menu-open='false'] {
 			pointer-events: none;
 		}
+
+		@include mobile {
+			column-gap: rem(40);
+		}
+
+		@include mobile-s {
+			column-gap: rem(25);
+		}
 	}
 
 	&Button {
@@ -34,8 +42,22 @@
 		background-color: var(--color-dark);
 		border-radius: 50%;
 
+		@include mobile {
+			padding: rem(10);
+		}
+
 		> img {
-			@include square(25)
+			@include square(25);
+
+			@include mobile-s {
+				@include square(20)
+			}
+		}
+	}
+
+	&Description {
+		@include mobile-s {
+			font-size: rem(14);
 		}
 	}
 }
