@@ -6,6 +6,7 @@ import {authRoute} from "./routes/auth-route.js"
 import {errorMiddleware} from "./middlewares/error-middleware.js";
 import {carModelsRoute} from "./routes/car-models-route.js";
 import {modelDetailRouter} from "./routes/model-detail-route.js";
+import {userConfigRouter} from "./routes/user-config-route.js";
 
 const app = express();
 dotenv.config();
@@ -30,5 +31,6 @@ app.use(cookieParser())
 app.use('/auth', authRoute);
 app.use('/car-models', carModelsRoute);
 app.use('/model-detail', modelDetailRouter);
+app.use('/user-config', userConfigRouter)
 
 app.use(errorMiddleware)

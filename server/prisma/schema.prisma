@@ -57,11 +57,11 @@ model UserConfig {
   userId  Int
   modelId Int
 
-  exterior Json
-  wheels   Json
-  interior Json
-  package  Json
-  exhaust  Json
+  exterior   Json
+  wheels     Json
+  interior   Json
+  carPackage Json
+  exhaust    Json
 
   configPrice Int
   totalPrice  Int
