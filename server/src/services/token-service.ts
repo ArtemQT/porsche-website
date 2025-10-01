@@ -3,7 +3,7 @@ import * as process from "node:process";
 import {prisma} from "../config/prisma.js";
 
 
-interface IPayload {
+export interface IPayload {
 	id: string,
 	email: string,
 }
