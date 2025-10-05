@@ -8,12 +8,19 @@ export class UserConfigService {
 	static async addUserConfig( userId: number, modelId: number, userConfig: IUserConfig) {
 		const hashedUserConfig = generateConfigHash(userConfig);
 
+		if (!hashedUserConfig) {
+			console.log('No user config found.');
+			throw ApiError.badRequest('No user config found.');
+		}
+
 		const config = await prisma.userConfig.findUnique({
 			where: {
 				userId,
 				configHash: hashedUserConfig,
 			}
 		})
+
+
 		if (config) {
 			throw ApiError.badRequest('User configuration already exists');
 		}

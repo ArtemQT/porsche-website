@@ -87,7 +87,11 @@
 
 	&ConfigSlide:global(.swiper-slide-active) {
 		filter: none;
-		transform: translateY(rem(-50)) !important;
+		transform: translateY(rem(-40)) !important;
+
+		& article {
+			box-shadow: 0 0 rem(10) rem(1) var(--color-dark);
+		}
 	}
 
 }

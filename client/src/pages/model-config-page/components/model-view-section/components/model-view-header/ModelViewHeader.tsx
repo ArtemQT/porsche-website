@@ -6,9 +6,10 @@ import {useSwiperConfig} from "../../../../../../modules/model-config";
 interface ModelViewHeaderProps {
 	isModelLoading: boolean;
 	modelName: string | undefined;
+	handleOpenConfigModal: () => void;
 }
 
-export const ModelViewHeader: FC<ModelViewHeaderProps> = ({isModelLoading, modelName}) => {
+export const ModelViewHeader: FC<ModelViewHeaderProps> = ({isModelLoading, modelName, handleOpenConfigModal}) => {
 	const {
 		isOpenConfigMenu,
 		toggleConfigMenu
@@ -23,6 +24,7 @@ export const ModelViewHeader: FC<ModelViewHeaderProps> = ({isModelLoading, model
 					<button className={styles.saveConfigButton}
 							disabled={isModelLoading}
 							data-is-disabled={isModelLoading}
+							onClick={handleOpenConfigModal}
 					>
 						Save configuration
 					</button>

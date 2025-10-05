@@ -2,7 +2,6 @@ import styles from './ModelConfig.module.scss'
 
 import {Swiper, SwiperSlide} from "swiper/react";
 import {SwiperWidgets} from "./components/swiper-widgets";
-import {ConfigContextProvider} from "./contexts/ConfigContext.tsx";
 import {useSwiperConfig} from "./hooks/useSwiperConfig.ts";
 
 export const ModelConfig = () => {
@@ -16,7 +15,7 @@ export const ModelConfig = () => {
 	} = useSwiperConfig()
 
 	return (
-		<ConfigContextProvider>
+		<>
 			<Swiper
 				{...swiperProps}
 				className={`${styles.swiper} ${isOpenConfigMenu ? '' : styles.hidden}`}
@@ -33,6 +32,6 @@ export const ModelConfig = () => {
 			</Swiper>
 
 			<SwiperWidgets />
-		</ConfigContextProvider>
+		</>
 	)
 }

@@ -10,3 +10,5 @@ export {useAuth} from './hooks/use-auth'
 export {AuthProvider} from './contexts/auth-context'
 
 export {useLogout} from './hooks/use-logout'
+
+export {userApi} from './api/user-api'

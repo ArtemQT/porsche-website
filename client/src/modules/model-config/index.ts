@@ -5,3 +5,6 @@ export {ModelContextProvider} from './contexts/ModelContext'
 
 export {SwiperConfigContextProvider} from './contexts/SwiperConfigContext'
 export {useSwiperConfig} from './hooks/useSwiperConfig'
+
+export {ConfigContextProvider} from './contexts/ConfigContext'
+export {useConfig} from './hooks/useConfig'

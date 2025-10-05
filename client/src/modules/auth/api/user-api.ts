@@ -31,6 +31,11 @@ class UserApi {
 		const response = await this.userApi.post<ILogoutResponse>('/logout');
 		return response.data
 	}
+
+	refreshToken = async () => {
+		const response = await this.userApi.get<IResponseAuth>('/refresh');
+		return response.data;
+	}
 }
 
 export const userApi = new UserApi();

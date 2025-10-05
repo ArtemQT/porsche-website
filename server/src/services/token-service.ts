@@ -26,7 +26,7 @@ export class TokenService {
 			payload,
 			jwtAccessSecret,
 			{
-				expiresIn: '30m'
+				expiresIn: '30s'
 			}
 		)
 

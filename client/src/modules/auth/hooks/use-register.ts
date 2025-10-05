@@ -61,7 +61,7 @@ export const useRegister = () => {
 			setTimeout(() => {
 				handleClose();
 				reset();
-			}, 1000);
+			}, 700);
 		}
 	})
 

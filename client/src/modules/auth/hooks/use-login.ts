@@ -55,14 +55,12 @@ export const useLogin = () => {
 				userData
 			)
 
-			console.log(userData)
-
 			setLogin();
 			toast.success("Login successfully");
 			setTimeout(() => {
 				handleClose();
 				reset();
-			}, 1000)
+			}, 700)
 
 		}
 	})

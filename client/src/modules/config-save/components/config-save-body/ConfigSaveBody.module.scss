@@ -1,0 +1,76 @@
+@use "@helpers" as *;
+
+.wrapper {
+	position: relative;
+}
+
+.closeButton {
+	@include square(30);
+
+	position: relative;
+
+	@include hover {
+		&::before, &::after {
+			background-color: var(--color-red);
+		}
+	}
+
+	&::after, &::before {
+		content: "";
+
+		@include abs-center();
+		width: 100%;
+		height: rem(2);
+		background-color: var(--color-dark);
+		transition-duration: var(--transition-duration);
+	}
+	&::before {
+		rotate: 45deg;
+	}
+	&::after {
+		rotate: -45deg;
+	}
+
+	&Wrapper {
+		height: rem(15);
+		display: flex;
+		justify-content: end;
+		margin-bottom: rem(30);
+	}
+}
+
+.previewImg {
+	width: 100%;
+	height: rem(200);
+	object-fit: contain;
+
+	margin-bottom: rem(30);
+}
+
+.priceInfoWrapper {
+
+	> h4 {
+		font-weight: 400;
+		margin-bottom: rem(20);
+	}
+}
+
+.configPrice, .totalPrice {
+	font-size: rem(18);
+	font-weight: 300;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: rem(15);
+
+
+}
+
+.configPrice:last-child {
+	padding-bottom: rem(15);
+	border-bottom: var(--border);
+}
+
+.saveConfigButton {
+	width: 100%;
+}
