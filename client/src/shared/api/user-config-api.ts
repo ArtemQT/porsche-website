@@ -14,7 +14,13 @@ class UserConfigApi {
 		})
 
 		this.userConfigApi.interceptors.request.use((config) => {
-			config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`;
+			const accessToken = localStorage.getItem("accessToken");
+			if (!accessToken) {
+				toast.error("Please authorize to save configuration.");
+				throw new Error("No access token");
+			}
+
+			config.headers.Authorization = `Bearer ${accessToken}`;
 			return config;
 		})
 

@@ -5,7 +5,7 @@ import {ApiError} from "../exceptions/api-exception.js";
 
 export class UserConfigService {
 
-	static async addUserConfig( userId: number, modelId: number, userConfig: IUserConfig) {
+	static async addUserConfig(userId: number, modelId: number, userConfig: IUserConfig) {
 		const hashedUserConfig = generateConfigHash(userConfig);
 
 		if (!hashedUserConfig) {
@@ -41,5 +41,14 @@ export class UserConfigService {
 				totalPrice: userConfig.totalPrice
 			}
 		})
+	}
+
+	static async getUsersConfig(userId: string) {
+
+		const usersConfig = await prisma.userConfig.findMany({
+			where: {userId: +userId}
+		});
+
+		return usersConfig;
 	}
 }

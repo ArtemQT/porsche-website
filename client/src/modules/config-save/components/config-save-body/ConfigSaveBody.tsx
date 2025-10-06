@@ -1,10 +1,11 @@
 import styles from './ConfigSaveBody.module.scss'
 
 import {useModel} from "../../../model-config";
-import {useConfig} from "../../../model-config/hooks/useConfig.ts";
+import {useConfig} from "../../../model-config";
 import type {FC} from "react";
 import {Button, ButtonType} from "@components/button";
 import {useSaveConfig} from "../../hooks/use-save-config.ts";
+
 
 interface ConfigSaveBodyProps {
 	handleClose: () => void;
@@ -13,7 +14,10 @@ interface ConfigSaveBodyProps {
 export const ConfigSaveBody: FC<ConfigSaveBodyProps> = ({handleClose}) => {
 	const {model} = useModel();
 	const {configuration} = useConfig();
-	const {handleSaveConfig} = useSaveConfig()
+	const {
+		handleSaveConfig,
+		isSaveConfigLoading
+	} = useSaveConfig()
 
 	const priceInfoList = [
 		{
@@ -59,8 +63,15 @@ export const ConfigSaveBody: FC<ConfigSaveBodyProps> = ({handleClose}) => {
 			<Button className={styles.saveConfigButton}
 					buttonType={ButtonType.dark}
 					onClick={handleSaveConfig}
+					data-is-pending={isSaveConfigLoading}
+					disabled={isSaveConfigLoading}
 			>
-				Save configuration
+				{
+					isSaveConfigLoading ?
+						'Loading'
+						:
+						'Save Configuration'
+				}
 			</Button>
 		</div>
 	)

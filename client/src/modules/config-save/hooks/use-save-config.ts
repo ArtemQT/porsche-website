@@ -69,6 +69,7 @@ export const useSaveConfig = () => {
 	}
 
 	return {
-		handleSaveConfig
+		handleSaveConfig,
+		isSaveConfigLoading: saveConfigMutation.isPending
 	}
 }

@@ -26,4 +26,24 @@ export class UserConfigController {
 			next(err);
 		}
 	}
+
+	static async getUsersConfig(req: Request, res: Response, next: NextFunction) {
+		try {
+			const userIdFromJwt = req.user?.id;
+			if (!userIdFromJwt) {
+				throw ApiError.badRequest('Missing required fields in userIdFromJwt');
+			}
+
+			const userConfigs = await UserConfigService.getUsersConfig(userIdFromJwt);
+
+			res.status(200).json({
+				userConfigs,
+				message: 'User configs retrieved successfully',
+			})
+
+		} catch (err) {
+			next(err);
+		}
+	}
+
 }

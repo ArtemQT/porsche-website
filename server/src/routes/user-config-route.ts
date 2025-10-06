@@ -4,4 +4,5 @@ import {UserConfigController} from "../controllers/user-config-controller.js";
 
 export const userConfigRouter = Router();
 
-userConfigRouter.post('/', authMiddleware, UserConfigController.addUserConfig)
+userConfigRouter.post('/', authMiddleware, UserConfigController.addUserConfig);
+userConfigRouter.get('/', authMiddleware, UserConfigController.getUsersConfig)
