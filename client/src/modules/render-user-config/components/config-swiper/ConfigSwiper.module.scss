@@ -1,0 +1,22 @@
+@use "@helpers" as *;
+
+.config {
+
+	&Swiper {
+		margin: 0 !important;
+	}
+
+	&Wrapper {
+		padding: rem(30) !important;
+		background-color: var(--color-grey-dark);
+		border-radius: var(--border-radius-large);
+	}
+
+	&Title {
+		@include fluid-text(18, 20);
+
+		margin-bottom: rem(20);
+	}
+}
+
+

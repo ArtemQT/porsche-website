@@ -1,0 +1,1 @@
+export {ModelCardInfo} from './ModelCardInfo'

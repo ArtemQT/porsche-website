@@ -4,20 +4,19 @@ import type {FC} from "react";
 import {ReactSVG} from "react-svg";
 
 import basketIcon from '@assets/icons/porsche-config.svg';
+import {Link} from "react-router-dom";
+import {RoutePaths} from "@config/route-paths.ts";
 
 interface UserIconProps {
 	buttonClassname: string;
 }
 
 export const BasketIcon: FC<UserIconProps> = ({buttonClassname}) => {
-
 	return (
-		<>
-			<button className={`${styles.basketIconButton} ${buttonClassname}`}
-			>
-				<ReactSVG src={basketIcon}/>
-			</button>
-		</>
-
+		<Link className={`${styles.basketIconButton} ${buttonClassname}`}
+			  to={RoutePaths.userConfigPage}
+		>
+			<ReactSVG src={basketIcon}/>
+		</Link>
 	)
 }

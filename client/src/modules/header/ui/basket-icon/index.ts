@@ -1,1 +1,0 @@
-export {BasketIcon} from './BasketIcon'

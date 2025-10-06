@@ -1,1 +1,1 @@
-export {ModelCardSkeleton} from './ModelCardSkeleton'
+export {ModelCardSkeleton} from './ModelCardSkeleton.tsx'

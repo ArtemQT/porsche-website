@@ -1,7 +1,7 @@
 import {useQuery} from "@tanstack/react-query";
 import {modelsListApi} from "@shared/api/models-list-api.ts";
-import {ModelCardSkeleton} from "../components/model-card-skeleton";
 import {useFilters} from "../../models-filter/hooks/use-filters.ts";
+import {ModelCardSkeleton} from "../components/model-card-skeleton";
 
 export const useModelsList = () => {
 

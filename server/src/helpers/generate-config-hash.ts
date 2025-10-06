@@ -2,13 +2,14 @@ import type {IUserConfig} from "../types/user-config-types.js";
 import {createHash} from "node:crypto";
 import stringify from "json-stable-stringify";
 
-export const generateConfigHash = (userConfig: IUserConfig) => {
-	const hashData: Omit<IUserConfig, 'configPrice' | 'totalPrice'> = {
+export const generateConfigHash = (userConfig: IUserConfig, modelId: number) => {
+	const hashData = {
 		exterior: userConfig.exterior,
 		wheels: userConfig.wheels,
 		interior: userConfig.interior,
 		carPackage: userConfig.carPackage,
-		exhaust: userConfig.exhaust
+		exhaust: userConfig.exhaust,
+		modelId: modelId,
 	}
 
 	const sortedHashString = stringify(hashData);

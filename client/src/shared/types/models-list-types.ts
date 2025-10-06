@@ -12,7 +12,7 @@ export interface IGetModelsListBySearchResponse {
 	}
 }
 
-export interface IModelInfo {
+export type IModelInfo = {
 	id: number,
 	modelSeries: MODELS_SERIES,
 	modelName: string,

@@ -1,11 +1,14 @@
 import axios, {type AxiosInstance} from "axios";
 import {baseApiUrl} from "@config/api-config.ts";
-import type {IRequestAddConfig, IResponseAddConfig} from "@shared/types/user-config-types.ts";
+import type {IRequestAddConfig, IResponseAddConfig, IResponseGetConfig} from "@shared/types/user-config-types.ts";
 import {userApi} from "../../modules/auth";
 import {toast} from "sonner";
+import {queryOptions} from "@tanstack/react-query";
 
 class UserConfigApi {
 	private readonly userConfigApi: AxiosInstance;
+
+	private readonly userConfigCacheKey: string;
 
 	constructor() {
 
@@ -48,10 +51,24 @@ class UserConfigApi {
 				}
 			}
 		)
+
+		this.userConfigCacheKey = 'user-config-list'
+	}
+
+	getUserConfigsQueryParams = () => {
+		return queryOptions({
+			queryFn: () => this.getUserConfigs(),
+			queryKey: [this.userConfigCacheKey],
+		})
 	}
 
 	async addUserConfig(addConfigBody: IRequestAddConfig) {
 		const response = await this.userConfigApi.post<IResponseAddConfig>('/', addConfigBody);
+		return response.data;
+	}
+
+	async getUserConfigs() {
+		const response = await this.userConfigApi.get<IResponseGetConfig>('/');
 		return response.data;
 	}
 }

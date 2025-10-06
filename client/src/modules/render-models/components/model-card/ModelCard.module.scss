@@ -22,62 +22,6 @@
 		height: 100%;
 	}
 
-	&FuelType {
-		@include fluid-text(14, 16);
-
-		padding: rem(5) rem(10);
-		margin-bottom: rem(15);
-		border-radius: var(--border-radius-small);
-		background-color: var(--color-grey-light);
-		width: fit-content;
-
-		letter-spacing: rem(0.5);
-		font-weight: 500;
-	}
-
-	&Img {
-		margin-bottom: rem(35);
-
-		> img {
-			width: 100%;
-			height: auto;
-		}
-	}
-
-	&Title {
-		@include fluid-text(22, 28);
-		font-weight: 500;
-
-		margin-bottom: rem(35);
-	}
-
-	&Info {
-
-		&List {
-			display: flex;
-			flex-direction: column;
-			row-gap: rem(20);
-
-			margin-bottom: rem(25);
-		}
-
-		&Item {
-			display: flex;
-			flex-direction: column;
-			row-gap: rem(2);
-		}
-
-		&Data {
-			@include fluid-text(18, 24);
-			font-weight: 500;
-		}
-
-		&Description {
-			@include fluid-text(14, 16);
-			opacity: 0.65;
-		}
-	}
-
 	&Button {
 		position: relative;
 		z-index: 10;

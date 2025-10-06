@@ -1,13 +1,27 @@
+import type {IModelInfo} from "@shared/types/models-list-types.ts";
+
+// Типы для axios запросов
 export interface IResponseAddConfig {
 	message: string;
 }
 
 export interface IRequestAddConfig {
 	modelId: number;
-	config: IUserConfig
+	config: IConfig
 }
 
-interface IUserConfig {
+export interface IResponseGetConfig {
+	userConfigs: IUserConfig[]
+	message: string;
+}
+
+export type IUserConfig = {
+	model: IModelInfo;
+	configHash: string;
+} & IConfig
+
+// Типы конфигурации
+export interface IConfig {
 	exterior: IConfigOption;
 	wheels: IConfigOption;
 	interior: IConfigOption;
@@ -29,3 +43,4 @@ interface IConfigTextOption {
 	description: string;
 	price: number;
 }
+

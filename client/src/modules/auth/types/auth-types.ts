@@ -6,7 +6,7 @@ export interface IResponseAuth {
 	message: string;
 }
 
-interface IUserData {
+export interface IUserData {
 	id: string;
 	email: string;
 }

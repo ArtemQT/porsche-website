@@ -1,0 +1,29 @@
+@use "@helpers" as *;
+
+.userConfigItem {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-areas:
+	"model-card config-swiper"
+	"model-card config-summary";
+
+	gap: rem(20);
+
+	margin-bottom: rem(40);
+	padding-bottom: rem(40);
+	border-bottom: var(--border);
+}
+
+.modelCard {
+	grid-area: model-card;
+
+	max-width: rem(370);
+	padding: rem(30);
+	border-radius: var(--border-radius-large);
+	background-color: var(--color-light);
+	position: relative;
+}
+
+.configSummary {
+	grid-area: config-summary;
+}

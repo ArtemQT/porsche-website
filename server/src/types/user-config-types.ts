@@ -27,3 +27,5 @@ interface IConfigTextOption extends Prisma.JsonObject {
 	description: string;
 	price: number;
 }
+
+

@@ -16,6 +16,8 @@ export const ModelConfig = () => {
 
 	return (
 		<>
+			<h2 className='visually-hidden'>Model configuration menu</h2>
+
 			<Swiper
 				{...swiperProps}
 				className={`${styles.swiper} ${isOpenConfigMenu ? '' : styles.hidden}`}

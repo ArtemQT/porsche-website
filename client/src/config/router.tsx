@@ -4,6 +4,7 @@ import {HomePage} from "../pages/home-page";
 import {ModelsPage} from "../pages/models-page";
 import {RoutePaths} from "@config/route-paths.ts";
 import {ModelConfigPage} from "../pages/model-config-page";
+import {UserConfigPage} from "../pages/user-config-page";
 
 export const router = createBrowserRouter([
 	{
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
 			{
 				element: <ModelConfigPage/>,
 				path: `${RoutePaths.modelConfigPage}/:modelId`
+			},
+			{
+				element: <UserConfigPage/>,
+				path: RoutePaths.userConfigPage
 			}
 		]
 	}
