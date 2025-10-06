@@ -55,10 +55,11 @@ class UserConfigApi {
 		this.userConfigCacheKey = 'user-config-list'
 	}
 
-	getUserConfigsQueryParams = () => {
+	getUserConfigsQueryParams = (userId: string | null) => {
 		return queryOptions({
 			queryFn: () => this.getUserConfigs(),
-			queryKey: [this.userConfigCacheKey],
+			queryKey: [this.userConfigCacheKey, userId],
+			enabled: !!userId,
 		})
 	}
 

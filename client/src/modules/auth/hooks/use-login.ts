@@ -54,8 +54,9 @@ export const useLogin = () => {
 				[userApi.getCacheKey()],
 				userData
 			)
+			localStorage.setItem("userId", userData.id);
 
-			setLogin();
+			setLogin(userData.id);
 			toast.success("Login successfully");
 			setTimeout(() => {
 				handleClose();

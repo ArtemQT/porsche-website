@@ -3,6 +3,7 @@ import type {IUserConfig} from "@shared/types/user-config-types.ts";
 import type {FC} from "react";
 import {ModelCardInfo} from "@shared/components/model-card-info";
 import {ConfigSwiper} from "../config-swiper";
+import {ConfigSummary} from "../config-summary";
 
 interface UserConfigProps {
 	config: IUserConfig
@@ -27,7 +28,9 @@ export const UserConfig: FC<UserConfigProps> = ({config}) => {
 				modelName={config.model.modelName}
 			/>
 
-			<div className={styles.configSummary}></div>
+			<ConfigSummary configPrice={config.configPrice}
+						   totalPrice={config.totalPrice}
+			/>
 		</li>
 	)
 }

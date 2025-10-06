@@ -32,13 +32,13 @@ export interface IConfig {
 	totalPrice: number;
 }
 
-interface IConfigOption {
+export interface IConfigOption {
 	label: string;
 	price: number;
 	imgUrl: string;
 }
 
-interface IConfigTextOption {
+export interface IConfigTextOption {
 	label: string;
 	description: string;
 	price: number;

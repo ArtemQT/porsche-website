@@ -1,0 +1,1 @@
+export {ConfigSlide} from './ConfigSlide'

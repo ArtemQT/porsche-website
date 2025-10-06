@@ -1,9 +1,10 @@
 import {createContext, type FC, type PropsWithChildren, useState} from "react";
-import {useQueryClient} from "@tanstack/react-query";
 
 interface AuthContext {
-	isLoggedIn: boolean
-	setLogin: () => void
+	isLoggedIn: boolean,
+	userId: string | null
+
+	setLogin: (userId: string) => void,
 	setLogout: () => void,
 }
 
@@ -11,20 +12,23 @@ export const AuthContext = createContext<AuthContext | null>(null)
 
 export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
-	const queryClient = useQueryClient();
-	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => !!localStorage.getItem('accessToken'))
+	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => !!localStorage.getItem('accessToken'));
+	const [userId, setUserId] = useState<string | null>(() => localStorage.getItem("userId"));
 
-	const setLogin = () => {
+	const setLogin = (userId: string) => {
 		setIsLoggedIn(true);
+		setUserId(userId)
 	}
 
 	const setLogout = () => {
 		setIsLoggedIn(false);
-		queryClient.clear()
+		setUserId(null)
 	}
 
 	const value: AuthContext = {
 		isLoggedIn,
+		userId,
+
 		setLogin,
 		setLogout,
 	}

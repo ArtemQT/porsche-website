@@ -15,6 +15,8 @@ export const useLogout = () => {
 
 		onSuccess: () => {
 			localStorage.removeItem("accessToken");
+			localStorage.removeItem("userId");
+
 			queryClient.removeQueries({
 				queryKey: [userApi.getCacheKey()]
 			})

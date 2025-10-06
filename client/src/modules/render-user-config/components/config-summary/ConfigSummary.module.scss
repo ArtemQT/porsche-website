@@ -1,0 +1,32 @@
+@use "@helpers" as *;
+
+.config {
+
+	&Summary {
+		width: 70%;
+		align-self: end;
+		justify-self: end;
+		border-radius: var(--border-radius);
+		background-color: var(--color-grey-dark);
+		padding: rem(15) rem(30);
+	}
+
+	&Price {
+		font-size: rem(16);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+	}
+}
+
+.price{
+
+	&Item {
+		&:not(:last-child) {
+			padding-bottom: rem(5);
+			margin-bottom: rem(5);
+		}
+	}
+}

@@ -1,0 +1,38 @@
+@use "@helpers" as *;
+
+.option {
+
+	&Content, &TextContent {
+		@include flex-center();
+		flex-direction: column;
+		row-gap: rem(20);
+	}
+
+	&TextContent {
+		width: 80%;
+	}
+
+	&Content {
+		width: 65%;
+	}
+
+	&Title {
+		font-weight: 400;
+	}
+
+	&Price {
+		font-size: rem(14);
+		padding: rem(10) rem(20);
+		border-radius: var(--border-radius);
+		background-color: var(--color-dark);
+		color: var(--color-light);
+	}
+
+	&Img {
+		border-radius: var(--border-radius);
+	}
+
+	&Description {
+
+	}
+}

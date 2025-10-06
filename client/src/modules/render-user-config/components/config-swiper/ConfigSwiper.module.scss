@@ -2,12 +2,8 @@
 
 .config {
 
-	&Swiper {
-		margin: 0 !important;
-	}
-
 	&Wrapper {
-		padding: rem(30) !important;
+		padding-block: rem(30);
 		background-color: var(--color-grey-dark);
 		border-radius: var(--border-radius-large);
 	}
@@ -15,7 +11,18 @@
 	&Title {
 		@include fluid-text(18, 20);
 
+		padding-left: rem(30);
 		margin-bottom: rem(20);
+	}
+
+	&Swiper {
+
+	}
+
+	&Slide {
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
 	}
 }
 

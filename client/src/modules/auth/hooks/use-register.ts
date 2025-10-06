@@ -55,8 +55,9 @@ export const useRegister = () => {
 				[userApi.getCacheKey()],
 				userData
 			)
+			localStorage.setItem("userId", userData.id);
 
-			setLogin()
+			setLogin(userData.id)
 			toast.success('Registration completed successfully')
 			setTimeout(() => {
 				handleClose();

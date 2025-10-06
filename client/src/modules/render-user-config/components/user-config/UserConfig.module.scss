@@ -2,6 +2,7 @@
 
 .userConfigItem {
 	display: grid;
+	grid-template-rows: rem(360) auto;
 	grid-template-columns: auto 1fr;
 	grid-template-areas:
 	"model-card config-swiper"
