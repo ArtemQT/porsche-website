@@ -1,17 +1,21 @@
 import type {IModelInfo} from "@shared/types/models-list-types.ts";
 
 // Типы для axios запросов
-export interface IResponseAddConfig {
-	message: string;
-}
-
 export interface IRequestAddConfig {
 	modelId: number;
 	config: IConfig
 }
 
+export interface IResponseAddConfig {
+	message: string;
+}
+
 export interface IResponseGetConfig {
 	userConfigs: IUserConfig[]
+	message: string;
+}
+
+export interface IResponseDeleteConfig {
 	message: string;
 }
 

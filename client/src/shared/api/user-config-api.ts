@@ -1,6 +1,11 @@
 import axios, {type AxiosInstance} from "axios";
 import {baseApiUrl} from "@config/api-config.ts";
-import type {IRequestAddConfig, IResponseAddConfig, IResponseGetConfig} from "@shared/types/user-config-types.ts";
+import type {
+	IRequestAddConfig,
+	IResponseAddConfig,
+	IResponseDeleteConfig,
+	IResponseGetConfig
+} from "@shared/types/user-config-types.ts";
 import {userApi} from "../../modules/auth";
 import {toast} from "sonner";
 import {queryOptions} from "@tanstack/react-query";
@@ -55,6 +60,8 @@ class UserConfigApi {
 		this.userConfigCacheKey = 'user-config-list'
 	}
 
+	getCacheKey = () => this.userConfigCacheKey
+
 	getUserConfigsQueryParams = (userId: string | null) => {
 		return queryOptions({
 			queryFn: () => this.getUserConfigs(),
@@ -70,6 +77,11 @@ class UserConfigApi {
 
 	async getUserConfigs() {
 		const response = await this.userConfigApi.get<IResponseGetConfig>('/');
+		return response.data;
+	}
+
+	async deleteUserConfig(configHash: string) {
+		const response = await this.userConfigApi.delete<IResponseDeleteConfig>(`/${configHash}`);
 		return response.data;
 	}
 }

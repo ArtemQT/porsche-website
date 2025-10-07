@@ -1,13 +1,19 @@
 import styles from './ConfigSummary.module.scss'
 import type {FC} from "react";
 import {Button, ButtonType} from "@components/button";
+import {useDeleteConfig} from "../../hooks/useDeleteConfig.ts";
 
 interface ConfigSummaryProps {
 	configPrice: number;
 	totalPrice: number;
+	configHash: string;
 }
 
-export const ConfigSummary: FC<ConfigSummaryProps> = ({configPrice, totalPrice}) => {
+export const ConfigSummary: FC<ConfigSummaryProps> = ({configPrice, totalPrice, configHash}) => {
+
+	const {
+		deleteConfigHandler
+	} = useDeleteConfig()
 
 	const priceList = [
 		{
@@ -29,6 +35,7 @@ export const ConfigSummary: FC<ConfigSummaryProps> = ({configPrice, totalPrice})
 
 			<Button buttonType={ButtonType.dark}
 					className={styles.configSummaryDeleteBtn}
+					onClick={() => deleteConfigHandler(configHash)}
 			>
 				Delete configuration
 			</Button>

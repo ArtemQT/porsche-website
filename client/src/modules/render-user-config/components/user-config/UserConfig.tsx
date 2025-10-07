@@ -48,6 +48,7 @@ export const UserConfig: FC<UserConfigProps> = ({config}) => {
 
 				<ConfigSummary configPrice={config.configPrice}
 							   totalPrice={config.totalPrice}
+							   configHash={config.configHash}
 				/>
 			</div>
 		</li>
