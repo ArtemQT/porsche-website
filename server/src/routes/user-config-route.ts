@@ -5,4 +5,5 @@ import {UserConfigController} from "../controllers/user-config-controller.js";
 export const userConfigRouter = Router();
 
 userConfigRouter.post('/', authMiddleware, UserConfigController.addUserConfig);
-userConfigRouter.get('/', authMiddleware, UserConfigController.getUsersConfig)
+userConfigRouter.get('/', authMiddleware, UserConfigController.getUsersConfig);
+userConfigRouter.delete('/:configHash', authMiddleware, UserConfigController.deleteUserConfig)

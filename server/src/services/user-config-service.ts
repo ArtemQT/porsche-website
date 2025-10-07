@@ -61,4 +61,31 @@ export class UserConfigService {
 		});
 		return usersConfig;
 	}
+
+	static async deleteUserConfig(userId: string | undefined, configHash: string | undefined) {
+		if(!userId) {
+			throw ApiError.badRequest('No userId found.');
+		}
+		if (!configHash) {
+			throw ApiError.badRequest('configHash not provided');
+		}
+
+		const existingConfig  = await prisma.userConfig.findUnique({
+			where: {
+				userId: +userId,
+				configHash
+			}
+		})
+
+		if (!existingConfig) {
+			throw ApiError.badRequest(`Configuration with hash:${configHash} not found`);
+		}
+
+		await prisma.userConfig.delete({
+			where: {
+				userId: +userId,
+				configHash
+			}
+		})
+	}
 }

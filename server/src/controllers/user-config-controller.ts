@@ -46,4 +46,17 @@ export class UserConfigController {
 		}
 	}
 
+	static async deleteUserConfig(req: Request, res: Response, next: NextFunction) {
+		try {
+			const configHash = req.params.configHash;
+			const userId = req.user?.id;
+			await UserConfigService.deleteUserConfig(userId, configHash);
+
+			res.status(200).json({
+				message: 'Configuration deleted successfully',
+			})
+		} catch (err) {
+			next(err)
+		}
+	}
 }
