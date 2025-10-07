@@ -1,5 +1,6 @@
 import styles from './ConfigSummary.module.scss'
 import type {FC} from "react";
+import {Button, ButtonType} from "@components/button";
 
 interface ConfigSummaryProps {
 	configPrice: number;
@@ -25,6 +26,13 @@ export const ConfigSummary: FC<ConfigSummaryProps> = ({configPrice, totalPrice})
 
 	return (
 		<div className={styles.configSummary}>
+
+			<Button buttonType={ButtonType.dark}
+					className={styles.configSummaryDeleteBtn}
+			>
+				Delete configuration
+			</Button>
+
 			<ul className={styles.priceList}>
 				{
 					priceList.map(priceItem => (

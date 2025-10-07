@@ -18,6 +18,7 @@ export const ConfigSwiper:FC<ConfigSwiperProps> = ({config, modelName}) => {
 			<Swiper modules={[Navigation]}
 					navigation={true}
 					slidesPerView={'auto'}
+					speed={800}
 
 					className={styles.configSwiper}
 			>

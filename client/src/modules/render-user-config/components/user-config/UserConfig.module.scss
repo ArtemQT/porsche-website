@@ -1,18 +1,78 @@
 @use "@helpers" as *;
 
-.userConfigItem {
-	display: grid;
-	grid-template-rows: rem(360) auto;
-	grid-template-columns: auto 1fr;
-	grid-template-areas:
-	"model-card config-swiper"
-	"model-card config-summary";
+.userConfig {
 
-	gap: rem(20);
+	&Item {
+		margin-bottom: rem(40);
+		padding-bottom: rem(40);
+		border-bottom: var(--border);
+	}
 
-	margin-bottom: rem(40);
-	padding-bottom: rem(40);
-	border-bottom: var(--border);
+	&Header {
+		cursor: pointer;
+		position: relative;
+
+		&::after, &::before {
+			content: '';
+
+			position: absolute;
+			top: 50%;
+			right: 0;
+			translate: 0 -50%;
+
+			width: rem(25);
+			height: rem(1);
+			background-color: var(--color-dark);
+
+			cursor: pointer;
+			transition-duration: var(--transition-duration);
+		}
+		&::after {
+			transform: rotate(90deg);
+		}
+
+		&[data-is-accordion-open="true"] {
+			&::after {
+				transform: rotate(0);
+			}
+		}
+
+		@include hover {
+			&::before, &::after {
+				background-color: var(--color-red);
+			}
+			& > h3 {
+				color: var(--color-red);
+			}
+		}
+
+		> h3 {
+			font-weight: 400;
+			transition-duration: var(--transition-duration);
+		}
+	}
+
+	&Body {
+		display: grid;
+		grid-template-rows: rem(360) auto;
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+			"model-card config-swiper"
+			"model-card config-summary";
+		gap: rem(20);
+
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transform: translateY(rem(-10));
+		transition-duration: var(--transition-duration);
+		&[data-is-accordion-open="true"] {
+			margin-top: rem(30);
+			max-height: 100%;
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
 }
 
 .modelCard {
