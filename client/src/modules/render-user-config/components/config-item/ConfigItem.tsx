@@ -1,4 +1,4 @@
-import styles from './UserConfig.module.scss'
+import styles from './ConfigItem.module.scss'
 import type {IUserConfig} from "@shared/types/user-config-types.ts";
 import type {FC} from "react";
 import {ModelCardInfo} from "@shared/components/model-card-info";
@@ -10,7 +10,7 @@ interface UserConfigProps {
 	config: IUserConfig
 }
 
-export const UserConfig: FC<UserConfigProps> = ({config}) => {
+export const ConfigItem: FC<UserConfigProps> = ({config}) => {
 
 	const {
 		isAccordionOpen,

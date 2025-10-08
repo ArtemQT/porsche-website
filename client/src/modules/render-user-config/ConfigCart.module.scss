@@ -1,0 +1,35 @@
+@use "@helpers" as *;
+
+.config {
+
+	&Wrapper {
+		display: grid;
+		grid-template-columns: 8fr 3fr;
+		column-gap: rem(50);
+
+		position: relative;
+	}
+
+	&Header {
+		position: relative;
+		margin-bottom: rem(100);
+	}
+
+	&BackButton {
+		align-self: start;
+	}
+
+	&Title {
+		@include abs-center();
+
+		font-weight: 400;
+		&[data-is-skeleton="true"] {
+			@include skeleton-animation();
+
+			height: rem(50);
+			border-radius: var(--border-radius);
+			border: rem(3) solid var(--color-grey-dark);
+			width: 50%
+		}
+	}
+}

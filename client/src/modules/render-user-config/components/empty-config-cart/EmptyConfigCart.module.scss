@@ -1,0 +1,54 @@
+@use "@helpers" as *;
+
+.backButton {
+	margin-bottom: rem(40);
+}
+
+.emptyCart {
+	display: flex;
+	align-items: center;
+	column-gap: rem(50);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	> h2 {
+		font-weight: 400;
+		margin-bottom: rem(25);
+	}
+
+	> p {
+		@include fluid-text(26, 32);
+		font-weight: 300;
+	}
+}
+
+.button {
+	@include flex-center(true);
+	@include fluid-text(20, 24);
+
+	padding: rem(15) rem(30);
+	column-gap: rem(30);
+	border-radius: var(--border-radius-large);
+	border: var(--border);
+
+	&::after {
+		content: "";
+
+		@include square(40);
+
+		transition-duration: var(--transition-duration);
+		background: url("@assets/icons/double-arrow.svg") center/cover no-repeat;
+	}
+
+	@include hover {
+		border-color: transparent;
+		background-color: var(--color-light);
+
+		&::after {
+			transform: translateX(rem(100));
+		}
+	}
+}

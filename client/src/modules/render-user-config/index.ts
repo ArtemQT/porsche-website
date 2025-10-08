@@ -1,1 +1,1 @@
-export {ConfigList} from './ConfigList'
+export {ConfigCart} from './ConfigCart.tsx'

@@ -11,7 +11,7 @@ export const CarRowSection: FC =  () => {
 	const {isDarkBg} = useCarRowBackground(carRowRef)
 
 	return (
-		<section className='section'>
+		<section className='section' id='rows'>
 			<div className={`${styles.wrapper} container`}
 				 ref={carRowRef}
 			>

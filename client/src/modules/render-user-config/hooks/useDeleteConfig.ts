@@ -16,31 +16,36 @@ export const useDeleteConfig = () => {
 				queryKey: [userConfigApi.getCacheKey(), userId]
 			})
 
-			const prevUserConfigList = queryClient.getQueryData(
+			const prevUserConfigs = queryClient.getQueryData(
 				[userConfigApi.getCacheKey(), userId]
 			) as IResponseGetConfig
 
+			const newUserConfigList= prevUserConfigs.userConfigs.filter(userConfig => (
+				userConfig.configHash !== configHash
+			))
+
+			const newUserConfigs: IResponseGetConfig = {
+				userConfigs: newUserConfigList,
+				message: prevUserConfigs.message
+			}
+
 			queryClient.setQueryData(
 				[userConfigApi.getCacheKey(), userId],
-				() => (
-					prevUserConfigList.userConfigs.filter(userConfig => (
-						userConfig.configHash !== configHash
-					))
-				)
- 			)
+				newUserConfigs
+			)
 
-			return {prevUserConfigList}
+			return {prevUserConfigs}
 		},
 
 		onError: (_, __, context) => {
 			queryClient.setQueryData(
 				[userConfigApi.getCacheKey(), userId],
-				context?.prevUserConfigList
+				context?.prevUserConfigs
 			)
 		},
 
-		onSettled: () => {
-			queryClient.invalidateQueries({
+		onSettled: async () => {
+			await queryClient.invalidateQueries({
 				queryKey: [userConfigApi.getCacheKey(), userId]
 			})
 		}

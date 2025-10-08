@@ -1,0 +1,1 @@
+export {EmptyConfigCart} from './EmptyConfigCart.tsx'

@@ -11,8 +11,13 @@ export const useUserConfigs = () => {
 		...userConfigApi.getUserConfigsQueryParams(userId)
 	})
 
+	const isEmptyBasket = () => {
+		return data?.userConfigs.length === 0 && !isLoading
+	}
+
 	return {
 		userConfigs: data?.userConfigs,
 		isConfigsLoading: isLoading,
+		isEmptyBasket
 	}
 }

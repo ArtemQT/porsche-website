@@ -1,15 +1,6 @@
 @use "@helpers" as *;
 
 .config {
-
-	&Wrapper {
-		display: grid;
-		grid-template-columns: 8fr 3fr;
-		column-gap: rem(50);
-
-		position: relative;
-	}
-
 	&List {
 		&[data-is-config-loading="true"] {
 			display: flex;
