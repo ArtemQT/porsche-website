@@ -1,0 +1,9 @@
+@use "@helpers" as *;
+
+.skeletonUserConfig {
+	@include skeleton-animation();
+	width: 100%;
+	height: rem(70);
+	border-radius: var(--border-radius);
+	border: rem(3) solid var(--color-grey-dark);
+}

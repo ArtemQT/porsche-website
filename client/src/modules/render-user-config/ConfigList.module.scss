@@ -1,7 +1,20 @@
+@use "@helpers" as *;
+
 .config {
 
 	&Wrapper {
 		display: grid;
-		grid-template-columns: 70% 30%;
+		grid-template-columns: 8fr 3fr;
+		column-gap: rem(50);
+
+		position: relative;
+	}
+
+	&List {
+		&[data-is-config-loading="true"] {
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(30);
+		}
 	}
 }

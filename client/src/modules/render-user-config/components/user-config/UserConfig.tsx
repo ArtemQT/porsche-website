@@ -3,7 +3,7 @@ import type {IUserConfig} from "@shared/types/user-config-types.ts";
 import type {FC} from "react";
 import {ModelCardInfo} from "@shared/components/model-card-info";
 import {ConfigSwiper} from "../config-swiper";
-import {ConfigSummary} from "../config-summary";
+import {ConfigPriceDetails} from "../config-price-details";
 import {useAccordion} from "../../hooks/useAccordion.ts";
 
 interface UserConfigProps {
@@ -18,7 +18,9 @@ export const UserConfig: FC<UserConfigProps> = ({config}) => {
 	} = useAccordion()
 
 	return (
-		<li className={styles.userConfigItem}>
+		<li className={styles.userConfigItem}
+			id={config.configHash}
+		>
 			<header className={styles.userConfigHeader}
 					onClick={toggleAccordion}
 					data-is-accordion-open={isAccordionOpen}
@@ -46,9 +48,9 @@ export const UserConfig: FC<UserConfigProps> = ({config}) => {
 					modelName={config.model.modelName}
 				/>
 
-				<ConfigSummary configPrice={config.configPrice}
-							   totalPrice={config.totalPrice}
-							   configHash={config.configHash}
+				<ConfigPriceDetails configPrice={config.configPrice}
+									totalPrice={config.totalPrice}
+									configHash={config.configHash}
 				/>
 			</div>
 		</li>

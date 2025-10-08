@@ -1,0 +1,1 @@
+export {SkeletonUserConfig} from './SkeletonUserConfig'

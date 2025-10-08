@@ -1,46 +1,34 @@
 @use "@helpers" as *;
 
-.config {
+.configSummary {
+	align-self: start;
+	position: sticky;
+	top: rem(20);
 
-	&Summary {
-		width: 70%;
-		align-self: end;
-		justify-self: end;
-		border-radius: var(--border-radius);
-		background-color: var(--color-grey-dark);
-		padding: rem(15) rem(30);
+	width: 100%;
+	border-radius: var(--border-radius-large);
+	background-color: var(--color-dark);
+	padding: rem(30);
+	color: var(--color-light);
 
-		display: flex;
-		flex-direction: column;
-
-		&DeleteBtn {
-			align-self: center;
-			font-size: rem(14);
-		}
+	&[data-is-skeleton='true']{
+		border: rem(3) solid var(--color-grey-dark);
+		@include skeleton-animation();
+		height: rem(250);
 	}
 
-	&Price {
-		font-size: rem(16);
-
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-	}
-}
-
-.price{
-
-	&List {
-		margin-top: rem(10);
-		padding-top: rem(10);
-		border-top: var(--border);
+	> h3 {
+		font-weight: 400;
+		text-align: center;
+		margin-bottom: rem(20);
 	}
 
 	&Item {
+		padding-bottom: rem(20);
+		border-bottom: rem(1) solid var(--color-light);
+
 		&:not(:last-child) {
-			padding-bottom: rem(5);
-			margin-bottom: rem(5);
+			margin-bottom: rem(20);
 		}
 	}
 }

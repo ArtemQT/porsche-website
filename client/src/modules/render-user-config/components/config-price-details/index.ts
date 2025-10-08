@@ -1,0 +1,1 @@
+export {ConfigPriceDetails} from './ConfigPriceDetails'

@@ -1,57 +1,35 @@
 import styles from './ConfigSummary.module.scss'
+import type {IUserConfig} from "@shared/types/user-config-types.ts";
 import type {FC} from "react";
-import {Button, ButtonType} from "@components/button";
-import {useDeleteConfig} from "../../hooks/useDeleteConfig.ts";
+import {ConfigSummaryItem} from "../config-summary-item";
 
 interface ConfigSummaryProps {
-	configPrice: number;
-	totalPrice: number;
-	configHash: string;
+	userConfigs: IUserConfig[] | undefined;
+	isConfigsLoading: boolean;
 }
 
-export const ConfigSummary: FC<ConfigSummaryProps> = ({configPrice, totalPrice, configHash}) => {
-
-	const {
-		deleteConfigHandler
-	} = useDeleteConfig()
-
-	const priceList = [
-		{
-			label: 'Start price:',
-			value: totalPrice - configPrice
-		},
-		{
-			label: 'Configuration price:',
-			value: configPrice
-		},
-		{
-			label: 'Total price:',
-			value: totalPrice
-		},
-	]
-
+export const ConfigSummary:FC<ConfigSummaryProps> = ({userConfigs, isConfigsLoading}) => {
 	return (
-		<div className={styles.configSummary}>
+		<aside className={styles.configSummary}
+			   data-is-skeleton={isConfigsLoading}
+		>
+			{
+				!isConfigsLoading && (
+					<>
+						<h3 className='h4'>Configuration resume</h3>
 
-			<Button buttonType={ButtonType.dark}
-					className={styles.configSummaryDeleteBtn}
-					onClick={() => deleteConfigHandler(configHash)}
-			>
-				Delete configuration
-			</Button>
-
-			<ul className={styles.priceList}>
-				{
-					priceList.map(priceItem => (
-						<li key={priceItem.label} className={styles.priceItem}>
-							<p className={styles.configPrice}>
-								<span>{priceItem.label}</span>
-								<span>{priceItem.value} £</span>
-							</p>
-						</li>
-					))
-				}
-			</ul>
-		</div>
+						<ul className={styles.configSummaryList}>
+							{
+								userConfigs?.map(config => (
+									<li key={config.configHash} className={styles.configSummaryItem}>
+										<ConfigSummaryItem config={config}/>
+									</li>
+								))
+							}
+						</ul>
+					</>
+				)
+			}
+		</aside>
 	)
 }

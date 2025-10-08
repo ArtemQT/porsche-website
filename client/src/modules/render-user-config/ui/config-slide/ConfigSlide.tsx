@@ -15,7 +15,7 @@ export const ConfigSlide:FC<ConfigSlideProps> = ({option}) => {
 		return (
 			<div className={styles.optionTextContent}>
 				<p className={styles.optionPrice}>+ {option.price} £</p>
-				<h4 className={styles.optionTextTitle}>{option.label}</h4>
+				<h5 className={styles.optionTextTitle}>{option.label}</h5>
 				<p className={styles.optionDescription}>{option.description}</p>
 			</div>
 		)
@@ -27,7 +27,7 @@ export const ConfigSlide:FC<ConfigSlideProps> = ({option}) => {
 					 src={option.imgUrl}
 					 alt=''
 				/>
-				<h4 className={styles.optionTitle}>{option.label}</h4>
+				<h5 className={styles.optionTitle}>{option.label}</h5>
 			</div>
 		)
 	}

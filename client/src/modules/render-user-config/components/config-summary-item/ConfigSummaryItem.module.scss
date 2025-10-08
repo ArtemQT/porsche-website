@@ -1,0 +1,88 @@
+@use "@helpers" as *;
+
+.config {
+
+	&Item {
+		position: relative;
+	}
+
+	&Title {
+		@include fluid-text(16, 18);
+
+		font-weight: 400;
+		transition-duration: var(--transition-duration);
+	}
+
+	&Header {
+		cursor: pointer;
+		position: relative;
+		z-index: 1;
+
+		&[data-is-open='true'] {
+			margin-bottom: rem(10);
+
+			&::after {
+				transform: rotate(0);
+			}
+		}
+
+		&::before, &::after {
+			content: '';
+
+			position: absolute;
+			top: 50%;
+			right: 0;
+			translate: 0 -50%;
+
+			height: rem(1);
+			width: rem(20);
+			background-color: var(--color-light);
+
+			transition-duration: var(--transition-duration);
+		}
+
+		&::after {
+			transform: rotate(90deg);
+		}
+
+		@include hover {
+			color: var(--color-red);
+
+			&::before, &::after {
+				background-color: var(--color-red);
+			}
+		}
+	}
+
+	&Body {
+		max-height: 0;
+		opacity: 0;
+		transform: translateY(rem(-10));
+		overflow: hidden;
+
+		position: relative;
+		z-index: -1;
+
+		transition-duration: var(--transition-duration);
+		&[data-is-open='true'] {
+			max-height: rem(180);
+			transform: translateY(0);
+			opacity: 1;
+
+		}
+
+		> h5 {
+			text-align: center;
+			font-weight: 400;
+			margin-bottom: rem(10);
+		}
+	}
+
+	&List {
+
+		> li {
+			@include fluid-text(16, 18);
+			margin-bottom: rem(5);
+		}
+	}
+}

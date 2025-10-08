@@ -13,6 +13,6 @@ export const useUserConfigs = () => {
 
 	return {
 		userConfigs: data?.userConfigs,
-		isConfigsLoading: isLoading
+		isConfigsLoading: isLoading,
 	}
 }

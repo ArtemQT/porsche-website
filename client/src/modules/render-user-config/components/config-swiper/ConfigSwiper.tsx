@@ -14,7 +14,7 @@ interface ConfigSwiperProps {
 export const ConfigSwiper:FC<ConfigSwiperProps> = ({config, modelName}) => {
 	return (
 		<article className={styles.configWrapper}>
-			<h3 className={styles.configTitle}>{modelName} configuration</h3>
+			<h4 className={styles.configTitle}>{modelName} configuration</h4>
 			<Swiper modules={[Navigation]}
 					navigation={true}
 					slidesPerView={'auto'}

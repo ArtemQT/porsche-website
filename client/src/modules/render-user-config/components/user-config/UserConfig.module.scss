@@ -3,9 +3,12 @@
 .userConfig {
 
 	&Item {
-		margin-bottom: rem(40);
 		padding-bottom: rem(40);
 		border-bottom: var(--border);
+
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
 	}
 
 	&Header {
@@ -50,6 +53,7 @@
 			font-weight: 400;
 			transition-duration: var(--transition-duration);
 		}
+
 	}
 
 	&Body {
@@ -68,7 +72,7 @@
 		transition-duration: var(--transition-duration);
 		&[data-is-accordion-open="true"] {
 			margin-top: rem(30);
-			max-height: 100%;
+			max-height: rem(700);
 			opacity: 1;
 			transform: translateY(0);
 		}
