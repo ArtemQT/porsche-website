@@ -2,6 +2,7 @@ import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {userConfigApi} from "@shared/api/user-config-api.ts";
 import {useAuth} from "../../auth";
 import type {IResponseGetConfig} from "@shared/types/user-config-types.ts";
+import {toast} from "sonner";
 
 export const useDeleteConfig = () => {
 	const {userId} = useAuth()
@@ -48,6 +49,10 @@ export const useDeleteConfig = () => {
 			await queryClient.invalidateQueries({
 				queryKey: [userConfigApi.getCacheKey(), userId]
 			})
+		},
+
+		onSuccess: () => {
+			toast.success('Configuration successfully deleted.');
 		}
 	})
 

@@ -6,9 +6,9 @@ export const useUserConfigs = () => {
 	const {userId} = useAuth()
 	const {
 		data,
-		isLoading
+		isLoading,
 	} = useQuery({
-		...userConfigApi.getUserConfigsQueryParams(userId)
+		...userConfigApi.getUserConfigsQueryParams(userId),
 	})
 
 	const isEmptyBasket = () => {
