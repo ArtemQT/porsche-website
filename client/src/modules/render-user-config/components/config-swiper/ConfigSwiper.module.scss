@@ -3,9 +3,22 @@
 .config {
 
 	&Wrapper {
+		grid-area: config-swiper;
 		padding-block: rem(30);
 		background-color: var(--color-grey-dark);
 		border-radius: var(--border-radius-large);
+
+		@include tablet {
+			order: 3;
+		}
+
+		@include mobile {
+			width: 70%;
+		}
+
+		@include mobile-s {
+			width: 100%;
+		}
 	}
 
 	&Title {

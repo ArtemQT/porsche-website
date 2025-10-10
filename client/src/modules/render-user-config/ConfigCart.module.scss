@@ -3,11 +3,21 @@
 .config {
 
 	&Wrapper {
-		display: grid;
-		grid-template-columns: 8fr 3fr;
-		column-gap: rem(50);
 
-		position: relative;
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(30);
+
+		@include mobile-above {
+			display: grid;
+			grid-template-columns: 8fr 3fr;
+			column-gap: rem(50);
+			position: relative;
+		}
+
+		@include tablet {
+			grid-template-columns: 6fr 3fr;
+		}
 	}
 
 	&Header {
@@ -20,9 +30,9 @@
 	}
 
 	&Title {
-		@include abs-center();
-
+		text-align: center;
 		font-weight: 400;
+		margin-bottom: rem(70);
 		&[data-is-skeleton="true"] {
 			@include skeleton-animation();
 

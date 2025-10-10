@@ -4,7 +4,7 @@ import type {FC} from "react";
 import {ModelCardInfo} from "@shared/components/model-card-info";
 import {ConfigSwiper} from "../config-swiper";
 import {ConfigPriceDetails} from "../config-price-details";
-import {useAccordion} from "../../hooks/useAccordion.ts";
+import {useAccordion} from "../../hooks/use-accordion.ts";
 
 interface UserConfigProps {
 	config: IUserConfig
@@ -34,7 +34,9 @@ export const ConfigItem: FC<UserConfigProps> = ({config}) => {
 				 data-is-accordion-open={isAccordionOpen}
 			>
 				<div className={styles.modelCard}>
-					<ModelCardInfo model={config.model}/>
+					<ModelCardInfo model={config.model}
+								   isDetailsHidden={true}
+					/>
 				</div>
 
 				<ConfigSwiper

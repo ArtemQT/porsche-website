@@ -8,6 +8,11 @@
 	display: flex;
 	align-items: center;
 	column-gap: rem(50);
+
+	@include mobile {
+		flex-direction: column;
+		row-gap: rem(30);
+	}
 }
 
 .wrapper {
@@ -17,6 +22,10 @@
 	> h2 {
 		font-weight: 400;
 		margin-bottom: rem(25);
+
+		@include mobile {
+			text-align: center;
+		}
 	}
 
 	> p {

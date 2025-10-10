@@ -7,7 +7,6 @@ import type {
 	IResponseGetConfig
 } from "@shared/types/user-config-types.ts";
 import {userApi} from "../../modules/auth";
-import {toast} from "sonner";
 import {queryOptions} from "@tanstack/react-query";
 
 class UserConfigApi {
@@ -21,25 +20,22 @@ class UserConfigApi {
 			baseURL: baseApiUrl + '/user-config',
 		})
 
-		this.userConfigApi.interceptors.request.use((config) => {
-			const accessToken = localStorage.getItem("accessToken");
-			if (!accessToken) {
-				toast.error("Please authorize to save configuration.");
-				throw new Error("No access token");
-			}
-
-			config.headers.Authorization = `Bearer ${accessToken}`;
-			return config;
-		})
+		this.userConfigApi.interceptors.request.use(
+			(config) => {
+				const accessToken = localStorage.getItem("accessToken");
+				config.headers.Authorization = `Bearer ${accessToken}`;
+				return config;
+			},
+		)
 
 		this.userConfigApi.interceptors.response.use(
 			(config) => config,
 			async (err) => {
-				if(axios.isAxiosError(err)) {
+				if (axios.isAxiosError(err)) {
 					if (err.response) {
 						if (err.response.status === 401) {
 							try {
-								const response= await userApi.refreshToken();
+								const response = await userApi.refreshToken();
 								const accessToken = response.data.accessToken;
 								localStorage.setItem('accessToken', accessToken);
 
@@ -47,13 +43,14 @@ class UserConfigApi {
 								originalRequest.headers.Authorization = `Bearer ${accessToken}`;
 								return this.userConfigApi.request(originalRequest);
 							} catch (refreshError) {
-								toast.error('Please authorize to save configuration.');
-								return
+								return Promise.reject(err);
 							}
+						} else {
+							return Promise.reject(err);
 						}
 					}
-					await Promise.reject(err);
 				}
+				return Promise.reject(err);
 			}
 		)
 
@@ -66,7 +63,9 @@ class UserConfigApi {
 		return queryOptions({
 			queryFn: () => this.getUserConfigs(),
 			queryKey: [this.userConfigCacheKey, userId],
-			enabled: !!userId,
+			retry: 0,
+			staleTime: 0,
+			refetchOnWindowFocus: false,
 		})
 	}
 

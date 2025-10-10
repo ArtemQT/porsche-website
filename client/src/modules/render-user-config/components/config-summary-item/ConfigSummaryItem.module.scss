@@ -60,15 +60,11 @@
 		transform: translateY(rem(-10));
 		overflow: hidden;
 
-		position: relative;
-		z-index: -1;
-
 		transition-duration: var(--transition-duration);
 		&[data-is-open='true'] {
 			max-height: rem(180);
 			transform: translateY(0);
 			opacity: 1;
-
 		}
 
 		> h5 {

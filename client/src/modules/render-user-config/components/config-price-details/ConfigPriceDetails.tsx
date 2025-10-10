@@ -1,7 +1,7 @@
 import styles from './ConfigPriceDetails.module.scss'
 import type {FC} from "react";
 import {Button, ButtonType} from "@components/button";
-import {useDeleteConfig} from "../../hooks/useDeleteConfig.ts";
+import {useDeleteConfig} from "../../hooks/use-delete-config.ts";
 
 interface ConfigSummaryProps {
 	configPrice: number;

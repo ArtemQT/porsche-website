@@ -7,17 +7,22 @@ export const useUserConfigs = () => {
 	const {
 		data,
 		isLoading,
+		error
 	} = useQuery({
 		...userConfigApi.getUserConfigsQueryParams(userId),
 	})
 
-	const isEmptyBasket = () => {
+	const isEmptyCart = () => {
 		return data?.userConfigs.length === 0 && !isLoading
 	}
+
+	const isAuthenticatedError = () => !!error
 
 	return {
 		userConfigs: data?.userConfigs,
 		isConfigsLoading: isLoading,
-		isEmptyBasket
+
+		isAuthenticatedError,
+		isEmptyCart
 	}
 }

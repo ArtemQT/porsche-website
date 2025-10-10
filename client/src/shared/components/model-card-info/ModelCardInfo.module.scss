@@ -37,6 +37,12 @@
 		row-gap: rem(20);
 
 		margin-bottom: rem(25);
+
+		&[data-is-details-hidden='true'] {
+			@include tablet {
+				display: none;
+			}
+		}
 	}
 
 	&Item {

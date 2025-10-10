@@ -23,8 +23,17 @@ export const useSaveConfig = () => {
 		},
 
 		onError: (err) => {
-			if (axios.isAxiosError(err)) {
-				toast.error(err.response?.data.message);
+			 if (axios.isAxiosError(err)) {
+				 switch (err.response?.status) {
+					 case 401: {
+						 toast.error("Configuration not saved. Please sign in to your account.");
+						 break;
+					 }
+					 case 400: {
+						 toast.error(err?.response?.data?.message);
+						 break;
+					 }
+				 }
 			}
 		}
 	})

@@ -75,6 +75,21 @@
 			max-height: rem(700);
 			opacity: 1;
 			transform: translateY(0);
+
+			@include tablet {
+				max-height: rem(1000);
+			}
+		}
+
+		@include tablet {
+			//grid-template-areas:
+			//"model-card config-summary"
+			//"config-swiper config-swiper";
+			//
+			//grid-template-rows: auto;
+
+			@include flex-center();
+			flex-direction: column;
 		}
 	}
 }
@@ -87,6 +102,16 @@
 	border-radius: var(--border-radius-large);
 	background-color: var(--color-light);
 	position: relative;
+
+	@include tablet{
+		order: 2;
+		max-width: 70%;
+
+	}
+
+	@include mobile-s {
+		max-width: 100%;
+	}
 }
 
 .configSummary {

@@ -10,9 +10,10 @@ interface IModelCardInfo {
 
 interface ModelCardInfoProps {
 	model: IModelInfo;
+	isDetailsHidden?: boolean;
 }
 
-export const ModelCardInfo: FC<ModelCardInfoProps> = ({model}) => {
+export const ModelCardInfo: FC<ModelCardInfoProps> = ({model, isDetailsHidden}) => {
 	const modelCardInfo: IModelCardInfo[] = [
 		{
 			id: 1,
@@ -47,7 +48,9 @@ export const ModelCardInfo: FC<ModelCardInfoProps> = ({model}) => {
 
 			<h4 className={styles.modelInfoTitle}>{model.modelName}</h4>
 
-			<ul className={styles.modelInfoList}>
+			<ul className={styles.modelInfoList}
+				data-is-details-hidden={isDetailsHidden}
+			>
 				{
 					modelCardInfo.map(infoItem => (
 						<li className={styles.modelInfoItem} key={infoItem.id}>

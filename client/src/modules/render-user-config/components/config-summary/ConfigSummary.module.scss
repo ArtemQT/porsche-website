@@ -1,10 +1,6 @@
 @use "@helpers" as *;
 
 .configSummary {
-	align-self: start;
-	position: sticky;
-	top: rem(20);
-
 	width: 100%;
 	border-radius: var(--border-radius-large);
 	background-color: var(--color-dark);
@@ -15,6 +11,26 @@
 		border: rem(3) solid var(--color-grey-dark);
 		@include skeleton-animation();
 		height: rem(250);
+	}
+
+	@include tablet {
+		min-width: rem(300);
+	}
+
+	@include mobile {
+		order: 1;
+		align-self: center;
+		width: 70%
+	}
+
+	@include mobile-s {
+		width: 100%;
+	}
+
+	@include mobile-above {
+		align-self: start;
+		position: sticky;
+		top: rem(20);
 	}
 
 	> h3 {

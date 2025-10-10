@@ -10,14 +10,32 @@
 
 	&TextContent {
 		width: 80%;
+		@include desktop {
+			width: 65%;
+		}
+		@include tablet {
+			width: 70%;
+		}
 	}
 
 	&Content {
 		width: 65%;
 	}
 
+	&TextTitle {
+		text-align: center;
+
+		@include tablet {
+			@include fluid-text(18, 24)
+		}
+	}
+
 	&Title {
+		text-align: center;
 		font-weight: 400;
+		@include tablet {
+			@include fluid-text(18, 24)
+		}
 	}
 
 	&Price {
@@ -30,9 +48,15 @@
 
 	&Img {
 		border-radius: var(--border-radius);
+
+		@include tablet {
+			//max-width: 80%;
+		}
 	}
 
 	&Description {
-
+		@include desktop {
+			font-size: rem(16);
+		}
 	}
 }

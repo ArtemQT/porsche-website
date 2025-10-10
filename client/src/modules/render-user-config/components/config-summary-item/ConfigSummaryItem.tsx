@@ -1,7 +1,7 @@
 import styles from './ConfigSummaryItem.module.scss';
 import type {IUserConfig} from "@shared/types/user-config-types.ts";
 import type {FC} from "react";
-import {useAccordion} from "../../hooks/useAccordion.ts";
+import {useAccordion} from "../../hooks/use-accordion.ts";
 
 interface ConfigSummaryItemProps {
 	config: IUserConfig;

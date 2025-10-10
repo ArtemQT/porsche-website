@@ -3,7 +3,7 @@
 .config {
 
 	&Summary {
-		width: 70%;
+		grid-area: config-summary;
 		align-self: end;
 		justify-self: end;
 		border-radius: var(--border-radius);
@@ -16,6 +16,24 @@
 		&DeleteBtn {
 			align-self: center;
 			font-size: rem(14);
+		}
+
+		@include desktop-above {
+			width: 70%;
+		}
+
+		@include tablet {
+			order: 1;
+			align-self: center;
+			width: 70%;
+		}
+
+		@include mobile {
+			width: 70%;
+		}
+
+		@include mobile-s {
+			width: 100%;
 		}
 	}
 
