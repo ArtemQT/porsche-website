@@ -1,12 +1,11 @@
-import {UserConfigSection} from "./components/user-config-section";
-import {BackButton} from "@components/back-button";
-import styles from "../../modules/render-user-config/ConfigCart.module.scss";
+import {BackButton} from "@shared/components/back-button";
+import {UserConfigSection} from "./sections/user-config-section";
 
 export const UserConfigPage = () => {
 	return (
 		<>
 			<div className='container'>
-				<BackButton className={styles.configBackButton}/>
+				<BackButton/>
 			</div>
 			<UserConfigSection/>
 		</>

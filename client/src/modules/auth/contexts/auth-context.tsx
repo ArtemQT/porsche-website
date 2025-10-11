@@ -1,4 +1,5 @@
-import {createContext, type FC, type PropsWithChildren, useState} from "react";
+import {createContext, type FC, type PropsWithChildren, useEffect, useState} from "react";
+import {useLocalStorageListener} from "@shared/hooks/useLocalStorageListener.ts";
 
 interface AuthContext {
 	isLoggedIn: boolean,
@@ -12,8 +13,16 @@ export const AuthContext = createContext<AuthContext | null>(null)
 
 export const AuthProvider: FC<PropsWithChildren> = ({children}) => {
 
+	const accessToken = useLocalStorageListener('accessToken');
+	const storedUserId = useLocalStorageListener('userId');
+
 	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => !!localStorage.getItem('accessToken'));
 	const [userId, setUserId] = useState<string | null>(() => localStorage.getItem("userId"));
+
+	useEffect(() => {
+		setIsLoggedIn(!!accessToken);
+		setUserId(storedUserId);
+	}, [accessToken, storedUserId]);
 
 	const setLogin = (userId: string) => {
 		setIsLoggedIn(true);

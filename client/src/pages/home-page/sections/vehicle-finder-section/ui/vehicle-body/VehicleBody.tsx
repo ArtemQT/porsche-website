@@ -1,9 +1,6 @@
 import styles from './VehicleBody.module.scss';
 import type {FC} from "react";
-
-import {Button} from "@components/button";
-import {ButtonType} from "@components/button";
-
+import {Button, ButtonType} from "@shared/components/button";
 
 export const VehicleBody: FC = () => {
 	return (

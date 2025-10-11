@@ -8,7 +8,8 @@
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@modules/*": ["src/modules/*"]
     },
 
     "resolveJsonModule": true,

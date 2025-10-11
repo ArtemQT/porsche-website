@@ -1,10 +1,10 @@
 import type {FC} from "react";
 import {Outlet} from "react-router-dom";
-import {Header} from "../../modules/header";
-import {Footer} from "./components/footer";
-import {LoginModal, LoginModalContextProvider, RegisterModal, RegisterModalContextProvider} from "../../modules/auth";
+import {Header} from "@modules/header";
+import {LoginModal, LoginModalContextProvider, RegisterModal, RegisterModalContextProvider} from "@modules/auth";
 import {Toaster} from "sonner";
 import {useScrollToTop} from "@shared/hooks/useScrollToTop.ts";
+import {Footer} from "./sections/footer";
 
 export const MainLanding: FC = () => {
 	useScrollToTop()

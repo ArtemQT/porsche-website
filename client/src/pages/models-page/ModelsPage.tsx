@@ -1,10 +1,10 @@
 import styles from './ModelsPage.module.scss'
-import {ModelsList} from "../../modules/render-models";
-import {ModelsFilter} from "../../modules/models-filter";
-import {FilterContextProvider} from "../../modules/models-filter/contexts/filter-context.tsx";
-import {Button, ButtonType} from "@components/button";
-import {useModal} from "../../modules/modal";
-import {FilterModal} from "./components/filter-modal";
+import {ModelsList} from "@modules/render-models";
+import {ModelsFilter} from "@modules/models-filter";
+import {FilterContextProvider} from "@modules/models-filter/contexts/filter-context.tsx";
+import {useModal} from "@modules/modal";
+import {Button, ButtonType} from "@shared/components/button";
+import {FilterModal} from "./sections/filter-modal";
 
 export const ModelsPage = () => {
 

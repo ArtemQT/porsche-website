@@ -5,9 +5,11 @@ import {useConfig} from "../../model-config";
 import {useParams} from "react-router-dom";
 import type {IRequestAddConfig} from "@shared/types/user-config-types.ts";
 import axios from "axios";
+import {useAuth} from "@modules/auth";
 
 export const useSaveConfig = () => {
 
+	const {setLogout} = useAuth()
 	const {configuration} = useConfig();
 	const {modelId} = useParams();
 	if (!modelId) {
@@ -27,6 +29,7 @@ export const useSaveConfig = () => {
 				 switch (err.response?.status) {
 					 case 401: {
 						 toast.error("Configuration not saved. Please sign in to your account.");
+						 setLogout()
 						 break;
 					 }
 					 case 400: {

@@ -3,9 +3,10 @@ import {userConfigApi} from "@shared/api/user-config-api.ts";
 import {useAuth} from "../../auth";
 import type {IResponseGetConfig} from "@shared/types/user-config-types.ts";
 import {toast} from "sonner";
+import axios from "axios";
 
 export const useDeleteConfig = () => {
-	const {userId} = useAuth()
+	const {userId, setLogout} = useAuth()
 	const queryClient = useQueryClient();
 
 	const deleteConfigMutation = useMutation({
@@ -38,11 +39,17 @@ export const useDeleteConfig = () => {
 			return {prevUserConfigs}
 		},
 
-		onError: (_, __, context) => {
+		onError: (error, _, context) => {
 			queryClient.setQueryData(
 				[userConfigApi.getCacheKey(), userId],
 				context?.prevUserConfigs
 			)
+
+			if (axios.isAxiosError(error)) {
+				if (error.response?.status === 401) {
+					setLogout()
+				}
+			}
 		},
 
 		onSettled: async () => {

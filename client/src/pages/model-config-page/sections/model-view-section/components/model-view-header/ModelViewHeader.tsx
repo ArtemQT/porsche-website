@@ -1,7 +1,7 @@
 import styles from "./ModelViewHeader.module.scss"
-import {BackButton} from "@components/back-button";
 import type {FC} from "react";
-import {useSwiperConfig} from "../../../../../../modules/model-config";
+import {useSwiperConfig} from "@modules/model-config";
+import {BackButton} from "@shared/components/back-button";
 
 interface ModelViewHeaderProps {
 	isModelLoading: boolean;

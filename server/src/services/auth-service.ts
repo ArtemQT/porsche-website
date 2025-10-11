@@ -62,6 +62,15 @@ export class AuthService {
 	}
 
 	static async logout(token: string) {
+		if (!token) {
+			return
+		}
+
+		const refreshToken = await TokenService.findToken(token);
+		if (!refreshToken) {
+			return
+		}
+
 		await TokenService.removeToken(token);
 	}
 

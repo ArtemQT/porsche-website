@@ -64,6 +64,10 @@ export class TokenService {
 		await prisma.token.delete({where: {token}})
 	}
 
+	static async findToken(token: string) {
+		return await prisma.token.findUnique({where: {token}})
+	}
+
 	static validateAccessToken(accessToken: string) {
 		try {
 			const jwtAccessSecret = process.env.JWT_ACCESS_SECRET;

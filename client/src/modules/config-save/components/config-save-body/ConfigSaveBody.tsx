@@ -3,8 +3,8 @@ import styles from './ConfigSaveBody.module.scss'
 import {useModel} from "../../../model-config";
 import {useConfig} from "../../../model-config";
 import type {FC} from "react";
-import {Button, ButtonType} from "@components/button";
 import {useSaveConfig} from "../../hooks/use-save-config.ts";
+import {Button, ButtonType} from "@shared/components/button";
 
 
 interface ConfigSaveBodyProps {

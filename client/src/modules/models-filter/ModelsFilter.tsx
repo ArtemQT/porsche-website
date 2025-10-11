@@ -1,7 +1,7 @@
 import styles from './ModelsFilter.module.scss'
 import {ModelRowFilter} from "./components/model-row-filter";
-import {Button, ButtonType} from "@components/button";
 import {useFilters} from "./hooks/use-filters.ts";
+import {Button, ButtonType} from "@shared/components/button";
 
 export const ModelsFilter = () => {
 

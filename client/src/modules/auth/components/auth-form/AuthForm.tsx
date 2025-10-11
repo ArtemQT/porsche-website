@@ -2,7 +2,7 @@ import type {FieldValues, SubmitHandler, UseFormHandleSubmit} from "react-hook-f
 import type {IFormConfig} from "../../types/form-types.ts";
 import styles from "./AuthForm.module.scss";
 import {InputField} from "../../ui/input-field";
-import {Button, ButtonType} from "@components/button";
+import {Button, ButtonType} from "@shared/components/button";
 
 interface AuthFormProps<T extends FieldValues> {
 	handleSubmit: UseFormHandleSubmit<T>;

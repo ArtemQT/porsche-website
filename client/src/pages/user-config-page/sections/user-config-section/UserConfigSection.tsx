@@ -1,5 +1,5 @@
 
-import {ConfigCart} from "../../../../modules/render-user-config";
+import {ConfigCart} from "@modules/render-user-config";
 
 export const UserConfigSection = () => {
 	return (

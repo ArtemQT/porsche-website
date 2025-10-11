@@ -72,7 +72,7 @@ export class AuthController {
 			res.status(200).json({
 				message: 'User successfully logged out'
 			})
-		} catch (err: unknown) {
+		} catch (err) {
 			next(err);
 		}
 	}

@@ -6,7 +6,7 @@ import type {
 	IResponseDeleteConfig,
 	IResponseGetConfig
 } from "@shared/types/user-config-types.ts";
-import {userApi} from "../../modules/auth";
+import {userApi} from "@modules/auth";
 import {queryOptions} from "@tanstack/react-query";
 
 class UserConfigApi {
@@ -43,6 +43,8 @@ class UserConfigApi {
 								originalRequest.headers.Authorization = `Bearer ${accessToken}`;
 								return this.userConfigApi.request(originalRequest);
 							} catch (refreshError) {
+								await userApi.logout()
+
 								return Promise.reject(err);
 							}
 						} else {

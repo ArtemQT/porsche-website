@@ -2,11 +2,10 @@ import styles from './VideoDescription.module.scss'
 
 import type {FC} from "react";
 
-import {Button} from "@components/button";
-import {ButtonType} from "@components/button";
 import {useVideoModel} from "../../hooks/useVideoModel.ts";
 import {Link} from "react-router-dom";
 import {RoutePaths} from "@config/route-paths.ts";
+import {Button, ButtonType} from "@shared/components/button";
 
 export const VideoDescription: FC = () => {
 

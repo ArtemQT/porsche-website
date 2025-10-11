@@ -1,8 +1,8 @@
 import styles from './CarRowSection.module.scss'
 
 import {type FC, useRef} from "react";
-import {CarRowList} from "../../../../modules/car-row-render";
-import {useCarRowBackground} from "../../../../modules/car-row-dynamic-bg";
+import {CarRowList} from "@modules/car-row-render";
+import {useCarRowBackground} from "@modules/car-row-dynamic-bg";
 
 export const CarRowSection: FC =  () => {
 

@@ -1,7 +1,7 @@
 import styles from './ModelViewSection.module.scss'
 import {ModelViewHeader} from "./components/model-view-header";
 import {ModelViewBody} from "./components/model-view-body";
-import {useModel} from "../../../../modules/model-config";
+import {useModel} from "@modules/model-config";
 import type {FC} from "react";
 
 interface ModelViewSectionProps {

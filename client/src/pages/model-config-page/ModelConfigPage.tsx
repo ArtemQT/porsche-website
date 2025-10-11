@@ -1,8 +1,8 @@
-import {ModelViewSection} from "./components/model-view-section";
-import {ConfigSection} from "./components/config-section";
-import {ConfigContextProvider, ModelContextProvider, SwiperConfigContextProvider} from "../../modules/model-config";
-import {useModal} from "../../modules/modal";
-import {ConfigSaveModal} from "../../modules/config-save";
+import {ConfigContextProvider, ModelContextProvider, SwiperConfigContextProvider} from "@modules/model-config";
+import {useModal} from "@modules/modal";
+import {ConfigSaveModal} from "@modules/config-save";
+import {ModelViewSection} from "./sections/model-view-section";
+import {ConfigSection} from "./sections/config-section";
 
 export const ModelConfigPage = () => {
 
