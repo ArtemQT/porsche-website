@@ -5,8 +5,8 @@
 
 	z-index: -1;
 
-	-webkit-appearance: none;
-	appearance: none;
+	-webkit-object-fit: cover;
+	-moz-object-fit: cover;
 
 	&::-webkit-media-controls {
 		display: none !important;

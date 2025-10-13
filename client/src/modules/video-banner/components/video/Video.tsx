@@ -10,10 +10,10 @@ export const Video: FC<VideoProps> = ({videoRef}) => {
 	return (
 		<video className={styles.video}
 			   ref={videoRef}
+			   controls={false}
+			   muted
 			   autoPlay
 			   loop
-			   disablePictureInPicture
-			   playsInline
 			   style={{
 				   WebkitTouchCallout: 'none',
 				   WebkitUserSelect: 'none',
