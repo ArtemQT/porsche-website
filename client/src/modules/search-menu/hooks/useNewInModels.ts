@@ -9,7 +9,6 @@ export const useNewInModels = () => {
 		"911 GT3",
 		"911 Turbo S",
 		"718 Cayman GT4 RS",
-		"718 Cayman"
 	];
 
 	const modelQueries = useQueries({

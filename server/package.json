@@ -10,7 +10,8 @@
 
     "build": "tsc && npx prisma generate",
     "start": "node ./dist/app.js",
-    "db:push": "npx prisma db push"
+    "db:push": "npx prisma db push",
+    "seed": "node dist/config/seed.js"
   },
   "author": "",
   "license": "ISC",
