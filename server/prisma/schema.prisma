@@ -52,7 +52,7 @@ model ModelDetail {
   carModel CarModels @relation(fields: [carModelId], references: [id])
 }
 
-model ConfigItem {
+model UserConfig {
   id      Int @id @default(autoincrement())
   userId  Int
   modelId Int
