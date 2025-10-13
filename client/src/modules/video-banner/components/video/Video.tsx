@@ -11,7 +11,6 @@ export const Video: FC<VideoProps> = ({videoRef}) => {
 		<video className={styles.video}
 			   ref={videoRef}
 			   autoPlay
-			   muted
 			   loop
 			   disablePictureInPicture
 			   playsInline

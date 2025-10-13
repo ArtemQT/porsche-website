@@ -19,6 +19,15 @@ body {
 	}
 }
 
+
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a, button {
+	color: var(--color-dark);
+}
+
 a,
 input,
 textarea,
