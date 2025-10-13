@@ -10,7 +10,19 @@ export const Video: FC<VideoProps> = ({videoRef}) => {
 	return (
 		<video className={styles.video}
 			   ref={videoRef}
-			   autoPlay muted loop
+			   autoPlay
+			   muted
+			   loop
+			   disablePictureInPicture
+			   playsInline
+			   style={{
+				   WebkitTouchCallout: 'none',
+				   WebkitUserSelect: 'none',
+				   KhtmlUserSelect: 'none',
+				   MozUserSelect: 'none',
+				   msUserSelect: 'none',
+				   userSelect: 'none'
+			   }}
 		>
 			<source src={video} type='video/mp4'/>
 		</video>
