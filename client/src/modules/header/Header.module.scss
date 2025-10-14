@@ -28,15 +28,15 @@
 .widgetsWrapper{
 	width: 100%;
 	display: flex;
-	column-gap: rem(75);
-
 	justify-content: end;
 
-	@include mobile {
-		column-gap: rem(25);
-	}
 
-	@include mobile-s {
-		column-gap: rem(20);
-	}
+	//column-gap: rem(75);
+	//@include mobile {
+	//	column-gap: rem(25);
+	//}
+	//
+	//@include mobile-s {
+	//	column-gap: rem(20);
+	//}
 }
