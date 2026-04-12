@@ -43,7 +43,7 @@
 		width: 50vw;
 		height: rem(400);
 		border-radius: var(--border-radius);
-		box-shadow: 0 0 rem(10) rem(3) var(--color-dark);
+		border: 1px solid var(--color-dark);
 	}
 }
 

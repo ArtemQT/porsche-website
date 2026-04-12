@@ -3,12 +3,12 @@ import {prisma} from "./prisma.js";
 export async function seed() {
 	try {
 		await prisma.$connect();
-		const count = await prisma.carModels.count();
+		// const count = await prisma.carModels.count();
 
-		if (count > 0) {
-			console.log("Data already exists — skipping seed.");
-			return;
-		}
+		// if (count > 0) {
+		// 	console.log("Data already exists — skipping seed.");
+		// 	return;
+		// }
 
 		// Вставка CarModels
 		await prisma.carModels.createMany({
@@ -54,5 +54,3 @@ export async function seed() {
 		await prisma.$disconnect();
 	}
 }
-
-seed()

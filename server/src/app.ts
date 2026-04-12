@@ -7,6 +7,7 @@ import {errorMiddleware} from "./middlewares/error-middleware.js";
 import {carModelsRoute} from "./routes/car-models-route.js";
 import {modelDetailRouter} from "./routes/model-detail-route.js";
 import {userConfigRouter} from "./routes/user-config-route.js";
+import {seed} from "./config/seed.js";
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ function startApp() {
 	app.listen(port, () => {
 		console.log(`Server start at PORT = ${port}`);
 	})
+
 }
 
 startApp();

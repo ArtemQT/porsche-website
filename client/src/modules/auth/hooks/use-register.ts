@@ -46,7 +46,6 @@ export const useRegister = () => {
 		},
 
 		onSuccess: (authResponse) => {
-
 			const accessToken = authResponse.data.accessToken;
 			localStorage.setItem("accessToken", accessToken);
 
