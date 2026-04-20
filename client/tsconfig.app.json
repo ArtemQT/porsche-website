@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
-      "@helpers/*": ["srs/styles/helpers/*"],
+      "@helpers/*": ["src/styles/helpers/*"],
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@hooks/*": ["src/hooks/*"],
